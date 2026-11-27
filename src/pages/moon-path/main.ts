@@ -1,4 +1,4 @@
-/** Entry point of the Mondbahn page (index.html). */
+/** Entry point of the moon path page ("Mondbahn", index.html). */
 
 import "./style.css";
 import { getElements } from "./elements";

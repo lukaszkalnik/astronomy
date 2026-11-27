@@ -61,8 +61,8 @@ src/
   i18n/                     # message catalogs de.ts (source), en.ts, fr.ts, pl.ts
     dom.ts                  # tiny DOM helpers (byId, svgEl)
   pages/
-    mondbahn/               # main.ts, state.ts, update.ts, controls.ts, data.ts, render/*.ts, style.css
-    sonnenuntergang/
+    moon-path/               # main.ts, state.ts, update.ts, controls.ts, data.ts, render/*.ts, style.css
+    sunset/
   styles/                   # shared tokens/base CSS
 tests/e2e/                  # Playwright specs
 tests/fixtures/             # characterisation fixtures (e.g. legacy page output)
@@ -153,8 +153,12 @@ npm audit --audit-level=high  # dependency audit (also runs in CI)
 
 ### UI, content and accessibility
 - **English in code:** all identifiers (variables, functions, types, CSS
-  classes, ids, file names), code comments, commit messages and docs are
-  **English**. The legacy pages still contain German names/comments
+  classes, ids), file and directory names / paths, code comments, commit
+  messages and docs are **English**. Pages are named in English in code and
+  paths: Mondbahn → `moon-path` (`moonPath`), Sonnenuntergang → `sunset`;
+  the German names appear only as UI text. Exceptions, until migrated: live
+  URLs (`sonnenuntergang.html`, redirected in 0013) and persisted keys
+  (`mondOrt`). The legacy pages still contain German names/comments
   (e.g. `/* Zustand */`, `mondOrt`); translate them when touching or migrating
   that code (except persisted keys like `mondOrt`, which must stay or be migrated).
 - UI copy is written for lay people: calm, clear, no jargon without explanation.
@@ -234,7 +238,7 @@ visitor privacy. Background and review findings: task 0016.
 - The Moon-phase icon is mirrored on the southern hemisphere (`lat < 0`).
 - `index.html` persists the chosen location in `localStorage` key `mondOrt`
   (`{"lat":…,"lon":…}`, parsed by `parseStoredLocation` in
-  `src/pages/mondbahn/state.ts`) – keep the key and format (or migrate them)
+  `src/pages/moon-path/state.ts`) – keep the key and format (or migrate them)
   so users don't lose their setting.
 - Polar day/night: `geom()` in the sunset page returns `state: "night" | "midnight"`;
   every consumer must handle those states.

@@ -1,6 +1,6 @@
 /**
  * Low-precision Sun and Moon ephemeris (~0.5° accuracy), moved as-is from the
- * legacy Mondbahn page (task 0002). API cleanup and reference tests: task 0004.
+ * legacy moon path page (task 0002). API cleanup and reference tests: task 0004.
  *
  * Source: Paul Schlyter, "How to compute planetary positions"
  * (https://stjarnhimlen.se/comp/ppcomp.html): mean orbital elements, Kepler's

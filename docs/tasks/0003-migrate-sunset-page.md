@@ -17,7 +17,7 @@ state `S`, math (`decl`, `geom`, `sunVec`, vector helpers), canvas helpers
 pointer handling for the orbit and sky.
 
 ## Requirements
-1. Page shell `sonnenuntergang.html` + `src/pages/sonnenuntergang/main.ts` + `style.css`.
+1. Page shell `sonnenuntergang.html` + `src/pages/sunset/main.ts` + `style.css`.
 2. Split into `state.ts`, `render/sky.ts`, `render/horizon.ts`,
    `render/orbit.ts`, `animation.ts` (loop, play/pause, reduced-motion),
    `controls.ts`.

@@ -22,8 +22,8 @@ order (they stay stable so commit prefixes and cross-references keep working).
 | 4 | 0016 | [Security & privacy rules and security review](tasks/0016-security-rules-and-review.md) | 0005 | ✅ (owner checklist open) |
 | 5 | 0018 | [Rename the project to "astronomy"](tasks/0018-rename-project-astronomy.md) | 0016 | ✅ |
 | 6 | 0006 | [Deploy to GitHub Pages](tasks/0006-deploy-github-pages.md) | 0005, 0018 | ✅ |
-| 7 | 0002 | [Migrate Mondbahn page into Vite structure](tasks/0002-migrate-mondbahn-page.md) | 0001 | ✅ |
-| 8 | 0003 | [Migrate Sonnenuntergang page into Vite structure](tasks/0003-migrate-sonnenuntergang-page.md) | 0001 | ⬜ |
+| 7 | 0002 | [Migrate Mondbahn page into Vite structure](tasks/0002-migrate-moon-path-page.md) | 0001 | ✅ |
+| 8 | 0003 | [Migrate Sonnenuntergang page into Vite structure](tasks/0003-migrate-sunset-page.md) | 0001 | ⬜ |
 | 9 | 0007 | [E2E smoke tests with Playwright](tasks/0007-e2e-smoke-tests.md) | 0002, 0003 | ⬜ |
 | 10 | 0004 | [Extract astronomy core into `src/lib/astro` with unit tests](tasks/0004-astro-core-library.md) | 0002, 0003 | ⬜ |
 

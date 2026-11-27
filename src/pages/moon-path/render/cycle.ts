@@ -2,7 +2,7 @@
 
 import { svgEl } from "../../../i18n/dom";
 import { CYCLE_END_MS as C1, CYCLE_START_MS as C0, cycleData, type CycleWindow } from "../data";
-import type { MondbahnState } from "../state";
+import type { MoonPathState } from "../state";
 import { altitudeGrid, axisLabel, chartFrame, cursorLine } from "./chartAxes";
 
 /** Mean obliquity used for the Sun's solstice altitudes. */
@@ -14,7 +14,7 @@ export interface CycleLayout {
   W: number;
 }
 
-export function drawCycle(svg: SVGSVGElement, st: MondbahnState): CycleLayout | null {
+export function drawCycle(svg: SVGSVGElement, st: MoonPathState): CycleLayout | null {
   const W = svg.clientWidth;
   const H = svg.clientHeight;
   if (!W) return null;

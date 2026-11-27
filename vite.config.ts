@@ -33,7 +33,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(root, "index.html"),
-        sonnenuntergang: resolve(root, "sonnenuntergang.html"),
+        sunset: resolve(root, "sonnenuntergang.html"),
         // Served by GitHub Pages for every missing path.
         notFound: resolve(root, "404.html"),
       },

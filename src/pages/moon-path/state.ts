@@ -1,11 +1,11 @@
-/** Page state of Mondbahn and persistence of the chosen location. */
+/** Page state of the moon path page and persistence of the chosen location. */
 
 export interface Location {
   latDeg: number;
   lonDeg: number;
 }
 
-export interface MondbahnState extends Location {
+export interface MoonPathState extends Location {
   /** Shown moment, Unix ms. */
   tMs: number;
   /** Interval id while "Tage abspielen" runs. */
@@ -67,6 +67,6 @@ export function saveLocation(loc: Location): void {
   }
 }
 
-export function createState(nowMs: number): MondbahnState {
+export function createState(nowMs: number): MoonPathState {
   return { tMs: nowMs, ...loadLocation(), playTimer: null };
 }

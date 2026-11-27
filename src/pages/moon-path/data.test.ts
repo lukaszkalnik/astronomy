@@ -1,7 +1,7 @@
 /** Characterisation tests (task 0002) for the year / cycle data and the phase icon path. */
 
 import { describe, expect, it } from "vitest";
-import { expectClose, legacy } from "../../../tests/fixtures/mondbahnLegacy";
+import { expectClose, legacy } from "../../../tests/fixtures/moonPathLegacy";
 import { cycleData, yearData } from "./data";
 import { phasePath } from "./render/phaseIcon";
 

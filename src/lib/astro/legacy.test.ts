@@ -1,11 +1,11 @@
 /**
  * Characterisation tests (task 0002): the migrated astronomy code must give the
  * same numbers as the legacy inline script of index.html @ 640ff7f.
- * Fixture: tests/fixtures/mondbahn-legacy.json (scripts/legacy-mondbahn-fixtures.mjs).
+ * Fixture: tests/fixtures/moon-path-legacy.json (scripts/legacy-moon-path-fixtures.mjs).
  */
 
 import { describe, expect, it } from "vitest";
-import { expectClose, legacy } from "../../../tests/fixtures/mondbahnLegacy";
+import { expectClose, legacy } from "../../../tests/fixtures/moonPathLegacy";
 import { findPhase } from "./phases";
 import { sunMoonPosition } from "./position";
 

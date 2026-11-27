@@ -4,7 +4,7 @@ import { sunMoonPosition, type SunMoonPosition } from "../../../lib/astro/positi
 import { localDayStartMs } from "../../../lib/astro/time";
 import { formatDeg } from "../../../lib/format";
 import { svgEl } from "../../../i18n/dom";
-import type { MondbahnState } from "../state";
+import type { MoonPathState } from "../state";
 import { moonIcon } from "./phaseIcon";
 import { gapMarker, hourMarks } from "./skyLabels";
 import {
@@ -145,7 +145,7 @@ function moonSegments(
   return out;
 }
 
-export function drawSky(svg: SVGSVGElement, st: MondbahnState): SkyResult | null {
+export function drawSky(svg: SVGSVGElement, st: MoonPathState): SkyResult | null {
   const W = svg.clientWidth;
   const H = svg.clientHeight;
   if (!W) return null;

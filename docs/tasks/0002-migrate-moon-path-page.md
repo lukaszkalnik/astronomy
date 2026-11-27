@@ -16,8 +16,8 @@ and renderers `drawSky`, `drawYear`, `drawCycle`, `update()` plus event wiring.
 Location is persisted in `localStorage["mondOrt"]`.
 
 ## Requirements
-1. `index.html` keeps markup only and loads `src/pages/mondbahn/main.ts` as a module.
-2. CSS moves to `src/pages/mondbahn/style.css` (imported from `main.ts`).
+1. `index.html` keeps markup only and loads `src/pages/moon-path/main.ts` as a module.
+2. CSS moves to `src/pages/moon-path/style.css` (imported from `main.ts`).
 3. JS is converted to TypeScript and split roughly as:
    - `state.ts` – typed state (`{ tMs, latDeg, lonDeg, playTimer }`) + load/save
      of the location (same `mondOrt` key, `try/catch`, validated input)
@@ -79,7 +79,7 @@ Changing visuals, texts or the astronomy model; shared design tokens (0008).
 ## Notes / log
 - 2026-11-27 – Implemented.
   - **Layout.** `index.html` is markup only (+ CSP meta, `fonts.css` link,
-    module script). Page code in `src/pages/mondbahn/`: `main.ts` (entry),
+    module script). Page code in `src/pages/moon-path/`: `main.ts` (entry),
     `state.ts` (typed state, `mondOrt` load/save/parse), `places.ts`,
     `elements.ts` (typed element lookup via `byId`), `update.ts` (the single
     render function: controls, readouts, figures), `controls.ts` (event
@@ -105,11 +105,11 @@ Changing visuals, texts or the astronomy model; shared design tokens (0008).
     written. Checked in Chromium: build and dev load without CSP errors; an
     injected inline script is blocked. (`frame-ancestors` cannot be set via
     `<meta>`.)
-  - **Characterisation.** `scripts/legacy-mondbahn-fixtures.mjs` runs the
+  - **Characterisation.** `scripts/legacy-moon-path-fixtures.mjs` runs the
     legacy inline script from commit `640ff7f` in a Node `vm` and wrote
-    `tests/fixtures/mondbahn-legacy.json` (pos, findPhase, yearData, cycle
+    `tests/fixtures/moon-path-legacy.json` (pos, findPhase, yearData, cycle
     data, phasePath; rounded to 1e-6). Tests: `src/lib/astro/legacy.test.ts`,
-    `src/pages/mondbahn/data.test.ts`. The new code uses `normDeg` instead of
+    `src/pages/moon-path/data.test.ts`. The new code uses `normDeg` instead of
     the legacy `((a%360)+360)%360`; differences are ~1e-13 (below the
     fixture precision, invisible in the SVG).
   - **`mondOrt`** is parsed from `unknown`: numbers only (no numeric
@@ -135,3 +135,13 @@ Changing visuals, texts or the astronomy model; shared design tokens (0008).
     scripts outside any tsconfig).
   - Hand-off: 0004 can rely on the fixtures above; 0007 should assert no
     horizontal scroll at 360 px (now fixed for this page).
+- 2026-11-27 – Owner feedback: paths must be English too. Renamed
+  `src/pages/mondbahn/` → `src/pages/moon-path/`, fixtures/script to
+  `moon-path-legacy.json`, `moonPathLegacy.ts`,
+  `legacy-moon-path-fixtures.mjs`, `MondbahnState` → `MoonPathState`, task
+  files 0002/0003 (`…-moon-path-page.md`, `…-sunset-page.md`), Vite entry
+  `sonnenuntergang` → `sunset`; planned paths in 0003 (`src/pages/sunset/`),
+  0013 (`/moon-path/`, `/sunset/`) and 0014 (namespaces `moonPath`,
+  `sunset`). Rule made explicit in CLAUDE.md. Kept: the live URL
+  `sonnenuntergang.html` (redirect planned in 0013) and the storage key
+  `mondOrt`.

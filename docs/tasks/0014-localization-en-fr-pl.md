@@ -23,8 +23,8 @@ labels, aria-labels, legends, notes) and in JS (phase names such as
      a **compile error**
    - `t(key, params?)` with named interpolation (`{deg}`) and plural support via
      `Intl.PluralRules` (Polish needs `one/few/many/other`)
-   - catalogs split per page/namespace (`common`, `landing`, `mondbahn`,
-     `sonnenuntergang`) so each page only loads what it needs
+   - catalogs split per page/namespace (`common`, `landing`, `moonPath`,
+     `sunset`) so each page only loads what it needs
 2. **URL scheme:** path prefix per language – `/de/…`, `/en/…`, `/fr/…`, `/pl/…`.
    Static HTML is generated per locale at build time (small Vite plugin or build
    script that fills `data-i18n` placeholders from the catalogs), so content is

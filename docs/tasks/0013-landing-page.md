@@ -15,8 +15,8 @@ ad hoc. There is no site-level entry point, title or branding.
 
 ## Requirements
 1. **URLs:** the landing page becomes `index.html` (site root). Mondbahn moves to
-   `mondbahn/index.html` (→ `/mondbahn/`), Sonnenuntergang to
-   `sonnenuntergang/index.html` (→ `/sonnenuntergang/`). Old URLs keep working:
+   `moon-path/index.html` (→ `/moon-path/`), Sonnenuntergang to
+   `sunset/index.html` (→ `/sunset/`). Old URLs keep working:
    `sonnenuntergang.html` redirects (meta refresh + `rel=canonical`) to the new
    path. Old bookmarks of the root land on the landing page, which links
    prominently to Mondbahn.
@@ -32,7 +32,7 @@ ad hoc. There is no site-level entry point, title or branding.
    `src/content/explainers.ts`:
    ```ts
    type Explainer = {
-     slug: "mondbahn" | "sonnenuntergang";
+     slug: "moon-path" | "sunset";
      topic: "astronomy" | "physics";
      thumbnail: string;            // path to image asset
      titleKey: MessageKey;         // i18n keys (0014); plain strings before 0014

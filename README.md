@@ -7,10 +7,10 @@ Live: **https://lukaszkalnik.github.io/astronomy/**
 
 Interaktive Seite, die zeigt, wie hoch Mond und Sonne im Lauf eines Tages, eines Jahres und des 18,6-Jahre-Zyklus stehen.
 
-- `index.html` enthält nur das Markup; Code in TypeScript unter `src/pages/mondbahn/` (Seite) und `src/lib/astro/` (Rechnung). Zum Anschauen `npm run dev` (siehe Development).
+- `index.html` enthält nur das Markup; Code in TypeScript unter `src/pages/moon-path/` (Seite) und `src/lib/astro/` (Rechnung). Zum Anschauen `npm run dev` (siehe Development).
 - `ephemeris()` berechnet Sonnen- und Mondposition (vereinfachte Bahnformeln, Genauigkeit etwa 0,5°), `sunMoonPosition()` daraus Höhe und Richtung am Ort.
 - `findPhase()` sucht Voll- und Neumondzeitpunkte.
-- Uhrzeiten in der Zeitzone des Geräts, Orte in `src/pages/mondbahn/places.ts`. Der gewählte Ort bleibt im Browser gespeichert (`localStorage`, verlässt das Gerät nicht).
+- Uhrzeiten in der Zeitzone des Geräts, Orte in `src/pages/moon-path/places.ts`. Der gewählte Ort bleibt im Browser gespeichert (`localStorage`, verlässt das Gerät nicht).
 
 ## Sonnenuntergang
 

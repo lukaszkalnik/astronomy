@@ -17,7 +17,7 @@ import { moonIcon } from "./render/phaseIcon";
 import { drawSky } from "./render/sky";
 import { maxBy, MOON_STEP_MS } from "./render/skyGeometry";
 import { drawYear, type YearLayout } from "./render/year";
-import type { MondbahnState } from "./state";
+import type { MoonPathState } from "./state";
 
 /** Layouts of the clickable charts from the last render that had a size. */
 export interface Layouts {
@@ -27,7 +27,7 @@ export interface Layouts {
 
 const pad = (n: number): string => String(n).padStart(2, "0");
 
-export function update(el: Elements, st: MondbahnState, layouts: Layouts): void {
+export function update(el: Elements, st: MoonPathState, layouts: Layouts): void {
   const o = new Date(st.tMs);
   const now = sunMoonPosition(st.tMs, st.latDeg, st.lonDeg);
   el.date.value = `${o.getFullYear()}-${pad(o.getMonth() + 1)}-${pad(o.getDate())}`;

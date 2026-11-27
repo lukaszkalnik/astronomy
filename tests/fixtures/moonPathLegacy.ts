@@ -1,6 +1,6 @@
-/** Typed access to the legacy Mondbahn characterisation fixture (see scripts/legacy-mondbahn-fixtures.mjs). */
+/** Typed access to the legacy moon path characterisation fixture (see scripts/legacy-moon-path-fixtures.mjs). */
 
-import raw from "./mondbahn-legacy.json";
+import raw from "./moon-path-legacy.json";
 
 interface BodyFixture {
   altDeg: number;
@@ -8,7 +8,7 @@ interface BodyFixture {
   decDeg: number;
 }
 
-export interface MondbahnLegacyFixture {
+export interface MoonPathLegacyFixture {
   source: string;
   pos: {
     tMs: number;
@@ -39,7 +39,7 @@ export interface MondbahnLegacyFixture {
   phasePath: { latDeg: number; k: number; waxing: boolean; d: string }[];
 }
 
-export const legacy = raw as MondbahnLegacyFixture;
+export const legacy = raw as MoonPathLegacyFixture;
 
 /** Fixture numbers are rounded to 1e-6; allow that plus float noise. */
 export function expectClose(actual: number, expected: number, tol = 1.5e-6): void {

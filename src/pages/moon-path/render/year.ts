@@ -3,7 +3,7 @@
 import { localDayStartMs, MS_PER_DAY as D } from "../../../lib/astro/time";
 import { svgEl } from "../../../i18n/dom";
 import { yearData } from "../data";
-import type { MondbahnState } from "../state";
+import type { MoonPathState } from "../state";
 import { altitudeGrid, axisLabel, chartFrame, cursorLine } from "./chartAxes";
 
 const MONTHS = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
@@ -18,7 +18,7 @@ export interface YearLayout {
   W: number;
 }
 
-export function drawYear(svg: SVGSVGElement, st: MondbahnState): YearLayout | null {
+export function drawYear(svg: SVGSVGElement, st: MoonPathState): YearLayout | null {
   const W = svg.clientWidth;
   const H = svg.clientHeight;
   if (!W) return null;

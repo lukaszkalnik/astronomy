@@ -11,7 +11,7 @@ import type { Elements } from "./elements";
 import { PLACES } from "./places";
 import { timeAt } from "./render/cycle";
 import { dayAt } from "./render/year";
-import { saveLocation, type MondbahnState } from "./state";
+import { saveLocation, type MoonPathState } from "./state";
 import type { Layouts } from "./update";
 
 const PLAY_INTERVAL_MS = 160;
@@ -44,7 +44,7 @@ export function fillPlaces(select: HTMLSelectElement): void {
 
 export function wireControls(
   el: Elements,
-  st: MondbahnState,
+  st: MoonPathState,
   layouts: Layouts,
   render: () => void,
   nowMs: () => number,

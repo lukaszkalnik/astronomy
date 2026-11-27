@@ -1,11 +1,11 @@
-// Generates characterisation fixtures from the legacy single-file Mondbahn page
+// Generates characterisation fixtures from the legacy single-file moon path page (Mondbahn)
 // (task 0002). It runs the original inline script from git commit 640ff7f in a
 // Node `vm` sandbox with a minimal fake DOM and records the output of `pos()`,
 // `findPhase()`, `yearData()`, the 18.6-year cycle data and `phasePath()`.
 // The migrated TypeScript must reproduce these numbers (see *.legacy.test.ts).
 //
-// Usage: TZ=Europe/Berlin node scripts/legacy-mondbahn-fixtures.mjs
-// Output: tests/fixtures/mondbahn-legacy.json (run `npm run format` afterwards).
+// Usage: TZ=Europe/Berlin node scripts/legacy-moon-path-fixtures.mjs
+// Output: tests/fixtures/moon-path-legacy.json (run `npm run format` afterwards).
 // Kept for provenance; it does not need to run again.
 
 import { execFileSync } from "node:child_process";
@@ -161,5 +161,5 @@ for (const latDeg of [50.94, -33.87]) {
 }
 
 const out = { source: `index.html @ ${LEGACY_COMMIT}`, pos, findPhase, yearData, cycle, phasePath };
-writeFileSync("tests/fixtures/mondbahn-legacy.json", JSON.stringify(out, null, 2) + "\n");
+writeFileSync("tests/fixtures/moon-path-legacy.json", JSON.stringify(out, null, 2) + "\n");
 console.log("pos", pos.length, "findPhase", findPhase.length, "yearData", yearData.length);
