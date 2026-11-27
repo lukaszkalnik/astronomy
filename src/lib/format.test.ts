@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
   formatDate,
+  formatDayMonthShort,
+  formatDecimal,
   formatDeg,
   formatLatitude,
   formatLongDate,
@@ -35,5 +37,22 @@ describe("format (de-DE, Europe/Berlin)", () => {
     expect(formatLatitude(0)).toBe("0,0° Nord");
     expect(formatLatitude(-0.18)).toBe("0,2° Süd");
     expect(formatLatitude(71.17)).toBe("71,2° Nord");
+  });
+});
+
+describe("formatDecimal", () => {
+  it("matches the legacy toFixed().replace('.', ',') output", () => {
+    for (const x of [0, 2.345, -0.04, 12.5, 0.125, 1234.567, -23.44, 90]) {
+      for (const digits of [1, 2]) {
+        expect(formatDecimal(x, digits)).toBe(x.toFixed(digits).replace(".", ","));
+      }
+    }
+  });
+});
+
+describe("formatDayMonthShort", () => {
+  it("formats day and short month", () => {
+    expect(formatDayMonthShort(new Date(2025, 5, 21).getTime())).toBe("21. Juni");
+    expect(formatDayMonthShort(new Date(2025, 2, 1).getTime())).toBe("1. März");
   });
 });

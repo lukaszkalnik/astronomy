@@ -50,3 +50,28 @@ export function formatDeg(deg: number): string {
 export function formatLatitude(latDeg: number): string {
   return `${oneDecimalFmt.format(Math.abs(latDeg))}° ${latDeg >= 0 ? "Nord" : "Süd"}`;
 }
+
+const dayMonthShortFmt = new Intl.DateTimeFormat(LOCALE, { day: "numeric", month: "short" });
+const decimalFmts = new Map<number, Intl.NumberFormat>();
+
+/**
+ * Number with a fixed number of decimals: `formatDecimal(2.345, 2)` → "2,35".
+ * No digit grouping (the sunset page showed "1234,56" before migrating; revisit in 0014).
+ */
+export function formatDecimal(x: number, digits: number): string {
+  let fmt = decimalFmts.get(digits);
+  if (!fmt) {
+    fmt = new Intl.NumberFormat(LOCALE, {
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits,
+      useGrouping: false,
+    });
+    decimalFmts.set(digits, fmt);
+  }
+  return fmt.format(x);
+}
+
+/** Day and abbreviated month: "21. Juni", "4. Sept." */
+export function formatDayMonthShort(tMs: number): string {
+  return dayMonthShortFmt.format(tMs);
+}
