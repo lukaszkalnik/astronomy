@@ -22,7 +22,11 @@ third-party requests.
   - the host (GitHub Pages, GitHub Inc., USA) processes visitor IP addresses in
     server logs → controller info, legal basis Art. 6 (1) (f), third-country
     transfer (check GitHub/Microsoft certification under the EU-US Data
-    Privacy Framework at implementation time and cite it);
+    Privacy Framework at implementation time and cite it). The owner keeps no
+    logs. These are GitHub's: the GitHub Pages docs ("Data collection") state
+    that visitor IP addresses are logged for security purposes, and the
+    site operator cannot switch that off. The policy should say exactly this:
+    we collect nothing, the host does;
   - `index.html` stores the chosen location in `localStorage` (`mondOrt`). It stays on
     the device and is never transmitted. Under § 25 (2) Nr. 2 TDDDG it is
     strictly necessary for a function the user explicitly asks for, so no
