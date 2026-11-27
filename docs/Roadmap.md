@@ -18,7 +18,7 @@ order (they stay stable so commit prefixes and cross-references keep working).
 |------|---|------|------------|--------|
 | 1 | 0001 | [Tooling setup: Vite, TypeScript, ESLint, Prettier, Vitest](tasks/0001-tooling-setup.md) | – | ✅ |
 | 2 | 0005 | [CI pipeline on GitHub Actions](tasks/0005-ci-pipeline.md) | 0001 | ✅ |
-| 3 | 0017 | [Privacy policy and imprint (+ self-hosted fonts)](tasks/0017-privacy-policy-and-imprint.md) | 0001 | ⬜ |
+| 3 | 0017 | [Privacy policy and imprint (+ self-hosted fonts)](tasks/0017-privacy-policy-and-imprint.md) | 0001 | 🟦 fonts done; privacy policy waits for owner data |
 | 4 | 0016 | [Security & privacy rules and security review](tasks/0016-security-rules-and-review.md) | 0005 | ⬜ |
 | 5 | 0006 | [Deploy to GitHub Pages](tasks/0006-deploy-github-pages.md) | 0005 | ⬜ |
 | 6 | 0002 | [Migrate Mondbahn page into Vite structure](tasks/0002-migrate-mondbahn-page.md) | 0001 | ⬜ |

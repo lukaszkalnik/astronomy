@@ -1,6 +1,6 @@
 # 0017 – Privacy policy and imprint
 
-- **Status:** todo
+- **Status:** in progress (fonts done; privacy policy blocked on owner data)
 - **Phase:** 0
 - **Depends on:** 0001
 - **Estimate:** M
@@ -90,9 +90,9 @@ third-party requests.
 - [ ] Owner's imprint data received and filled in (no placeholders published)
 - [ ] `imprint.html` and `privacy.html` exist, are in the build, and render at 360 px without horizontal scroll
 - [ ] Every page has footer links to both; links work in dev, preview and the deployed base path
-- [ ] No request to any third-party host when loading any page (verified with Playwright request log)
-- [ ] Explainer pages look unchanged after font self-hosting (screenshots)
-- [ ] Font licence files committed
+- [ ] No request to any third-party host when loading any page (verified with Playwright request log) – explainer pages ✔; recheck with the legal pages
+- [x] Explainer pages look unchanged after font self-hosting (screenshots)
+- [x] Font licence files committed
 - [ ] CLAUDE.md rules updated; hand-off items added to 0008, 0012, 0013, 0014, 0016
 - [ ] `npm run check` and `npm run build` green; CI green
 - [ ] Docs updated (README, CLAUDE.md, Roadmap)
@@ -108,12 +108,43 @@ third-party requests.
   a postal address is expected. Same concern as the imprint.
 - **Owner data for the imprint (if it stays):** full name, postal address, e-mail. Consider a
   separate e-mail alias for the site. Imprint data is public and gets scraped.
-- Federal state (for the supervisory authority in the privacy policy).
-- `noindex` on the legal pages? (Recommendation: yes. It keeps name and address
-  out of search results somewhat, and the pages stay reachable via links.)
+- ~~Federal state~~ → **Nordrhein-Westfalen** (owner, 2026-11-27): supervisory
+  authority is the Landesbeauftragte für Datenschutz und Informationsfreiheit
+  NRW (LDI NRW).
+- ~~`noindex` on the legal pages?~~ → **yes** (owner, 2026-11-27).
+- **Still needed from the owner:** controller name + contact e-mail for the
+  privacy policy (an alias is recommended). Until then `privacy.html` is not
+  written (no placeholders).
 
 ## Notes / log
 - 2026-11-27 – Task created on owner request; scheduled first in the remaining
   Phase 0 because the live site is affected now.
 - 2026-11-27 – Owner: avoid an imprint if possible (no published address);
   discuss later. Privacy policy and font self-hosting are not blocked by this.
+- 2026-11-27 – **Req. 4 (self-hosted fonts) done.** Owner chose "fonts only
+  for now"; privacy policy waits for controller name + e-mail.
+  - Files: `src/styles/fonts.css` + `src/styles/fonts/*.woff2` are the exact
+    woff2 files Google Fonts served on 2026-11-27 (variable files for Inter,
+    Outfit, Bodoni Moda incl. `opsz`, IBM Plex Sans; static 400/500 for IBM
+    Plex Mono). Subsets: latin, latin-ext **and greek** – the sunset page uses
+    δ, γ, ε in IBM Plex Sans; without the greek subset those glyphs fell back
+    to a system font (caught by the screenshot diff). Inter greek included for
+    symmetry. 14 woff2 files, ~440 kB in total; a page downloads only the faces and
+    subsets it renders.
+  - Linked from both pages as `<link rel="stylesheet" href="./src/styles/fonts.css">`
+    (relative). Vite bundles it with hashed asset names and applies the base
+    path; raw files also work for the current classic publishing from `main`.
+  - Licences: full SIL OFL 1.1 texts with copyright lines (taken from the
+    `@fontsource/*` packages) in `src/styles/fonts/LICENSES/`.
+  - Verification (Playwright, clock fixed to 2026-06-21 12:00 UTC, reduced
+    motion, full-page screenshots at 1200 px and 360 px): **pixel-identical**
+    before/after in the dev server, in `vite preview` of the build with
+    `BASE_PATH=/astronomy-website/`, and as raw static files. Request log: only
+    same-origin hosts.
+  - Pre-existing, not changed here: `index.html` at 360 px has
+    `document.documentElement.scrollWidth` 416 (body has `overflow-x: clip`).
+    Check in 0002 / 0009.
+  - Hand-offs written: 0008 (move fonts into shared styles), 0016 (Google Fonts
+    finding resolved, `font-src 'self'`). Still to do with the privacy policy:
+    footer links (req. 5), CLAUDE.md footer rule (req. 6 – the privacy-update
+    rule is already in), hand-offs to 0012/0013/0014.

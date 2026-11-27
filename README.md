@@ -29,5 +29,8 @@ Every push and pull request runs the same checks in GitHub Actions
 (`.github/workflows/ci.yml`: format check, lint, typecheck, unit tests with
 coverage, build); coverage and `dist/` are uploaded as artifacts.
 
+Fonts are self-hosted (`src/styles/fonts.css`, files and SIL OFL licences in
+`src/styles/fonts/`), so the pages make no requests to third-party servers.
+
 The full command list, project rules and target architecture are in
 [CLAUDE.md](CLAUDE.md); planned work is in [docs/Roadmap.md](docs/Roadmap.md).

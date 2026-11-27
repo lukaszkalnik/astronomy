@@ -28,7 +28,11 @@ header, a "back" link on the sunset page).
 3. Shared header/nav component (plain TS that renders into a `<nav>` or static
    markup) listing all explainers, marking the current one; shared footer with
    accuracy note and source/repo link.
-4. Fonts: keep each page's fonts; load only the fonts a page uses.
+4. Fonts: keep each page's fonts; load only the fonts a page uses. Since 0017
+   the fonts are self-hosted in `src/styles/fonts.css` (+ `fonts/*.woff2`),
+   one shared stylesheet linked by both pages; browsers only download faces a
+   page actually uses. Move/split it into the shared styles structure here
+   (e.g. per-page font CSS) and keep the greek subset for IBM Plex Sans/Inter.
 
 ## Out of scope
 Rewriting page content.

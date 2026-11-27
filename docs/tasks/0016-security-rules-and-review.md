@@ -91,7 +91,10 @@ review):
      allow-lists; E2E or unit test with a malicious value (e.g.
      `?place=<img src=x onerror=alert(1)>`) proving it is rendered inert.
    - Fonts: self-hosting is done in 0017 (decision below), which also updates
-     the CLAUDE.md font rule. Here only check it is done.
+     the CLAUDE.md font rule. Here only check it is done. **Done in 0017
+     (2026-11-27):** fonts served from `src/styles/fonts/`, no
+     `fonts.googleapis.com` / `fonts.gstatic.com` references left; Playwright
+     request log showed only same-origin requests. For the CSP: `font-src 'self'`.
    - 0009: re-check CSP and external requests during the audit.
 6. Optional, decide in task: GitHub repository settings the owner should enable
    (secret scanning + push protection, Dependabot alerts, "require actions to be

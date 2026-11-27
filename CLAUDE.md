@@ -168,8 +168,14 @@ npm run check          # lint + typecheck + test – run before every commit
   device timezone. Never format numbers by string concatenation (decimal comma
   in de/fr/pl).
 - `localStorage` access always wrapped in `try/catch` (private mode, blocked storage).
-- Keep pages fast: no blocking third-party scripts; fonts via Google Fonts with
-  `display=swap` are acceptable.
+- Keep pages fast: no blocking third-party scripts.
+- **No third-party requests.** Fonts are self-hosted (`src/styles/fonts.css` +
+  `src/styles/fonts/*.woff2`, `font-display: swap`, licences in
+  `src/styles/fonts/LICENSES/`); no CDNs, analytics or embeds. A new font
+  weight or subset is added there as a committed woff2 file. If a page uses
+  characters outside latin/latin-ext (e.g. Greek δ γ ε φ), include that subset.
+- Any new processing of personal data (e.g. geolocation, new storage) updates
+  the privacy policy (`privacy.html`, task 0017) in the same change.
 
 ### Domain notes / gotchas
 - Time is handled as Unix ms (`t`). Julian date: `t / 86_400_000 + 2440587.5`.
