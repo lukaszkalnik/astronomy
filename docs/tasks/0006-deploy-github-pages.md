@@ -53,12 +53,21 @@ sustainable, no generated branch to maintain, deployments visible in the
    `/astronomy-website/sonnenuntergang.html` (redirect once 0013 moves pages).
 6. `404.html`, favicon, `<meta name="description">` and Open Graph tags per page.
 7. README states the public URL and how deployment works.
+8. **Security (from 0016):** `deploy.yml` follows the Actions rules in
+   CLAUDE.md: workflow-level `permissions: contents: read`; `pages: write` and
+   `id-token: write` **only on the deploy job**; every action pinned to a full
+   commit SHA with the tag in a comment; `persist-credentials: false` on
+   checkout; `npm audit --audit-level=high` before the build (or reuse the CI
+   job via `needs:`); no untrusted `${{ … }}` in `run:`. Add
+   `<meta name="referrer" content="strict-origin-when-cross-origin">` to every
+   page (and to `404.html`).
 
 ## Acceptance criteria
 - [ ] Push to `main` → site updated within a few minutes, built version served
 - [ ] Both pages reachable, cross-links, fonts and assets load (no 404s)
 - [ ] A failing CI run does not deploy
 - [ ] Pages source is "GitHub Actions"; old branch publishing no longer used
+- [ ] `deploy.yml`: job-level write permissions, SHA-pinned actions; referrer meta on all pages
 
 ## Open questions
 - Custom domain? (affects `base`; currently none)

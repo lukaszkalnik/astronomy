@@ -36,6 +36,10 @@ pointer handling for the orbit and sky.
 8. All identifiers and comments in the migrated code are English (translate
    German comments such as `/* Zustand */`, `// Schiefe der Ekliptik`); UI
    text stays as is until 0014.
+9. **Security (from 0016):** the readouts (`durEq`, `durSel`, `gam`, `rate`,
+   `az`, today `innerHTML` with numbers + `<small>`) are built with
+   `textContent` and element builders from `src/i18n/dom.ts`. Once inline
+   script and style are gone, add the same CSP `<meta>` as 0002.
 
 ## Out of scope
 Visual changes, unifying the design with the Mondbahn page (0008).
@@ -46,6 +50,7 @@ Visual changes, unifying the design with the Mondbahn page (0008).
 - [ ] Orbit dragging, sky dragging, chips, latitude slider, play/pause and
       "again" work as before, with mouse and touch
 - [ ] Polar day / polar night states render as before
+- [ ] No `innerHTML` with data; CSP meta in place, no CSP violations in the console
 - [ ] `npm run check` and `npm run build` green
 
 ## Open questions

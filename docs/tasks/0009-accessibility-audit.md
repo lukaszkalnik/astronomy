@@ -20,8 +20,12 @@ Both pages meet WCAG 2.2 AA where reasonably possible for interactive figures.
 4. Contrast AA for all text including chart labels; check muted greys.
 5. `lang="de"` and heading hierarchy correct; links have descriptive text.
 6. Works at 200 % zoom without loss of content.
+7. **Security re-check (from 0016):** CSP `<meta>` present on every page with
+   no violations; Playwright request log shows only same-origin requests;
+   `aria-live` summaries are set via `textContent` (no HTML strings).
 
 ## Acceptance criteria
 - [ ] axe checks green in CI
+- [ ] CSP and same-origin request check re-run on every page (E2E)
 - [ ] Manual keyboard-only walkthrough documented in Notes
 - [ ] Screen reader spot check (VoiceOver or NVDA) documented in Notes

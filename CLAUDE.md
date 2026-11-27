@@ -34,7 +34,7 @@ accounts. Computation is done client-side with simplified orbital formulas
 | E2E / smoke   | **Playwright**                           | Pages render, no console errors, key interactions work. |
 | Lint          | **ESLint** (flat config) + `typescript-eslint` (type-checked rules) | |
 | Format        | **Prettier**                             | No style debates. |
-| CI            | GitHub Actions                           | lint → typecheck → test → build → e2e |
+| CI            | GitHub Actions                           | audit → format → lint → typecheck → test → build → e2e; Dependabot weekly |
 | Hosting       | GitHub Pages, published via GitHub Actions (`dist/` artifact) | https://lukaszkalnik.github.io/astronomy-website/ |
 | Node          | LTS (22.x), pinned via `.nvmrc` and `engines` | |
 
@@ -86,6 +86,7 @@ npm test               # vitest run (unit)
 npm run test:watch
 npm run test:e2e       # playwright (pass --trace off unless debugging)
 npm run check          # lint + typecheck + test – run before every commit
+npm audit --audit-level=high  # dependency audit (also runs in CI)
 ```
 
 ## Development rules
@@ -177,6 +178,44 @@ npm run check          # lint + typecheck + test – run before every commit
 - Any new processing of personal data (e.g. geolocation, new storage) updates
   the privacy policy (`privacy.html`, task 0017) in the same change.
 
+### Security & privacy
+The site is static, so the risks are the supply chain (npm, GitHub Actions),
+CI/deploy permissions, DOM injection once URL or user input arrives, and
+visitor privacy. Background and review findings: task 0016.
+
+- **DOM:** no `innerHTML` / `outerHTML` / `insertAdjacentHTML` /
+  `document.write` with data that did not come from code constants. Untrusted
+  data (URL params, `localStorage`, user input, geolocation, external
+  responses) goes into the DOM only via `textContent` / `setAttribute` / safe
+  builders in `src/i18n/dom.ts`, or as numbers formatted with `Intl`. A
+  constant-only template that must use `innerHTML` gets an
+  `eslint-disable-next-line` with the reason (ESLint enforces this rule in TS).
+  No `eval`, `new Function`, `javascript:` URLs or string arguments to
+  `setTimeout`/`setInterval`.
+- **Boundaries:** every value from outside the code (URL, `localStorage`,
+  form input, geolocation) is parsed from `unknown` with validation (type,
+  finiteness, range, allow-list for enums) and falls back to a default.
+  Never trust a stored or URL value. Malicious input gets a test proving it is
+  rendered inert (e.g. `?place=<img src=x onerror=alert(1)>`).
+- **Privacy:** no third-party requests at runtime (see UI rules), no
+  analytics or tracking. Geolocation only on user action; the position never
+  leaves the device. New processing of personal data updates `privacy.html`.
+- **Links:** `target="_blank"` always with `rel="noopener noreferrer"`.
+- **GitHub Actions:** least-privilege `permissions` (workflow default
+  `contents: read`; write scopes only on the job that needs them); no
+  `pull_request_target`; never interpolate untrusted event data
+  (`${{ github.head_ref }}`, PR titles, branch names) inside `run:` – pass it
+  via `env:`; all actions pinned to a full commit SHA with the tag in a
+  comment (`uses: actions/checkout@<sha> # v7.0.1`); `persist-credentials:
+  false` on checkout when the job does not push.
+- **Dependencies:** install with `npm ci` only (the lockfile is the source of
+  truth). A new dependency needs a reason in the task file; check maintenance,
+  download numbers and install scripts (`hasInstallScript` in the lockfile)
+  before adding it. CI runs `npm audit --audit-level=high`; Dependabot
+  proposes weekly updates (review its PRs like any other change).
+- **Secrets:** the site needs none. Never commit tokens, keys or `.env*`
+  files (ignored in `.gitignore`).
+
 ### Domain notes / gotchas
 - Time is handled as Unix ms (`t`). Julian date: `t / 86_400_000 + 2440587.5`.
 - Azimuth convention: degrees from North, clockwise (N=0, E=90, S=180, W=270).
@@ -191,6 +230,8 @@ npm run check          # lint + typecheck + test – run before every commit
 ## Definition of done
 - Acceptance criteria in the task file met and ticked.
 - `npm run check` and `npm run build` green; E2E green if UI changed.
+- No new violations of the Security & privacy rules; `npm audit` shows no
+  high/critical issues (in particular in dependencies added by the task).
 - Checked visually in the browser at desktop and 360 px width (screenshot via
   Playwright if no browser at hand).
 - Docs updated: README (user-facing), CLAUDE.md (if rules/commands changed),

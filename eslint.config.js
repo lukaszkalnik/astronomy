@@ -21,6 +21,35 @@ export default tseslint.config(
     },
   },
   {
+    // Security rules (CLAUDE.md "Security & privacy"): no HTML-string sinks,
+    // no code from strings. A constant-only template may disable the rule on
+    // one line with a comment explaining why it is safe.
+    rules: {
+      "no-eval": "error",
+      "no-new-func": "error",
+      "no-script-url": "error",
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector:
+            "AssignmentExpression > MemberExpression.left[property.name=/^(innerHTML|outerHTML)$/]",
+          message:
+            "Do not assign HTML strings; use textContent/setAttribute or the builders in src/i18n/dom.ts.",
+        },
+        {
+          selector: "CallExpression[callee.property.name='insertAdjacentHTML']",
+          message:
+            "Do not insert HTML strings; use textContent/setAttribute or the builders in src/i18n/dom.ts.",
+        },
+        {
+          selector:
+            "CallExpression[callee.object.name='document'][callee.property.name=/^(write|writeln)$/]",
+          message: "Do not use document.write; build DOM nodes instead.",
+        },
+      ],
+    },
+  },
+  {
     files: ["*.config.{js,ts}"],
     languageOptions: { globals: { ...globals.node } },
   },

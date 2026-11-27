@@ -36,6 +36,16 @@ Location is persisted in `localStorage["mondOrt"]`.
 7. All identifiers and comments in the migrated code are English (translate
    German comments and names such as `Zustand`, `Mathematik`); UI text stays
    as is until 0014.
+8. **Security (from 0016):** no `innerHTML` with data – build SVG/markup via
+   safe builders in `src/i18n/dom.ts` (`textContent`/`setAttribute`), or keep
+   a constant-only template with a one-line `eslint-disable` and the reason
+   (ESLint `no-restricted-syntax` enforces this). The `mondOrt` value is
+   parsed from `unknown`: finite numbers, `latDeg` −90…90, `lonDeg` −180…180,
+   otherwise defaults. Once the inline script and style are gone, add a CSP
+   `<meta http-equiv="Content-Security-Policy">` (e.g. `default-src 'self';
+   script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:;
+   connect-src 'self'; base-uri 'none'; form-action 'none'`; check what Vite
+   dev needs) and verify no CSP errors in the console.
 
 > **Deployment guard:** GitHub Pages currently serves `main` as-is (classic
 > publishing). Do not merge this task to `main` before 0006 is in place,
@@ -52,6 +62,9 @@ Changing visuals, texts or the astronomy model; shared design tokens (0008).
       play, now, click in year chart) behave as before
 - [ ] Saved location from the old version is still picked up
 - [ ] Characterisation tests pass
+- [ ] Unit tests for the `mondOrt` parser: valid, out-of-range, non-numeric,
+      malformed JSON → defaults
+- [ ] No `innerHTML` with data; CSP meta in place, no CSP violations in the console
 - [ ] `npm run check` and `npm run build` green; legacy file removed from
       `.prettierignore`
 

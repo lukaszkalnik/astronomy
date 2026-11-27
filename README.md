@@ -26,8 +26,10 @@ npm run preview   # serve dist/
 ```
 
 Every push and pull request runs the same checks in GitHub Actions
-(`.github/workflows/ci.yml`: format check, lint, typecheck, unit tests with
-coverage, build); coverage and `dist/` are uploaded as artifacts.
+(`.github/workflows/ci.yml`: dependency audit, format check, lint, typecheck,
+unit tests with coverage, build); coverage and `dist/` are uploaded as
+artifacts. Dependabot proposes weekly updates for npm packages and Actions.
+Security & privacy rules for contributors are in CLAUDE.md.
 
 Fonts are self-hosted (`src/styles/fonts.css`, files and SIL OFL licences in
 `src/styles/fonts/`), so the pages make no requests to third-party servers.

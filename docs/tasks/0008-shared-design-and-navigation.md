@@ -33,6 +33,10 @@ header, a "back" link on the sunset page).
    one shared stylesheet linked by both pages; browsers only download faces a
    page actually uses. Move/split it into the shared styles structure here
    (e.g. per-page font CSS) and keep the greek subset for IBM Plex Sans/Inter.
+5. **Security (from 0016):** header/nav/footer are built from constants with
+   DOM builders (no `innerHTML` with data). External links (e.g. repo link)
+   use `rel="noopener noreferrer"` if they open in a new tab. Fonts stay
+   same-origin (`font-src 'self'` in the CSP from 0002/0003); no CDN.
 
 ## Out of scope
 Rewriting page content.
@@ -40,6 +44,7 @@ Rewriting page content.
 ## Acceptance criteria
 - [ ] Both pages use base + tokens; no duplicated reset/control CSS
 - [ ] Navigation works on mobile and with keyboard
+- [ ] No third-party requests (Playwright request log); no CSP violations
 - [ ] Pages look unchanged apart from the new header/footer
 - [ ] Screenshots reviewed and approved by the owner
 

@@ -1,6 +1,6 @@
 # 0016 – Security & privacy rules and security review
 
-- **Status:** todo
+- **Status:** done (CI green check pending on push; owner checklist open)
 - **Phase:** 0
 - **Depends on:** 0005
 - **Estimate:** M
@@ -109,14 +109,14 @@ review):
   one unnecessary).
 
 ## Acceptance criteria
-- [ ] CLAUDE.md has a "Security & privacy" section and an updated Definition of done
-- [ ] `ci.yml` hardened (SHA pins, `persist-credentials: false`, audit step); CI green
-- [ ] `.github/dependabot.yml` added
-- [ ] Review findings recorded with severity and disposition
-- [ ] Deferred items added to tasks 0002, 0003, 0006, 0008, 0009, 0010, 0012
-- [ ] Owner checklist for repository settings in this file
-- [ ] `npm run check` green
-- [ ] Docs updated (README if user-facing privacy statement, CLAUDE.md, Roadmap)
+- [x] CLAUDE.md has a "Security & privacy" section and an updated Definition of done
+- [x] `ci.yml` hardened (SHA pins, `persist-credentials: false`, audit step); CI green
+- [x] `.github/dependabot.yml` added
+- [x] Review findings recorded with severity and disposition
+- [x] Deferred items added to tasks 0002, 0003, 0006, 0008, 0009, 0010, 0012
+- [x] Owner checklist for repository settings in this file
+- [x] `npm run check` green
+- [x] Docs updated (README if user-facing privacy statement, CLAUDE.md, Roadmap)
 
 ## Open questions
 - None.
@@ -131,3 +131,57 @@ review):
 - 2026-11-27 – Owner: add imprint and privacy policy → task 0017 (scheduled
   before this one). 0017 also self-hosts the fonts (moved from 0008), so the
   privacy policy never needs a Google Fonts section.
+- 2026-11-27 – **Implemented.**
+  - CLAUDE.md: new "Security & privacy" section (DOM sinks, boundaries,
+    privacy, links, Actions, dependencies, secrets); Definition of done gains
+    the security/audit line; command list and CI row mention `npm audit`.
+  - ESLint enforces the DOM rule for TS: `no-restricted-syntax` on assignments
+    to `innerHTML`/`outerHTML`, calls to `insertAdjacentHTML` and
+    `document.write(ln)`; plus `no-eval`, `no-new-func`, `no-script-url`
+    (`no-implied-eval` already comes from `recommendedTypeChecked`). Verified
+    with a throw-away probe file. Legacy inline scripts in the HTML pages are
+    not linted, so their `innerHTML` is handed to 0002/0003.
+  - `ci.yml`: actions pinned to SHAs (checkout v7.0.1 `3d3c42e…`, setup-node
+    v7.1.0 `949feb2…`, upload-artifact v7.0.2 `cf430e0…`, resolved with
+    `git ls-remote`; lightweight tags, so the SHA is the commit),
+    `persist-credentials: false`, `npm audit --audit-level=high` right after
+    `npm ci`. Decision: **full audit** (not `--omit=dev`) – the dev
+    dependencies run in CI and produce the published build; there are no
+    runtime dependencies anyway.
+  - `.github/dependabot.yml`: npm + github-actions, weekly, minor/patch
+    grouped per ecosystem, majors separate. Dependabot updates SHA pins and
+    their version comments.
+  - `.gitignore`: `.env`, `.env.*`.
+
+### Review findings (2026-11-27)
+
+| # | Area | Finding | Severity | Disposition |
+|---|------|---------|----------|-------------|
+| 1 | Privacy | Google Fonts sent visitor IPs to Google | high | **Fixed in 0017** – fonts self-hosted; request log same-origin only |
+| 2 | Actions | Actions referenced by mutable tag (`@v7`) | medium | **Fixed** – SHA pins + Dependabot |
+| 3 | Actions | Checkout kept the token in `.git/config` | low | **Fixed** – `persist-credentials: false` |
+| 4 | Supply chain | No audit in CI, no update automation | medium | **Fixed** – audit step + Dependabot |
+| 5 | Actions | `permissions: contents: read` at workflow level, no `pull_request_target`, no `${{ }}` of event data in `run:` (`head_ref` only in `concurrency.group`, which is not a shell) | info | OK |
+| 6 | Supply chain | `npm audit`: 0 vulnerabilities; all 11 dev deps well-known; no package with `hasInstallScript` in the lockfile; all `resolved` URLs on registry.npmjs.org | info | OK |
+| 7 | DOM | `innerHTML` in `index.html` (sky/year/cycle SVG, phase icon, place `<option>`s from the constant `PLACES`) and `sonnenuntergang.html` (readouts: numbers + `<small>`). All data computed or constant → not exploitable today | low | **Deferred** to 0002/0003 (req. 8/9); ESLint now blocks it in TS |
+| 8 | Boundary | `mondOrt` from `localStorage`: `JSON.parse` in `try/catch` ✔, but only `isFinite(lat)`; `lon` unchecked, no range check. Wrong output at worst; values only reach SVG via numeric math | low | **Deferred** to 0002 (req. 8 + criterion) |
+| 9 | Code | No `eval`, `new Function`, string timers, `document.write`, `fetch`/XHR, `target="_blank"` or external links in either page | info | OK |
+| 10 | Headers | GitHub Pages: no custom headers. No CSP / referrer policy possible except via `<meta>`; inline script/style block a strict CSP | low | **Deferred**: referrer meta → 0006; CSP meta → 0002/0003; re-check → 0009 |
+| 11 | Build | `vite.config.ts` reads only `BASE_PATH`; no `define` of env secrets, no plugins. `package.json` scripts call only local tools | info | OK |
+| 12 | Secrets | No secrets in the repo; `.env*` was not ignored | low | **Fixed** – added to `.gitignore` |
+| 13 | Deploy | First workflow with write permissions arrives in 0006 | – | **Deferred** to 0006 (req. 8 + criterion) |
+
+### Owner checklist – repository settings (Claude cannot change these)
+Settings → *Code security* / *Actions* / *Branches*:
+- [ ] **Secret scanning** and **push protection** on (free for public repos).
+- [ ] **Dependabot alerts** and **Dependabot security updates** on (the
+      version-update PRs come from `dependabot.yml`; alerts are a separate switch).
+- [ ] Actions → General: **"Require actions to be pinned to a full-length
+      commit SHA"** (if offered), and "Workflow permissions" default
+      **read repository contents** only; do not allow Actions to approve PRs.
+- [ ] Actions → General → *Fork pull request workflows*: require approval for
+      first-time contributors.
+- [ ] Branch protection / ruleset on `main`: require PR + the CI check
+      "Lint, typecheck, test, build" to pass; block force-pushes and deletion.
+- [ ] Before 0006: environment `github-pages` limited to the `main` branch
+      (default when Pages source is "GitHub Actions" – verify).
