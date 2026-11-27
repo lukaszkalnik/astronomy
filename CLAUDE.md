@@ -97,6 +97,16 @@ npm run check          # lint + typecheck + test – run before every commit
    tests, lint errors or `// @ts-ignore` / `eslint-disable` without a comment why.
 4. Small, focused commits. Commit messages in English, imperative mood, prefixed
    with the task id when applicable: `0004: extract moon ephemeris into src/lib/astro`.
+5. **One task per session – stop after each task.** When a task is finished and
+   tested (Definition of done met, committed and pushed), **stop and wait** so the
+   owner can clear the context. Do not start the next task on your own, even if
+   it is obvious which one comes next. End with a short summary: what was done,
+   test results, open points, and the suggested next task.
+6. **Hand-off lives in the repo, not in the chat.** Because context is cleared
+   between tasks, everything the next session needs must be written down before
+   stopping: task file `Status`, ticked criteria, decisions and leftovers in
+   "Notes / log", Roadmap status, and CLAUDE.md if rules or commands changed.
+   A new session starts by reading CLAUDE.md, `docs/Roadmap.md` and the task file.
 
 ### Architecture
 - **Separate math from rendering.** Everything in `src/lib/astro/` is a pure
@@ -177,3 +187,4 @@ npm run check          # lint + typecheck + test – run before every commit
   Playwright if no browser at hand).
 - Docs updated: README (user-facing), CLAUDE.md (if rules/commands changed),
   Roadmap + task status.
+- Committed and pushed; then **stop and wait** for the owner (see Workflow 5).
