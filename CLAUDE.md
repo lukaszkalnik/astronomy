@@ -70,16 +70,18 @@ docs/
 
 ## Commands
 
-(available once task 0001 is done – keep this list in sync with `package.json`)
+(keep this list in sync with `package.json`; `test:e2e` arrives with task 0007)
 
 ```
 npm ci                 # install exact deps
 npm run dev            # Vite dev server
-npm run build          # typecheck + production build into dist/
+npm run build          # typecheck + production build into dist/ (BASE_PATH env sets the base, default /)
 npm run preview        # serve dist/
 npm run lint           # eslint
 npm run format         # prettier --write
-npm run typecheck      # tsc --noEmit
+npm run format:check   # prettier --check (CI)
+npm run typecheck      # tsc --noEmit for src/ and the config files
+npm run test -- --coverage  # unit tests with v8 coverage (90 % lines in src/lib)
 npm test               # vitest run (unit)
 npm run test:watch
 npm run test:e2e       # playwright (pass --trace off unless debugging)

@@ -13,7 +13,7 @@ linted modules and deployed automatically.
 
 | # | Task | Status |
 |---|------|--------|
-| 0001 | [Tooling setup: Vite, TypeScript, ESLint, Prettier, Vitest](tasks/0001-tooling-setup.md) | ⬜ |
+| 0001 | [Tooling setup: Vite, TypeScript, ESLint, Prettier, Vitest](tasks/0001-tooling-setup.md) | ✅ |
 | 0002 | [Migrate Mondbahn page into Vite structure](tasks/0002-migrate-mondbahn-page.md) | ⬜ |
 | 0003 | [Migrate Sonnenuntergang page into Vite structure](tasks/0003-migrate-sonnenuntergang-page.md) | ⬜ |
 | 0004 | [Extract astronomy core into `src/lib/astro` with unit tests](tasks/0004-astro-core-library.md) | ⬜ |

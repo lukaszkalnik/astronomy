@@ -1,0 +1,10 @@
+dist/
+coverage/
+playwright-report/
+test-results/
+package-lock.json
+# Legacy single-file pages: not reformatted until migrated (tasks 0002/0003).
+index.html
+sonnenuntergang.html
+# Hand-written docs keep their own layout (tables, line breaks).
+*.md

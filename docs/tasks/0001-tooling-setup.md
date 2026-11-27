@@ -1,6 +1,6 @@
 # 0001 – Tooling setup: Vite, TypeScript, ESLint, Prettier, Vitest
 
-- **Status:** todo
+- **Status:** done
 - **Phase:** 0
 - **Depends on:** –
 - **Estimate:** S
@@ -44,11 +44,39 @@ Today the repo contains two self-contained HTML files and a README; there is no
 Moving page code (0002/0003), CI (0005), Playwright (0007).
 
 ## Acceptance criteria
-- [ ] `npm ci && npm run check && npm run build` succeeds on a clean checkout
-- [ ] `npm run dev` serves both pages unchanged and working
-- [ ] `dist/` contains both pages and they work via `npm run preview`
-- [ ] Lint fails on an introduced `any` (verify once, don't commit)
-- [ ] README has a "Development" section pointing to CLAUDE.md commands
+- [x] `npm ci && npm run check && npm run build` succeeds on a clean checkout
+- [x] `npm run dev` serves both pages unchanged and working
+- [x] `dist/` contains both pages and they work via `npm run preview`
+- [x] Lint fails on an introduced `any` (verify once, don't commit)
+- [x] README has a "Development" section pointing to CLAUDE.md commands
 
 ## Open questions
 - None.
+
+## Notes / log
+- 2026-11-27 – Implemented. Versions installed: vite 8, typescript 6, vitest 5,
+  eslint 10, typescript-eslint 8, prettier 3. `@types/node` pinned to 22 to
+  match the Node LTS in `.nvmrc` / `engines` (`>=22 <23`).
+- **Base path:** `vite.config.ts` reads `BASE_PATH` from the environment
+  (default `/`). Task 0006 sets `BASE_PATH=/astronomy-website/` in the deploy
+  build. (`BASE_URL` is avoided because Vite reserves it in `import.meta.env`.)
+- **Two TS projects:** `tsconfig.json` covers `src/` and `tests/` (browser
+  libs, `vite/client` types); `tsconfig.node.json` covers the config files
+  (Node types, `checkJs` for `eslint.config.js`). `npm run typecheck` runs
+  both; ESLint uses `tsconfig.node.json` as default project for the config
+  files.
+- Extra strictness beyond the task list: `noUnusedLocals`,
+  `noUnusedParameters`, `verbatimModuleSyntax`, `isolatedModules`.
+- **Prettier ignores `*.md`** as well as the legacy HTML pages: running it over
+  the docs reflowed hand-written tables and lists. Revisit if wanted.
+- `npm run check` does not include `format:check` (CLAUDE.md defines check as
+  lint + typecheck + test); CI (0005) should run `format:check` separately.
+- `TZ=Europe/Berlin` is set both via `process.env` in `vitest.config.ts` and
+  `test.env`; the example test asserts it.
+- Legacy pages keep their inline `<script>`/`<style>`; Vite's build leaves them
+  inline. Verified with Playwright (fixed clock): raw file, `npm run dev` and
+  `npm run preview` render pixel-identical at 1200 px and 360 px, no console
+  errors, range controls change the figures, cross-links work. (One first run
+  showed ~900 px differences from web-font load timing; a re-run was identical.)
+- Lint verified to fail on an introduced `any` (`no-explicit-any`,
+  `no-unsafe-return`); not committed.
