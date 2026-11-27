@@ -7,7 +7,7 @@
 
 ## Goal
 The `main` branch is automatically published as a static site at
-https://lukaszkalnik.github.io/astronomy-website/ – built from `dist/`, not from
+https://lukaszkalnik.github.io/astronomy/ – built from `dist/`, not from
 the raw sources.
 
 ## Context
@@ -41,7 +41,7 @@ sustainable, no generated branch to maintain, deployments visible in the
    Permissions `pages: write`, `id-token: write`, `contents: read`;
    environment `github-pages`; `concurrency: { group: pages, cancel-in-progress: false }`.
    Use current major versions of the actions.
-3. Vite `base` = `/astronomy-website/` for production builds (via env/mode), `/`
+3. Vite `base` = `/astronomy/` for production builds (via env/mode), `/`
    for local dev; internal links relative or `import.meta.env.BASE_URL`-based.
 4. **Switch-over without downtime** (owner, in Settings → Pages):
    1. merge the workflow to `main` while the source is still "Deploy from a branch"
@@ -49,8 +49,9 @@ sustainable, no generated branch to maintain, deployments visible in the
    2. set Source to **GitHub Actions**
    3. re-run the workflow (`workflow_dispatch`) and verify the site
    Do this before any migrated page (0002/0003) reaches `main`.
-5. Keep existing URLs reachable: `/astronomy-website/` and
-   `/astronomy-website/sonnenuntergang.html` (redirect once 0013 moves pages).
+5. Keep URLs reachable: `/astronomy/` and `/astronomy/sonnenuntergang.html`
+   (redirect once 0013 moves pages). The old `/astronomy-website/` URLs broke
+   with the repo rename in 0018; the owner accepted that (no redirect).
 6. `404.html`, favicon, `<meta name="description">` and Open Graph tags per page.
 7. README states the public URL and how deployment works.
 8. **Security (from 0016):** `deploy.yml` follows the Actions rules in

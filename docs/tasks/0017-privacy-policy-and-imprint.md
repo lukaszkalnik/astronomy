@@ -12,7 +12,7 @@ and true, the fonts are self-hosted in the same change, so the site makes no
 third-party requests.
 
 ## Context
-- The site is live at https://lukaszkalnik.github.io/astronomy-website/ and
+- The site is live at https://lukaszkalnik.github.io/astronomy/ and
   is run by a person in Germany. Owner decision (2026-11-27): add both pages.
 - **Imprint:** § 5 DDG (Digitale-Dienste-Gesetz, successor of § 5 TMG). If
   the content counts as journalistic-editorial, § 18 Abs. 2 MStV also applies.
@@ -43,7 +43,7 @@ third-party requests.
    code rule; German titles "Impressum" / "Datenschutzerklärung"). Static,
    self-contained like the legacy pages until migration, simple readable
    styling, added to `build.rollupOptions.input` in `vite.config.ts`. Relative
-   links so they work under `/astronomy-website/` and on classic publishing.
+   links so they work under `/astronomy/` and on classic publishing.
    `<meta name="robots" content="noindex">` is optional (decide).
 2. **Imprint** content: full name, postal address that can receive legal service (no
    P.O. box), e-mail address, plus "Verantwortlich für den Inhalt nach § 18

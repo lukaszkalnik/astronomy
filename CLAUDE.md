@@ -35,7 +35,7 @@ accounts. Computation is done client-side with simplified orbital formulas
 | Lint          | **ESLint** (flat config) + `typescript-eslint` (type-checked rules) | |
 | Format        | **Prettier**                             | No style debates. |
 | CI            | GitHub Actions                           | audit → format → lint → typecheck → test → build → e2e; Dependabot weekly |
-| Hosting       | GitHub Pages, published via GitHub Actions (`dist/` artifact) | https://lukaszkalnik.github.io/astronomy-website/ |
+| Hosting       | GitHub Pages, published via GitHub Actions (`dist/` artifact) | https://lukaszkalnik.github.io/astronomy/ |
 | Node          | LTS (22.x), pinned via `.nvmrc` and `engines` | |
 
 Do not add runtime dependencies without a clear reason written in the task file.

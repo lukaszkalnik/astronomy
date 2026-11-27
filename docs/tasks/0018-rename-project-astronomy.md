@@ -1,6 +1,6 @@
 # 0018 – Rename the project to "astronomy"
 
-- **Status:** todo
+- **Status:** in progress (code/docs renamed; waiting for the owner to rename the GitHub repository)
 - **Phase:** 0
 - **Depends on:** 0016
 - **Estimate:** S
@@ -43,8 +43,8 @@ redirect there. Existing links and bookmarks would break.
 - Custom domain (0006 open question).
 
 ## Acceptance criteria
-- [ ] Scope decided and recorded in Notes
-- [ ] No stale "astronomy-website" references left (`grep -rn`), except where
+- [x] Scope decided and recorded in Notes
+- [x] No stale "astronomy-website" references left (`grep -rn`), except where
       the old URL is intentionally kept (redirect)
 - [ ] If the repo was renamed: CI badge works, pushes go to the new remote,
       0006 uses the new base path
@@ -52,10 +52,23 @@ redirect there. Existing links and bookmarks would break.
 - [ ] Docs updated (README / CLAUDE.md / Roadmap)
 
 ## Open questions
-- Rename the GitHub repository as well, or only the project/package name?
-- If the repository is renamed: redirect the old Pages URL or accept the break?
-- Should the visible site name ("Everyday Astronomy Page") change too?
+- ~~Rename the GitHub repository as well?~~ → **yes** (owner, 2026-11-27).
+- ~~Redirect the old Pages URL?~~ → **no, accept the break** (owner).
+- ~~Change the visible site name?~~ → **no**, "Everyday Astronomy Page" stays.
 
 ## Notes / log
 - 2026-11-27 – Task created on owner request; scheduled right after 0016 and
   before 0006.
+- 2026-11-27 – Owner decisions: rename repo + package + docs; old
+  `…/astronomy-website/` Pages URL may break (no redirect repo); display name
+  unchanged.
+- 2026-11-27 – Renamed in code and docs: `package.json` / lockfile `name`,
+  README CI badge, CLAUDE.md hosting URL, Roadmap, `vite.config.ts` comment
+  (`BASE_PATH=/astronomy/`), tasks 0001, 0006 (base path, URL list, note
+  about the accepted break), 0017 (context URL, base path). Intentionally
+  left: the 0017 log entry recording the font verification with
+  `BASE_PATH=/astronomy-website/` (history), and this task file.
+  `npm run check`, `npm run build` green.
+- **Owner step still open:** Settings → General → Repository name →
+  `astronomy`. Then: `git remote set-url origin` to the new URL, confirm a
+  push and the CI badge, and that the Pages site serves `/astronomy/`.

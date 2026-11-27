@@ -29,7 +29,7 @@ order (they stay stable so commit prefixes and cross-references keep working).
 
 Why this order:
 - **0005 → 0006 first.** The live site
-  (https://lukaszkalnik.github.io/astronomy-website/) is served by classic
+  (https://lukaszkalnik.github.io/astronomy/) is served by classic
   publishing from `main`. Once a page is migrated, its HTML loads TypeScript
   that only works after `npm run build`, so **0006 must be live before any
   migrated page reaches `main`**. Doing CI and deploy first removes that risk;

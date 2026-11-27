@@ -58,7 +58,7 @@ Moving page code (0002/0003), CI (0005), Playwright (0007).
   eslint 10, typescript-eslint 8, prettier 3. `@types/node` pinned to 22 to
   match the Node LTS in `.nvmrc` / `engines` (`>=22 <23`).
 - **Base path:** `vite.config.ts` reads `BASE_PATH` from the environment
-  (default `/`). Task 0006 sets `BASE_PATH=/astronomy-website/` in the deploy
+  (default `/`). Task 0006 sets `BASE_PATH=/astronomy/` (repo renamed in 0018) in the deploy
   build. (`BASE_URL` is avoided because Vite reserves it in `import.meta.env`.)
 - **Two TS projects:** `tsconfig.json` covers `src/` and `tests/` (browser
   libs, `vite/client` types); `tsconfig.node.json` covers the config files

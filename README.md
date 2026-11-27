@@ -1,6 +1,6 @@
 # Mondbahn am Himmel
 
-[![CI](https://github.com/lukaszkalnik/astronomy-website/actions/workflows/ci.yml/badge.svg)](https://github.com/lukaszkalnik/astronomy-website/actions/workflows/ci.yml)
+[![CI](https://github.com/lukaszkalnik/astronomy/actions/workflows/ci.yml/badge.svg)](https://github.com/lukaszkalnik/astronomy/actions/workflows/ci.yml)
 
 Interaktive Seite, die zeigt, wie hoch Mond und Sonne im Lauf eines Tages, eines Jahres und des 18,6-Jahre-Zyklus stehen.
 
