@@ -1,6 +1,6 @@
 # 0018 – Rename the project to "astronomy"
 
-- **Status:** in progress (code/docs renamed; waiting for the owner to rename the GitHub repository)
+- **Status:** done
 - **Phase:** 0
 - **Depends on:** 0016
 - **Estimate:** S
@@ -46,10 +46,10 @@ redirect there. Existing links and bookmarks would break.
 - [x] Scope decided and recorded in Notes
 - [x] No stale "astronomy-website" references left (`grep -rn`), except where
       the old URL is intentionally kept (redirect)
-- [ ] If the repo was renamed: CI badge works, pushes go to the new remote,
+- [x] If the repo was renamed: CI badge works, pushes go to the new remote,
       0006 uses the new base path
-- [ ] `npm run check` and `npm run build` green; CI green
-- [ ] Docs updated (README / CLAUDE.md / Roadmap)
+- [x] `npm run check` and `npm run build` green; CI green
+- [x] Docs updated (README / CLAUDE.md / Roadmap)
 
 ## Open questions
 - ~~Rename the GitHub repository as well?~~ → **yes** (owner, 2026-11-27).
@@ -69,6 +69,12 @@ redirect there. Existing links and bookmarks would break.
   left: the 0017 log entry recording the font verification with
   `BASE_PATH=/astronomy-website/` (history), and this task file.
   `npm run check`, `npm run build` green.
-- **Owner step still open:** Settings → General → Repository name →
-  `astronomy`. Then: `git remote set-url origin` to the new URL, confirm a
-  push and the CI badge, and that the Pages site serves `/astronomy/`.
+- 2026-11-27 – Owner renamed the repository to `lukaszkalnik/astronomy`.
+  `git remote set-url origin https://github.com/lukaszkalnik/astronomy`;
+  fetch and push work. Checked: `…/astronomy/` and
+  `…/astronomy/sonnenuntergang.html` → 200 (still classic publishing from
+  `main`); `…/astronomy-website/` → 404 (accepted). CI workflow `ci.yml` is
+  active under the new name (Actions API), so the badge URL is valid; the
+  badge image itself could not be fetched from the cloud sandbox (github.com
+  web blocked by the proxy, 403) – check it once in the browser.
+  Cloud sessions: GitHub access must be granted for the new repo name.
