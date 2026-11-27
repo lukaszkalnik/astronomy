@@ -22,7 +22,7 @@ linted modules and deployed automatically.
 
 Order: 0001 → (0002, 0003 in either order) → 0004 → 0005 → 0006.
 Live site: https://lukaszkalnik.github.io/astronomy-website/ (Pages, classic
-publishing from `main` today). **0006 must be live before migrated pages reach
+publishing from `main` today; moving to GitHub Actions publishing in 0006). **0006 must be live before migrated pages reach
 `main`** – otherwise the raw TypeScript sources would be served. Either do
 0005 + 0006 right after 0001, or keep 0002–0004 on a branch until then.
 0005 can start right after 0001 and grow with each task.

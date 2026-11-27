@@ -11,7 +11,7 @@ https://lukaszkalnik.github.io/astronomy-website/ – built from `dist/`, not fr
 the raw sources.
 
 ## Context
-GitHub Pages is already active with **classic publishing** (deploy from branch),
+GitHub Pages is currently active with **classic publishing** (deploy from branch),
 serving the repository files as they are. That works today because both pages
 are self-contained HTML. Once 0002/0003 land, the HTML loads TypeScript modules
 that only work after `npm run build`, so serving raw `main` would **break the
@@ -28,21 +28,27 @@ Options considered:
 - C – Commit built files into `main` – rejected: build output in history, merge
   conflicts, and `/docs` is already used for project docs.
 
-**Decision:** B (owner prefers classic publishing) – unless the owner switches
-to A. Record changes here.
+**Decision:** A – publish via GitHub Actions (owner agreed, 2026-11-27): more
+sustainable, no generated branch to maintain, deployments visible in the
+`github-pages` environment with history and rollback.
 
 ## Requirements
-1. Workflow `deploy.yml` on push to `main` (and `workflow_dispatch`), runs only
-   after CI checks pass (`needs:` on the CI job or `workflow_run`):
-   `npm ci` → `npm run build` → push `dist/` to branch `gh-pages`
-   (e.g. `peaceiris/actions-gh-pages` or plain `git` with `GITHUB_TOKEN`,
-   `permissions: contents: write`), single squashed commit per deploy is fine.
-2. `dist/` contains `.nojekyll` (so Jekyll doesn't drop files/folders starting
-   with `_`, e.g. Vite's assets).
+1. Workflow `.github/workflows/deploy.yml` on push to `main` and
+   `workflow_dispatch`; deploys only if CI passes (deploy job `needs:` the
+   check job, or one workflow with `check` → `build` → `deploy` jobs).
+2. Jobs: `npm ci` → `npm run build` → `actions/configure-pages` →
+   `actions/upload-pages-artifact` (path `dist`) → `actions/deploy-pages`.
+   Permissions `pages: write`, `id-token: write`, `contents: read`;
+   environment `github-pages`; `concurrency: { group: pages, cancel-in-progress: false }`.
+   Use current major versions of the actions.
 3. Vite `base` = `/astronomy-website/` for production builds (via env/mode), `/`
-   for local dev; all internal links relative or `import.meta.env.BASE_URL`-based.
-4. Owner switches Pages source from `main` to `gh-pages` / root **after** the
-   first successful deploy to `gh-pages` (step in Notes, no downtime).
+   for local dev; internal links relative or `import.meta.env.BASE_URL`-based.
+4. **Switch-over without downtime** (owner, in Settings → Pages):
+   1. merge the workflow to `main` while the source is still "Deploy from a branch"
+      (the deploy job will fail or be skipped – expected)
+   2. set Source to **GitHub Actions**
+   3. re-run the workflow (`workflow_dispatch`) and verify the site
+   Do this before any migrated page (0002/0003) reaches `main`.
 5. Keep existing URLs reachable: `/astronomy-website/` and
    `/astronomy-website/sonnenuntergang.html` (redirect once 0013 moves pages).
 6. `404.html`, favicon, `<meta name="description">` and Open Graph tags per page.
@@ -52,7 +58,7 @@ to A. Record changes here.
 - [ ] Push to `main` → site updated within a few minutes, built version served
 - [ ] Both pages reachable, cross-links, fonts and assets load (no 404s)
 - [ ] A failing CI run does not deploy
+- [ ] Pages source is "GitHub Actions"; old branch publishing no longer used
 
 ## Open questions
-- Option A or B? Default B (classic publishing from `gh-pages`).
 - Custom domain? (affects `base`; currently none)
