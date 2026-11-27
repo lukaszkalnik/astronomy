@@ -98,7 +98,15 @@ third-party requests.
 - [ ] Docs updated (README, CLAUDE.md, Roadmap)
 
 ## Open questions
-- **Owner data for the imprint:** full name, postal address, e-mail. Consider a
+- **Imprint – on hold, to be discussed with the owner.** Owner prefers no
+  imprint (does not want to publish a home address). To clarify: is the site
+  "geschäftsmäßig" under § 5 DDG, and are there alternatives (e.g. a paid
+  imprint/c-o address service)? Until decided, implement **only the privacy
+  policy** and leave req. 2 and the imprint link out.
+- **Controller contact in the privacy policy:** Art. 13 (1) (a) GDPR requires
+  "identity and contact details". Clarify whether name + e-mail is enough or
+  a postal address is expected. Same concern as the imprint.
+- **Owner data for the imprint (if it stays):** full name, postal address, e-mail. Consider a
   separate e-mail alias for the site. Imprint data is public and gets scraped.
 - Federal state (for the supervisory authority in the privacy policy).
 - `noindex` on the legal pages? (Recommendation: yes. It keeps name and address
@@ -107,3 +115,5 @@ third-party requests.
 ## Notes / log
 - 2026-11-27 – Task created on owner request; scheduled first in the remaining
   Phase 0 because the live site is affected now.
+- 2026-11-27 – Owner: avoid an imprint if possible (no published address);
+  discuss later. Privacy policy and font self-hosting are not blocked by this.
