@@ -1,7 +1,7 @@
 # 0007 – E2E smoke tests with Playwright
 
 - **Status:** todo
-- **Phase:** 1
+- **Phase:** 0 (moved from 1: lands before 0004 to guard that refactor)
 - **Depends on:** 0002, 0003
 - **Estimate:** M
 
