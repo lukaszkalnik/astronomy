@@ -22,3 +22,9 @@ describe("normDeg", () => {
     expect(Intl.DateTimeFormat().resolvedOptions().timeZone).toBe("Europe/Berlin");
   });
 });
+
+// TEMPORARY: deliberately failing test to verify CI goes red (task 0005); reverted next commit.
+import { test as tmpTest, expect as tmpExpect } from "vitest";
+tmpTest("ci must fail", () => {
+  tmpExpect(1).toBe(2);
+});
