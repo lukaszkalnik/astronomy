@@ -1,779 +1,195 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Warum der Sonnenuntergang je nach Jahreszeit und Breitengrad schneller oder langsamer geht – interaktiv erklärt mit Erdbahn, Himmelskugel und Horizontblick.">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Everyday Astronomy Page">
-<meta property="og:title" content="Warum dauern Sonnenuntergänge unterschiedlich lange?">
-<meta property="og:description" content="Warum der Sonnenuntergang je nach Jahreszeit und Breitengrad schneller oder langsamer geht – interaktiv erklärt mit Erdbahn, Himmelskugel und Horizontblick.">
-<meta property="og:url" content="https://lukaszkalnik.github.io/astronomy/sunset.html">
-<meta property="og:locale" content="de_DE">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<title>Die Neigung der Tagesbahn — warum Sonnenuntergänge unterschiedlich lange dauern</title>
-<link rel="stylesheet" href="./src/styles/fonts.css">
-<style>
-:root{
-  --ink:#0C1626;
-  --ink-2:#131F33;
-  --ink-3:#1B2A42;
-  --line:#2A3B57;
-  --brass:#C9A24B;
-  --brass-dim:#7C6531;
-  --ivory:#E9E3D5;
-  --ivory-dim:#93A0B4;
-  --cyan:#6BA8B8;
-  --rose:#C4708F;
-  --sun:#FFD79A;
-  --pad:clamp(18px,4vw,44px);
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  background:var(--ink);
-  color:var(--ivory);
-  font-family:"IBM Plex Sans",system-ui,sans-serif;
-  font-weight:300;
-  font-size:16px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:1180px;margin:0 auto;padding:var(--pad)}
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Warum der Sonnenuntergang je nach Jahreszeit und Breitengrad schneller oder langsamer geht – interaktiv erklärt mit Erdbahn, Himmelskugel und Horizontblick."
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Everyday Astronomy Page" />
+    <meta property="og:title" content="Warum dauern Sonnenuntergänge unterschiedlich lange?" />
+    <meta
+      property="og:description"
+      content="Warum der Sonnenuntergang je nach Jahreszeit und Breitengrad schneller oder langsamer geht – interaktiv erklärt mit Erdbahn, Himmelskugel und Horizontblick."
+    />
+    <meta property="og:url" content="https://lukaszkalnik.github.io/astronomy/sunset.html" />
+    <meta property="og:locale" content="de_DE" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Die Neigung der Tagesbahn — warum Sonnenuntergänge unterschiedlich lange dauern</title>
+    <link rel="stylesheet" href="./src/styles/fonts.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="back" href="index.html">← Mondbahn am Himmel</a>
+        <p class="eyebrow">Orbitalmechanik · Tagesbahn · Horizontschnitt</p>
+        <h1>Nicht die Sonne wird langsamer — <em>die Bahn wird flacher</em></h1>
+        <p class="standfirst">
+          Die Erde dreht sich das ganze Jahr über gleich schnell. Was sich ändert, ist der Winkel,
+          in dem die Tagesbahn der Sonne den Horizont schneidet. Dreh unten an der Erdbahn und schau
+          zu, wie sich der Schnitt verändert.
+        </p>
+      </header>
 
-/* ---------- header ---------- */
-header{padding-bottom:clamp(20px,4vw,38px);border-bottom:1px solid var(--line)}
-.back{
-  display:inline-block;margin:0 0 18px;
-  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ivory-dim);text-decoration:none;
-}
-.back:hover{color:var(--brass)}
-.eyebrow{
-  font-family:"IBM Plex Mono",monospace;
-  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--brass);margin:0 0 18px;
-}
-h1{
-  font-family:"Bodoni Moda",Didot,Georgia,serif;
-  font-weight:400;
-  font-size:clamp(30px,5.6vw,60px);
-  line-height:1.06;
-  letter-spacing:-.01em;
-  margin:0 0 18px;
-  max-width:17ch;
-}
-h1 em{font-style:italic;color:var(--brass)}
-.standfirst{max-width:62ch;color:var(--ivory-dim);font-size:clamp(15px,1.6vw,18px);margin:0}
+      <div class="stage">
+        <!-- SPHERE -->
+        <section class="panel">
+          <div class="panel-hd">
+            <h2>Himmelskugel</h2>
+            <span class="hint">ziehen zum Drehen · Bögen projiziert</span>
+          </div>
+          <div class="panel-bd flush">
+            <canvas id="sky"></canvas>
+          </div>
+        </section>
 
-/* ---------- layout ---------- */
-.stage{
-  display:grid;
-  grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
-  gap:clamp(18px,3vw,34px);
-  margin-top:clamp(24px,4vw,40px);
-  align-items:start;
-}
-@media (max-width:860px){ .stage{grid-template-columns:1fr} }
+        <!-- CONTROLS -->
+        <section class="panel">
+          <div class="panel-hd"><h2>Bahnposition &amp; Standort</h2></div>
+          <div class="panel-bd">
+            <canvas
+              id="orbit"
+              aria-label="Erdbahn um die Sonne — ziehen ändert die Jahreszeit"
+            ></canvas>
+            <div class="chips" id="seasonChips">
+              <button class="chip" data-lam="0">Frühlingspunkt</button>
+              <button class="chip" data-lam="90">Sommersonnenwende</button>
+              <button class="chip" data-lam="180">Herbstpunkt</button>
+              <button class="chip" data-lam="270">Wintersonnenwende</button>
+            </div>
 
-.panel{
-  background:var(--ink-2);
-  border:1px solid var(--line);
-  border-radius:2px;
-  position:relative;
-}
-.panel-hd{
-  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
-  padding:14px 18px;border-bottom:1px solid var(--line);
-}
-.panel-hd h2{
-  font-family:"IBM Plex Mono",monospace;
-  font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--ivory);margin:0;
-}
-.panel-hd .hint{font-size:11px;color:var(--ivory-dim);font-family:"IBM Plex Mono",monospace;letter-spacing:.04em}
-.panel-bd{padding:14px 18px 18px}
+            <div class="ctl ctl-lat">
+              <div class="ctl-lbl">
+                <span>Geografische Breite φ</span><span class="ctl-val" id="latVal">51,0° N</span>
+              </div>
+              <input type="range" id="lat" min="0" max="72" step="0.5" value="51" />
+              <div class="chips">
+                <button class="chip" data-lat="0">Äquator</button>
+                <button class="chip" data-lat="40.7">New York</button>
+                <button class="chip" data-lat="50.9">Köln</button>
+                <button class="chip" data-lat="59.3">Stockholm</button>
+                <button class="chip" data-lat="69.7">Tromsø</button>
+              </div>
+            </div>
 
-canvas{display:block;width:100%;touch-action:none}
-#sky{height:clamp(320px,48vh,520px)}
-#horizon{height:clamp(200px,30vh,300px)}
-#orbit{height:210px;cursor:grab}
-#orbit.drag{cursor:grabbing}
-
-/* ---------- controls ---------- */
-.ctl{margin-bottom:22px}
-.ctl:last-child{margin-bottom:0}
-.ctl-lbl{
-  display:flex;justify-content:space-between;align-items:baseline;
-  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ivory-dim);margin-bottom:10px;
-}
-.ctl-val{color:var(--brass);font-size:13px;letter-spacing:.02em}
-input[type=range]{
-  -webkit-appearance:none;appearance:none;width:100%;height:22px;background:transparent;cursor:pointer;
-}
-input[type=range]::-webkit-slider-runnable-track{height:1px;background:var(--line)}
-input[type=range]::-moz-range-track{height:1px;background:var(--line)}
-input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none;width:13px;height:13px;margin-top:-6px;border-radius:50%;
-  background:var(--brass);border:none;
-}
-input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--brass);border:none}
-input[type=range]:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
-
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.chip{
-  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;
-  background:transparent;color:var(--ivory-dim);
-  border:1px solid var(--line);border-radius:2px;
-  padding:5px 9px;cursor:pointer;transition:.15s;
-}
-.chip:hover{border-color:var(--brass-dim);color:var(--ivory)}
-.chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
-.chip[aria-pressed=true]{border-color:var(--brass);color:var(--brass)}
-
-/* ---------- readout ---------- */
-.readout{border-top:1px solid var(--line);margin-top:20px;padding-top:18px}
-.rrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:baseline;padding:7px 0}
-.rrow + .rrow{border-top:1px solid rgba(42,59,87,.5)}
-.rkey{font-size:13px;color:var(--ivory-dim);display:flex;align-items:center;gap:9px}
-.swatch{width:9px;height:9px;border-radius:50%;flex:none}
-.sw-c{background:var(--cyan)}
-.sw-r{background:var(--rose)}
-.rval{font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--ivory);white-space:nowrap}
-.rval small{font-size:11px;color:var(--ivory-dim);margin-left:3px}
-.rhead{
-  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--brass);margin:0 0 6px;
-}
-.factor{
-  margin-top:16px;padding:14px 16px;border:1px solid var(--brass-dim);border-radius:2px;
-  background:rgba(201,162,75,.05);
-}
-.factor .big{
-  font-family:"Bodoni Moda",serif;font-size:34px;line-height:1;color:var(--brass);
-}
-.factor .cap{font-size:12.5px;color:var(--ivory-dim);margin-top:6px}
-.warn{color:var(--rose);font-size:13px;margin-top:12px;display:none}
-.warn.on{display:block}
-
-/* ---------- race legend ---------- */
-.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px}
-.lg{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ivory-dim)}
-.lg .swatch{width:10px;height:10px}
-.btnrow{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-
-/* ---------- prose ---------- */
-.prose{margin-top:clamp(34px,6vw,60px);border-top:1px solid var(--line);padding-top:clamp(26px,4vw,40px)}
-.prose-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(20px,3vw,38px)}
-.prose h3{
-  font-family:"Bodoni Moda",serif;font-weight:400;font-size:22px;margin:0 0 10px;letter-spacing:-.005em;
-}
-.prose p{margin:0 0 12px;font-size:14.5px;color:var(--ivory-dim);max-width:46ch}
-.prose p strong{color:var(--ivory);font-weight:500}
-.eq{
-  font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--brass);
-  background:var(--ink-2);border-left:2px solid var(--brass);
-  padding:12px 14px;margin:14px 0;overflow-x:auto;white-space:nowrap;
-}
-footer{
-  margin-top:clamp(30px,5vw,54px);padding-top:20px;border-top:1px solid var(--line);
-  font-size:12.5px;color:var(--ivory-dim);max-width:70ch;
-}
-@media (prefers-reduced-motion:reduce){ *{animation:none!important} }
-</style>
-</head>
-<body>
-<div class="wrap">
-
-<header>
-  <a class="back" href="index.html">← Mondbahn am Himmel</a>
-  <p class="eyebrow">Orbitalmechanik · Tagesbahn · Horizontschnitt</p>
-  <h1>Nicht die Sonne wird langsamer — <em>die Bahn wird flacher</em></h1>
-  <p class="standfirst">Die Erde dreht sich das ganze Jahr über gleich schnell. Was sich ändert, ist der Winkel, in dem die Tagesbahn der Sonne den Horizont schneidet. Dreh unten an der Erdbahn und schau zu, wie sich der Schnitt verändert.</p>
-</header>
-
-<div class="stage">
-
-  <!-- SPHERE -->
-  <section class="panel">
-    <div class="panel-hd">
-      <h2>Himmelskugel</h2>
-      <span class="hint">ziehen zum Drehen · Bögen projiziert</span>
-    </div>
-    <div class="panel-bd" style="padding:0">
-      <canvas id="sky"></canvas>
-    </div>
-  </section>
-
-  <!-- CONTROLS -->
-  <section class="panel">
-    <div class="panel-hd"><h2>Bahnposition &amp; Standort</h2></div>
-    <div class="panel-bd">
-
-      <canvas id="orbit" aria-label="Erdbahn um die Sonne — ziehen ändert die Jahreszeit"></canvas>
-      <div class="chips" id="seasonChips">
-        <button class="chip" data-lam="0">Frühlingspunkt</button>
-        <button class="chip" data-lam="90">Sommersonnenwende</button>
-        <button class="chip" data-lam="180">Herbstpunkt</button>
-        <button class="chip" data-lam="270">Wintersonnenwende</button>
+            <div class="readout">
+              <p class="rhead">Untergang am Horizont</p>
+              <div class="rrow">
+                <span class="rkey"><i class="swatch sw-c"></i>Äquinoktium · δ = 0°</span>
+                <span class="rval" id="durEq">—</span>
+              </div>
+              <div class="rrow">
+                <span class="rkey"
+                  ><i class="swatch sw-r"></i>gewählt · <span id="dLabel">δ = 23,4°</span></span
+                >
+                <span class="rval" id="durSel">—</span>
+              </div>
+              <div class="rrow">
+                <span class="rkey">Bahnneigung γ (gewählt)</span>
+                <span class="rval" id="gam">—</span>
+              </div>
+              <div class="rrow">
+                <span class="rkey">Höhenrate dh/dt</span>
+                <span class="rval" id="rate">—</span>
+              </div>
+              <div class="rrow">
+                <span class="rkey">Untergangsazimut</span>
+                <span class="rval" id="az">—</span>
+              </div>
+              <div class="factor">
+                <div class="big" id="factor">—</div>
+                <div class="cap" id="factorCap">länger als zur Tagundnachtgleiche</div>
+              </div>
+              <p class="warn" id="warn"></p>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <div class="ctl" style="margin-top:24px">
-        <div class="ctl-lbl"><span>Geografische Breite φ</span><span class="ctl-val" id="latVal">51,0° N</span></div>
-        <input type="range" id="lat" min="0" max="72" step="0.5" value="51">
-        <div class="chips">
-          <button class="chip" data-lat="0">Äquator</button>
-          <button class="chip" data-lat="40.7">New York</button>
-          <button class="chip" data-lat="50.9">Köln</button>
-          <button class="chip" data-lat="59.3">Stockholm</button>
-          <button class="chip" data-lat="69.7">Tromsø</button>
+      <!-- RACE -->
+      <section class="panel race">
+        <div class="panel-hd">
+          <h2>Horizontblick — das Rennen der beiden Sonnen</h2>
+          <span class="hint" id="clock">0,0 min</span>
         </div>
-      </div>
+        <div class="panel-bd">
+          <canvas id="horizon"></canvas>
+          <div class="legend">
+            <span class="lg"><i class="swatch sw-c"></i>Bahn zur Tagundnachtgleiche</span>
+            <span class="lg"><i class="swatch sw-r"></i>gewählte Bahn</span>
+            <span class="lg"
+              >Beide Sonnen starten in dem Moment, in dem der Oberrand den Horizont berührt.</span
+            >
+          </div>
+          <div class="btnrow">
+            <button class="chip" id="play" aria-pressed="true">Pause</button>
+            <button class="chip" id="again">Von vorn</button>
+          </div>
+        </div>
+      </section>
 
-      <div class="readout">
-        <p class="rhead">Untergang am Horizont</p>
-        <div class="rrow">
-          <span class="rkey"><i class="swatch sw-c"></i>Äquinoktium · δ = 0°</span>
-          <span class="rval" id="durEq">—</span>
+      <!-- PROSE -->
+      <section class="prose">
+        <div class="prose-grid">
+          <div>
+            <h3>Woher die Neigung kommt</h3>
+            <p>
+              Die Erdachse steht um <strong>ε = 23,44°</strong> schief zur Bahnebene und behält ihre
+              Richtung im Raum bei, während die Erde umläuft. Dadurch wandert der subsolare Punkt im
+              Jahresrhythmus zwischen den Wendekreisen: <strong>sin δ = sin ε · sin λ</strong>, mit
+              λ als Bahnlänge ab dem Frühlingspunkt.
+            </p>
+            <p>
+              Am Himmel verschiebt δ die Tagesbahn parallel nach Norden oder Süden. Die Bahn bleibt
+              ein Kreis um die Himmelsachse — aber sie trifft den Horizont an einer anderen Stelle
+              und damit in einem anderen Winkel.
+            </p>
+          </div>
+          <div>
+            <h3>Der Schnittwinkel</h3>
+            <p>
+              Zur Tagundnachtgleiche steht die Bahn am steilsten: genau <strong>90° − φ</strong>. Zu
+              den Sonnenwenden rutscht der Untergangspunkt nach Nordwest bzw. Südwest, und der
+              Winkel wird flacher:
+            </p>
+            <div class="eq">sin γ = cos φ · sin A / cos δ</div>
+            <p>
+              Nur der senkrechte Anteil der Bahnbewegung bringt die Sonne unter den Horizont. Der
+              Rest schiebt sie seitlich am Horizont entlang — verbrauchte Zeit ohne Höhenverlust.
+            </p>
+          </div>
+          <div>
+            <h3>Von Winkel zu Minuten</h3>
+            <p>
+              Die Sonnenscheibe misst rund <strong>32′ = 0,533°</strong>. Ein Untergang dauert so
+              lange, wie die Sonne braucht, um genau diesen Betrag an Höhe zu verlieren:
+            </p>
+            <div class="eq">dh/dt = 15°/h · cos φ · sin A</div>
+            <p>
+              Am Äquator (φ = 0) fällt cos φ = 1 aus — die Bahn steht dort immer fast senkrecht, und
+              der Untergang ist ganzjährig kurz. Jenseits des Polarkreises geht sin γ gegen null:
+              die Sonne schleift am Horizont entlang, statt ihn zu durchstoßen.
+            </p>
+          </div>
         </div>
-        <div class="rrow">
-          <span class="rkey"><i class="swatch sw-r"></i>gewählt · <span id="dLabel">δ = 23,4°</span></span>
-          <span class="rval" id="durSel">—</span>
-        </div>
-        <div class="rrow">
-          <span class="rkey">Bahnneigung γ (gewählt)</span>
-          <span class="rval" id="gam">—</span>
-        </div>
-        <div class="rrow">
-          <span class="rkey">Höhenrate dh/dt</span>
-          <span class="rval" id="rate">—</span>
-        </div>
-        <div class="rrow">
-          <span class="rkey">Untergangsazimut</span>
-          <span class="rval" id="az">—</span>
-        </div>
-        <div class="factor">
-          <div class="big" id="factor">—</div>
-          <div class="cap" id="factorCap">länger als zur Tagundnachtgleiche</div>
-        </div>
-        <p class="warn" id="warn"></p>
-      </div>
+      </section>
 
+      <footer>
+        Alle Werte sind rein geometrisch gerechnet, für den Mittelpunkt der Sonnenscheibe auf einer
+        Kugelerde ohne Atmosphäre. In der Praxis dauert der Untergang etwas länger: Refraktion nahe
+        dem Horizont hebt das Sonnenbild um gut 0,5° an und streckt die Scheibe vertikal. Auch die
+        Bahnexzentrizität und die Höhe des Beobachters spielen mit hinein — sie ändern die
+        Größenordnung aber nicht.
+      </footer>
     </div>
-  </section>
-</div>
 
-<!-- RACE -->
-<section class="panel" style="margin-top:clamp(18px,3vw,34px)">
-  <div class="panel-hd">
-    <h2>Horizontblick — das Rennen der beiden Sonnen</h2>
-    <span class="hint" id="clock">0,0 min</span>
-  </div>
-  <div class="panel-bd">
-    <canvas id="horizon"></canvas>
-    <div class="legend">
-      <span class="lg"><i class="swatch sw-c"></i>Bahn zur Tagundnachtgleiche</span>
-      <span class="lg"><i class="swatch sw-r"></i>gewählte Bahn</span>
-      <span class="lg">Beide Sonnen starten in dem Moment, in dem der Oberrand den Horizont berührt.</span>
-    </div>
-    <div class="btnrow">
-      <button class="chip" id="play" aria-pressed="true">Pause</button>
-      <button class="chip" id="again">Von vorn</button>
-    </div>
-  </div>
-</section>
-
-<!-- PROSE -->
-<section class="prose">
-  <div class="prose-grid">
-    <div>
-      <h3>Woher die Neigung kommt</h3>
-      <p>Die Erdachse steht um <strong>ε = 23,44°</strong> schief zur Bahnebene und behält ihre Richtung im Raum bei, während die Erde umläuft. Dadurch wandert der subsolare Punkt im Jahresrhythmus zwischen den Wendekreisen: <strong>sin δ = sin ε · sin λ</strong>, mit λ als Bahnlänge ab dem Frühlingspunkt.</p>
-      <p>Am Himmel verschiebt δ die Tagesbahn parallel nach Norden oder Süden. Die Bahn bleibt ein Kreis um die Himmelsachse — aber sie trifft den Horizont an einer anderen Stelle und damit in einem anderen Winkel.</p>
-    </div>
-    <div>
-      <h3>Der Schnittwinkel</h3>
-      <p>Zur Tagundnachtgleiche steht die Bahn am steilsten: genau <strong>90° − φ</strong>. Zu den Sonnenwenden rutscht der Untergangspunkt nach Nordwest bzw. Südwest, und der Winkel wird flacher:</p>
-      <div class="eq">sin γ = cos φ · sin A / cos δ</div>
-      <p>Nur der senkrechte Anteil der Bahnbewegung bringt die Sonne unter den Horizont. Der Rest schiebt sie seitlich am Horizont entlang — verbrauchte Zeit ohne Höhenverlust.</p>
-    </div>
-    <div>
-      <h3>Von Winkel zu Minuten</h3>
-      <p>Die Sonnenscheibe misst rund <strong>32′ = 0,533°</strong>. Ein Untergang dauert so lange, wie die Sonne braucht, um genau diesen Betrag an Höhe zu verlieren:</p>
-      <div class="eq">dh/dt = 15°/h · cos φ · sin A</div>
-      <p>Am Äquator (φ = 0) fällt cos φ = 1 aus — die Bahn steht dort immer fast senkrecht, und der Untergang ist ganzjährig kurz. Jenseits des Polarkreises geht sin γ gegen null: die Sonne schleift am Horizont entlang, statt ihn zu durchstoßen.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  Alle Werte sind rein geometrisch gerechnet, für den Mittelpunkt der Sonnenscheibe auf einer Kugelerde ohne Atmosphäre. In der Praxis dauert der Untergang etwas länger: Refraktion nahe dem Horizont hebt das Sonnenbild um gut 0,5° an und streckt die Scheibe vertikal. Auch die Bahnexzentrizität und die Höhe des Beobachters spielen mit hinein — sie ändern die Größenordnung aber nicht.
-</footer>
-
-</div>
-
-<script>
-(function(){
-"use strict";
-const D2R=Math.PI/180, R2D=180/Math.PI;
-const EPS=23.4392811;          // Schiefe der Ekliptik
-const SUNDIA=0.5333;           // scheinbarer Sonnendurchmesser in Grad
-
-const C={ink:"#0C1626",ink2:"#131F33",line:"#2A3B57",brass:"#C9A24B",brassDim:"#7C6531",
-         ivory:"#E9E3D5",dim:"#93A0B4",cyan:"#6BA8B8",rose:"#C4708F",sun:"#FFD79A"};
-
-/* ---------------- Zustand ---------------- */
-const S={ lat:51, lam:90, camAz:208, camEl:20, hourAngle:40, playing:true, raceT:0 };
-const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-if(reduce) S.playing=false;
-
-/* ---------------- Mathematik ---------------- */
-const decl = lam => Math.asin(Math.sin(EPS*D2R)*Math.sin(lam*D2R))*R2D;
-
-function geom(phi,d){
-  const cf=Math.cos(phi*D2R), cd=Math.cos(d*D2R), sd=Math.sin(d*D2R);
-  let cH0 = -Math.tan(phi*D2R)*Math.tan(d*D2R);
-  if(cH0>=1)  return {state:"night"};
-  if(cH0<=-1) return {state:"midnight"};
-  let cA = sd/cf; cA=Math.max(-1,Math.min(1,cA));
-  const A = Math.acos(cA)*R2D;                    // Azimut ab Nord, 0…180
-  const rate = 15*cf*Math.sin(A*D2R);             // Grad Höhenverlust pro Stunde
-  const gamma = Math.asin(Math.min(1,cf*Math.sin(A*D2R)/cd))*R2D;
-  return {state:"ok",A,azSet:360-A,rate,gamma,dur:SUNDIA/rate*60,H0:Math.acos(cH0)*R2D};
-}
-
-// Einheitsvektor der Sonne in (Ost, Nord, Zenit)
-function sunVec(phi,d,H){
-  const cf=Math.cos(phi*D2R),sf=Math.sin(phi*D2R),cd=Math.cos(d*D2R),sd=Math.sin(d*D2R),
-        cH=Math.cos(H*D2R),sH=Math.sin(H*D2R);
-  return [-cd*sH, cf*sd-sf*cd*cH, sf*sd+cf*cd*cH];
-}
-const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
-const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
-function norm(a){const m=Math.hypot(a[0],a[1],a[2])||1;return[a[0]/m,a[1]/m,a[2]/m];}
-
-/* ---------------- Canvas-Helfer ---------------- */
-function fit(cv){
-  const r=cv.getBoundingClientRect(), dpr=Math.min(window.devicePixelRatio||1,2);
-  cv.width=Math.max(1,Math.round(r.width*dpr));
-  cv.height=Math.max(1,Math.round(r.height*dpr));
-  const ctx=cv.getContext("2d");
-  ctx.setTransform(dpr,0,0,dpr,0,0);
-  return {ctx,w:r.width,h:r.height};
-}
-function mono(ctx,px,weight){ctx.font=(weight||400)+" "+px+"px 'IBM Plex Mono', monospace";}
-
-/* ================= 1 · HIMMELSKUGEL ================= */
-const sky=document.getElementById("sky");
-
-function camera(){
-  const az=S.camAz*D2R, el=S.camEl*D2R;
-  const Cd=[Math.cos(el)*Math.sin(az),Math.cos(el)*Math.cos(az),Math.sin(el)];
-  const f=[-Cd[0],-Cd[1],-Cd[2]];
-  const r=norm(cross(f,[0,0,1]));
-  const u=cross(r,f);
-  return {f,r,u};
-}
-function drawSky(){
-  const {ctx,w,h}=fit(sky);
-  ctx.clearRect(0,0,w,h);
-  ctx.fillStyle=C.ink2; ctx.fillRect(0,0,w,h);
-
-  const cam=camera(), R=Math.min(w,h)*0.40, cx=w/2, cy=h*0.53;
-  const P=v=>[cx+R*dot(v,cam.r), cy-R*dot(v,cam.u)];
-  const depth=v=>dot(v,cam.f);
-
-  const phi=S.lat, d=decl(S.lam);
-  const gEq=geom(phi,0), gSel=geom(phi,d);
-
-  // Sterngrund
-  ctx.save(); ctx.globalAlpha=.5;
-  for(let i=0;i<70;i++){
-    const a=(i*2.399), rr=R*1.45*Math.sqrt((i%37)/37);
-    const x=cx+Math.cos(a*3.1)*rr, y=cy+Math.sin(a*2.3)*rr*0.75;
-    ctx.fillStyle=C.line; ctx.fillRect(x,y,1,1);
-  }
-  ctx.restore();
-
-  /* Tagesbahn zeichnen — unterhalb des Horizonts gestrichelt */
-  function track(dd,col){
-    const pts=[];
-    for(let H=0;H<=360;H+=1.5) pts.push(sunVec(phi,dd,H));
-    ctx.lineWidth=1.6;
-    for(let i=0;i<pts.length-1;i++){
-      const a=pts[i],b=pts[i+1];
-      const below=(a[2]<0&&b[2]<0);
-      if(!below) continue;
-      ctx.strokeStyle=col; ctx.globalAlpha=.22; ctx.setLineDash([3,4]);
-      const p1=P(a),p2=P(b);
-      ctx.beginPath();ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);ctx.stroke();
-    }
-    ctx.setLineDash([]); ctx.globalAlpha=1;
-    return pts;
-  }
-  const ptsEq=track(0,C.cyan), ptsSel=track(d,C.rose);
-
-  /* Horizontscheibe */
-  const hp=[]; for(let a=0;a<=360;a+=3){const t=a*D2R; hp.push(P([Math.sin(t),Math.cos(t),0]));}
-  ctx.beginPath(); hp.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.closePath();
-  ctx.fillStyle="rgba(12,22,38,.86)"; ctx.fill();
-  ctx.strokeStyle=C.brassDim; ctx.lineWidth=1; ctx.stroke();
-
-  // Himmelsachse
-  const pole=[0,Math.cos(phi*D2R),Math.sin(phi*D2R)];
-  const a1=P([-pole[0]*1.25,-pole[1]*1.25,-pole[2]*1.25]), a2=P([pole[0]*1.25,pole[1]*1.25,pole[2]*1.25]);
-  ctx.strokeStyle=C.brassDim; ctx.setLineDash([5,5]); ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(a1[0],a1[1]); ctx.lineTo(a2[0],a2[1]); ctx.stroke(); ctx.setLineDash([]);
-  ctx.fillStyle=C.brass; mono(ctx,9.5,500);
-  ctx.fillText("HIMMELSACHSE", a2[0]+7, a2[1]+3);
-
-  // Himmelsrichtungen
-  const dirs=[["N",[0,1,0]],["O",[1,0,0]],["S",[0,-1,0]],["W",[-1,0,0]]];
-  mono(ctx,10.5,500); ctx.textAlign="center"; ctx.textBaseline="middle";
-  dirs.forEach(([lab,v])=>{
-    const p=P([v[0]*1.10,v[1]*1.10,0]);
-    ctx.fillStyle = lab==="W" ? C.brass : C.dim;
-    ctx.fillText(lab,p[0],p[1]);
-  });
-  ctx.textAlign="left"; ctx.textBaseline="alphabetic";
-
-  /* Bahnen oberhalb des Horizonts */
-  function upper(pts,col){
-    ctx.strokeStyle=col; ctx.lineWidth=2; ctx.globalAlpha=1;
-    for(let i=0;i<pts.length-1;i++){
-      const a=pts[i],b=pts[i+1];
-      if(a[2]<0||b[2]<0) continue;
-      const p1=P(a),p2=P(b);
-      ctx.globalAlpha = depth(a)>0 ? .45 : 1;
-      ctx.beginPath();ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);ctx.stroke();
-    }
-    ctx.globalAlpha=1;
-  }
-  upper(ptsEq,C.cyan); upper(ptsSel,C.rose);
-
-  /* Schnittwinkel am Untergangspunkt (projiziert, nur Ortsmarke) */
-  function angleArc(dd,g,col){
-    if(g.state!=="ok") return;
-    const H0=g.H0;
-    const p0=sunVec(phi,dd,H0);
-    // Tangente an die Tagesbahn
-    const cd=Math.cos(dd*D2R),cf=Math.cos(phi*D2R),sf=Math.sin(phi*D2R);
-    let t=norm([-cd*Math.cos(H0*D2R), sf*cd*Math.sin(H0*D2R), -cf*cd*Math.sin(H0*D2R)]);
-    // Horizonttangente, gleiche Laufrichtung
-    let hgt=norm([-p0[1],p0[0],0]);
-    if(dot(hgt,t)<0) hgt=[-hgt[0],-hgt[1],0];
-    // Bogen von Horizont zur Bahn
-    const rr=0.20, steps=18;
-    ctx.strokeStyle=col; ctx.lineWidth=1.2; ctx.globalAlpha=.9;
-    ctx.beginPath();
-    for(let i=0;i<=steps;i++){
-      const f=i/steps;
-      const v=norm([hgt[0]+(t[0]-hgt[0])*f, hgt[1]+(t[1]-hgt[1])*f, hgt[2]+(t[2]-hgt[2])*f]);
-      const q=P([p0[0]+v[0]*rr,p0[1]+v[1]*rr,p0[2]+v[2]*rr]);
-      i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]);
-    }
-    ctx.stroke(); ctx.globalAlpha=1;
-    // Untergangspunkt
-    const sp=P(p0);
-    ctx.fillStyle=col; ctx.beginPath(); ctx.arc(sp[0],sp[1],2.6,0,7); ctx.fill();
-  }
-  angleArc(0,gEq,C.cyan);
-  if(Math.abs(d)>0.6) angleArc(d,gSel,C.rose);
-
-  /* laufende Sonnen */
-  function sunDot(dd,col){
-    const v=sunVec(phi,dd,S.hourAngle);
-    const p=P(v), up=v[2]>=0;
-    ctx.globalAlpha= up?1:.28;
-    if(up){
-      const gr=ctx.createRadialGradient(p[0],p[1],0,p[0],p[1],13);
-      gr.addColorStop(0,"rgba(255,215,154,.55)"); gr.addColorStop(1,"rgba(255,215,154,0)");
-      ctx.fillStyle=gr; ctx.beginPath(); ctx.arc(p[0],p[1],13,0,7); ctx.fill();
-    }
-    ctx.fillStyle=up?C.sun:col; ctx.beginPath(); ctx.arc(p[0],p[1],4.2,0,7); ctx.fill();
-    ctx.strokeStyle=col; ctx.lineWidth=1.4; ctx.stroke();
-    ctx.globalAlpha=1;
-  }
-  sunDot(0,C.cyan); sunDot(d,C.rose);
-
-  /* Winkellupe — wahre Gestalt, unabhängig von der Projektion */
-  (function inset(){
-    const bw=Math.min(178,w*0.44), bh=bw*0.66;
-    const bx=w-bw-14, by=h-bh-14;
-    ctx.fillStyle="rgba(12,22,38,.92)"; ctx.strokeStyle=C.line; ctx.lineWidth=1;
-    ctx.beginPath(); ctx.rect(bx,by,bw,bh); ctx.fill(); ctx.stroke();
-
-    const vx=bx+18, vy=by+bh-24, L=bw-42;
-    // Horizontlinie
-    ctx.strokeStyle=C.brassDim; ctx.lineWidth=1.2;
-    ctx.beginPath(); ctx.moveTo(vx-8,vy); ctx.lineTo(vx+L,vy); ctx.stroke();
-
-    function ray(g,col,rad){
-      if(!g||g.state!=="ok") return;
-      const a=g.gamma*D2R;
-      ctx.strokeStyle=col; ctx.lineWidth=2;
-      ctx.beginPath(); ctx.moveTo(vx,vy); ctx.lineTo(vx+Math.cos(a)*L,vy-Math.sin(a)*L); ctx.stroke();
-      ctx.lineWidth=1; ctx.globalAlpha=.75;
-      ctx.beginPath(); ctx.arc(vx,vy,rad,-a,0); ctx.stroke(); ctx.globalAlpha=1;
-      mono(ctx,10.5,500); ctx.fillStyle=col;
-      ctx.fillText(g.gamma.toFixed(1).replace(".",",")+"°", vx+Math.cos(a/2)*(rad+7), vy-Math.sin(a/2)*(rad+7)+3);
-    }
-    ray(gEq,C.cyan,34);
-    if(Math.abs(d)>0.6) ray(gSel,C.rose,54);
-
-    mono(ctx,9,500); ctx.fillStyle=C.brass;
-    ctx.fillText("WINKELLUPE γ · WAHRE GESTALT", bx+12, by+16);
-  })();
-
-  // Fußzeile im Bild
-  mono(ctx,10,400); ctx.fillStyle=C.dim;
-  ctx.fillText("φ = "+S.lat.toFixed(1).replace(".",",")+"°   δ = "+d.toFixed(1).replace(".",",")+"°",14,h-14);
-}
-
-/* ================= 2 · HORIZONTBLICK ================= */
-const hz=document.getElementById("horizon");
-let raceMin=0;
-
-function drawHorizon(){
-  const {ctx,w,h}=fit(hz);
-  const phi=S.lat, d=decl(S.lam);
-  const gEq=geom(phi,0), gSel=geom(phi,d);
-
-  // Himmel
-  const sk=ctx.createLinearGradient(0,0,0,h);
-  sk.addColorStop(0,"#14243D"); sk.addColorStop(.62,"#25344A"); sk.addColorStop(1,"#3E3A42");
-  ctx.fillStyle=sk; ctx.fillRect(0,0,w,h);
-
-  const groundY=h*0.80;
-  const degPx = w/6;                       // 6° Bildbreite
-  const cxs = w*0.30;                      // Startpunkt (Oberrand berührt Horizont)
-  const rSun = SUNDIA/2*degPx;
-
-  // Horizontlinie
-  ctx.fillStyle="#0C1626"; ctx.fillRect(0,groundY,w,h-groundY);
-  ctx.strokeStyle=C.brassDim; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(0,groundY+.5); ctx.lineTo(w,groundY+.5); ctx.stroke();
-
-  function run(g,col,side){
-    if(g.state!=="ok") return null;
-    const gam=g.gamma*D2R;
-    const dropRate=g.rate/60;                       // Grad pro Minute
-    const total=g.dur;
-    const tt=Math.min(raceMin,total);
-    // Startmittelpunkt: Oberrand am Horizont => Höhe +SUNDIA/2
-    const startAlt=SUNDIA/2;
-    const alt=startAlt - dropRate*tt;
-    const travel=(startAlt-alt)/Math.sin(gam);      // Weg entlang der Bahn in Grad
-    const x=cxs + travel*Math.cos(gam)*degPx*side;
-    const y=groundY - alt*degPx;
-
-    // Bahnlinie: Gerade durch den Startpunkt mit der Neigung gamma
-    ctx.strokeStyle=col; ctx.globalAlpha=.4; ctx.lineWidth=1; ctx.setLineDash([4,4]);
-    const L=3.2*degPx;
-    ctx.beginPath();
-    const y0=groundY-startAlt*degPx;
-    ctx.moveTo(cxs-Math.cos(gam)*L*side, y0-Math.sin(gam)*L);
-    ctx.lineTo(cxs+Math.cos(gam)*L*side, y0+Math.sin(gam)*L);
-    ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha=1;
-
-    // Scheibe
-    ctx.save();
-    ctx.beginPath(); ctx.rect(0,0,w,groundY); ctx.clip();
-    const gr=ctx.createRadialGradient(x,y,rSun*0.2,x,y,rSun*2.4);
-    gr.addColorStop(0,"rgba(255,215,154,.42)"); gr.addColorStop(1,"rgba(255,215,154,0)");
-    ctx.fillStyle=gr; ctx.beginPath(); ctx.arc(x,y,rSun*2.4,0,7); ctx.fill();
-    ctx.fillStyle=C.sun; ctx.beginPath(); ctx.arc(x,y,rSun,0,7); ctx.fill();
-    ctx.strokeStyle=col; ctx.lineWidth=2; ctx.stroke();
-    ctx.restore();
-
-    // Zielmarke
-    const done=raceMin>=total;
-    mono(ctx,11,500); ctx.fillStyle=col; ctx.textAlign="center";
-    ctx.fillText((done?"✓ ":"")+total.toFixed(2).replace(".",",")+" min", x, groundY+ (side>0?20:36));
-    ctx.textAlign="left";
-    return total;
-  }
-
-  const tEq=run(gEq,C.cyan,+1);
-  const tSel=(Math.abs(d)>0.6)?run(gSel,C.rose,-1):null;
-
-  // Skala
-  mono(ctx,10,400); ctx.fillStyle=C.dim;
-  ctx.fillText("Bildbreite ≈ 6° am Horizont · Sonnenscheibe 0,533°",14,18);
-
-  const maxT=Math.max(tEq||0,tSel||0);
-  return maxT;
-}
-
-/* ================= 3 · ERDBAHN ================= */
-const orb=document.getElementById("orbit");
-function drawOrbit(){
-  const {ctx,w,h}=fit(orb);
-  ctx.clearRect(0,0,w,h);
-  const cx=w/2, cy=h/2, rx=Math.min(w*0.36,86), ry=rx*0.42;
-
-  // Bahnellipse
-  ctx.strokeStyle=C.line; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.ellipse(cx,cy,rx,ry,0,0,7); ctx.stroke();
-
-  // Sonne
-  const g=ctx.createRadialGradient(cx,cy,0,cx,cy,16);
-  g.addColorStop(0,"rgba(255,215,154,.55)"); g.addColorStop(1,"rgba(255,215,154,0)");
-  ctx.fillStyle=g; ctx.beginPath(); ctx.arc(cx,cy,16,0,7); ctx.fill();
-  ctx.fillStyle=C.sun; ctx.beginPath(); ctx.arc(cx,cy,5,0,7); ctx.fill();
-
-  // Marken der vier Bahnpunkte
-  [0,90,180,270].forEach(lam=>{
-    const psi=(lam+90)*D2R;
-    const x=cx+Math.cos(psi)*rx, y=cy+Math.sin(psi)*ry;
-    ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(x,y,2,0,7); ctx.fill();
-  });
-
-  // Erde
-  const psi=(S.lam+90)*D2R;
-  const ex=cx+Math.cos(psi)*rx, ey=cy+Math.sin(psi)*ry;
-  ctx.fillStyle="#5B7FA6"; ctx.beginPath(); ctx.arc(ex,ey,7,0,7); ctx.fill();
-  ctx.strokeStyle=C.ivory; ctx.lineWidth=1; ctx.stroke();
-
-  // Achse, im Raum fest: Neigung 23,44° nach Bildrechts
-  const tilt=EPS*D2R, aL=15;
-  const ax=Math.sin(tilt)*aL, ay=-Math.cos(tilt)*aL;
-  ctx.strokeStyle=C.brass; ctx.lineWidth=1.4;
-  ctx.beginPath(); ctx.moveTo(ex-ax,ey-ay); ctx.lineTo(ex+ax,ey+ay); ctx.stroke();
-  ctx.fillStyle=C.brass; ctx.beginPath(); ctx.arc(ex+ax,ey+ay,1.8,0,7); ctx.fill();
-
-  // Text
-  const d=decl(S.lam);
-  mono(ctx,10.5,500); ctx.fillStyle=C.brass;
-  ctx.fillText("λ = "+Math.round(S.lam)+"°   ≈ "+dateFor(S.lam), 12, h-24);
-  ctx.fillStyle=C.dim; mono(ctx,10.5,400);
-  ctx.fillText("Deklination δ = "+d.toFixed(1).replace(".",",")+"°", 12, h-9);
-}
-const MON=["Jan.","Feb.","März","Apr.","Mai","Juni","Juli","Aug.","Sep.","Okt.","Nov.","Dez."];
-function dateFor(lam){
-  const day0=79; // 20. März
-  const doy=Math.round(day0 + lam/360*365.25)%365;
-  const dt=new Date(2025,0,1); dt.setDate(dt.getDate()+doy);
-  return dt.getDate()+". "+MON[dt.getMonth()];
-}
-
-/* ================= Anzeigen ================= */
-function refresh(){
-  const phi=S.lat, d=decl(S.lam);
-  const gEq=geom(phi,0), gSel=geom(phi,d);
-  const f1=x=>x.toFixed(1).replace(".",",");
-  const f2=x=>x.toFixed(2).replace(".",",");
-
-  document.getElementById("latVal").textContent=f1(phi)+"° N";
-  document.getElementById("dLabel").textContent="δ = "+f1(d)+"°";
-  document.getElementById("durEq").innerHTML=
-    gEq.state==="ok" ? f2(gEq.dur)+" <small>min</small>" : "—";
-
-  const warn=document.getElementById("warn");
-  if(gSel.state==="midnight"){
-    warn.className="warn on"; warn.textContent="Mitternachtssonne: Bei dieser Breite und Deklination bleibt die Sonne über dem Horizont — es gibt keinen Untergang.";
-  }else if(gSel.state==="night"){
-    warn.className="warn on"; warn.textContent="Polarnacht: Die Sonne kommt bei dieser Breite und Deklination nicht über den Horizont.";
-  }else{ warn.className="warn"; warn.textContent=""; }
-
-  if(gSel.state==="ok"){
-    document.getElementById("durSel").innerHTML=f2(gSel.dur)+" <small>min</small>";
-    document.getElementById("gam").innerHTML=f1(gSel.gamma)+"<small>°</small>";
-    document.getElementById("rate").innerHTML=f2(gSel.rate)+" <small>°/h</small>";
-    document.getElementById("az").innerHTML=f1(gSel.azSet)+"<small>° (ab N)</small>";
-    const fac=(gEq.state==="ok")?(gSel.dur/gEq.dur):null;
-    document.getElementById("factor").textContent = fac? "× "+f2(fac) : "—";
-    document.getElementById("factorCap").textContent =
-      Math.abs(d)<0.6 ? "identisch — die Bahn steht hier am steilsten"
-                      : "länger als zur Tagundnachtgleiche";
-  }else{
-    ["durSel","gam","rate","az"].forEach(id=>document.getElementById(id).textContent="—");
-    document.getElementById("factor").textContent="∞";
-    document.getElementById("factorCap").textContent="kein Untergang bei dieser Konstellation";
-  }
-
-  document.querySelectorAll("#seasonChips .chip").forEach(b=>
-    b.setAttribute("aria-pressed", Math.abs(((S.lam-(+b.dataset.lam))%360+540)%360-180)>179.4 ? "true":"false"));
-
-  drawOrbit(); drawSky();
-}
-
-/* ================= Animationsschleife ================= */
-let last=performance.now();
-function loop(now){
-  const dt=Math.min((now-last)/1000,0.05); last=now;
-  if(S.playing){
-    S.hourAngle=(S.hourAngle+dt*22)%360;
-    raceMin += dt*0.9;
-    const maxT=raceMax();
-    if(raceMin>maxT+1.4) raceMin=0;
-    drawSky();
-  }
-  const m=drawHorizon();
-  document.getElementById("clock").textContent=
-    Math.min(raceMin, m).toFixed(2).replace(".",",")+" min";
-  requestAnimationFrame(loop);
-}
-function raceMax(){
-  const gEq=geom(S.lat,0), gSel=geom(S.lat,decl(S.lam));
-  return Math.max(gEq.state==="ok"?gEq.dur:0, gSel.state==="ok"?gSel.dur:0);
-}
-
-/* ================= Interaktion ================= */
-const latEl=document.getElementById("lat");
-latEl.addEventListener("input",()=>{S.lat=+latEl.value; raceMin=0; refresh();});
-
-document.querySelectorAll(".chip[data-lat]").forEach(b=>b.addEventListener("click",()=>{
-  S.lat=+b.dataset.lat; latEl.value=S.lat; raceMin=0; refresh();
-}));
-document.querySelectorAll(".chip[data-lam]").forEach(b=>b.addEventListener("click",()=>{
-  S.lam=+b.dataset.lam; raceMin=0; refresh();
-}));
-
-const playBtn=document.getElementById("play");
-playBtn.textContent = S.playing ? "Pause" : "Abspielen";
-playBtn.setAttribute("aria-pressed", String(S.playing));
-playBtn.addEventListener("click",()=>{
-  S.playing=!S.playing;
-  playBtn.textContent=S.playing?"Pause":"Abspielen";
-  playBtn.setAttribute("aria-pressed",String(S.playing));
-});
-document.getElementById("again").addEventListener("click",()=>{raceMin=0;});
-
-/* Himmelskugel drehen */
-let drag=null;
-sky.addEventListener("pointerdown",e=>{drag={x:e.clientX,y:e.clientY,az:S.camAz,el:S.camEl};sky.setPointerCapture(e.pointerId);});
-sky.addEventListener("pointermove",e=>{
-  if(!drag)return;
-  S.camAz=drag.az-(e.clientX-drag.x)*0.45;
-  S.camEl=Math.max(4,Math.min(78,drag.el+(e.clientY-drag.y)*0.35));
-  drawSky();
-});
-sky.addEventListener("pointerup",()=>drag=null);
-sky.addEventListener("pointercancel",()=>drag=null);
-
-/* Erde auf der Bahn ziehen */
-function orbFromEvent(e){
-  const r=orb.getBoundingClientRect();
-  const cx=r.width/2, cy=r.height/2;
-  const x=e.clientX-r.left-cx, y=(e.clientY-r.top-cy)/0.42;
-  let psi=Math.atan2(y,x)*R2D;
-  S.lam=((psi-90)%360+360)%360; raceMin=0; refresh();
-}
-let odrag=false;
-orb.addEventListener("pointerdown",e=>{odrag=true;orb.classList.add("drag");orb.setPointerCapture(e.pointerId);orbFromEvent(e);});
-orb.addEventListener("pointermove",e=>{if(odrag)orbFromEvent(e);});
-orb.addEventListener("pointerup",()=>{odrag=false;orb.classList.remove("drag");});
-orb.addEventListener("pointercancel",()=>{odrag=false;orb.classList.remove("drag");});
-
-window.addEventListener("resize",()=>{refresh();});
-document.fonts && document.fonts.ready.then(refresh);
-
-refresh();
-requestAnimationFrame(loop);
-})();
-</script>
-</body>
+    <script type="module" src="./src/pages/sunset/main.ts"></script>
+  </body>
 </html>
