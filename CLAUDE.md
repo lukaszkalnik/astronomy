@@ -5,8 +5,9 @@ and the task file you are working on in `docs/tasks/`.
 
 ## What this project is
 
-A physics & astronomy website of interactive explainers for lay people.
-UI languages: German (source), English, French, Polish (see task 0014).
+**Everyday Astronomy Page** – a physics & astronomy website of interactive
+explainers for lay people. UI languages: German (source), English (fallback),
+French, Polish (see task 0014).
 
 - Landing page with a contents index of all explainers (task 0013, planned).
 - `index.html` – **Mondbahn**: how high Sun and Moon stand over a day, a year and

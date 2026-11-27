@@ -1,4 +1,4 @@
-# Roadmap
+# Roadmap – Everyday Astronomy Page
 
 Status legend: ⬜ todo · 🟦 in progress · ✅ done · ⏸ parked
 
@@ -35,6 +35,7 @@ Goal: confidence that changes don't break pages; accessible and consistent.
 | 0010 | [Shareable state via URL parameters](tasks/0010-url-state.md) | ⬜ |
 | 0013 | [Landing page with contents index](tasks/0013-landing-page.md) | ⬜ |
 | 0014 | [Localization: English, French, Polish](tasks/0014-localization-en-fr-pl.md) | ⬜ |
+| 0015 | [Language menu](tasks/0015-language-menu.md) | ⬜ |
 
 Suggested order: 0013 together with/after 0008 (shared navigation);
 0014 early in Phase 1 – the later it comes, the more strings must be retrofitted.

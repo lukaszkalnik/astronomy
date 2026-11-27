@@ -21,8 +21,8 @@ ad hoc. There is no site-level entry point, title or branding.
    path. Old bookmarks of the root land on the landing page, which links
    prominently to Mondbahn.
 2. **Content:**
-   - site title + one-sentence intro ("Interaktive Erklärungen zu Physik und
-     Astronomie …" – final wording in all languages via 0014)
+   - site title **"Everyday Astronomy Page"** + one-sentence intro (wording in
+     all languages via 0014; localized site names, see 0014 req. 5)
    - contents index as a responsive card grid (1 column on 360 px, 2–3 on desktop)
    - each card: thumbnail (16:10, ~320×200 CSS px), title, description of
      **max. ~120 characters / one sentence**, whole card is one link
@@ -69,6 +69,5 @@ would block it.
 - [ ] Looks good at 360 px and 1280 px (screenshots reviewed by owner)
 
 ## Open questions
-- Site name / title? (e.g. "Himmel & Physik", needs owner decision, in all 4 languages)
 - Keep the two distinct page styles (see 0008) – the landing page then needs a
   neutral style that fits both.
