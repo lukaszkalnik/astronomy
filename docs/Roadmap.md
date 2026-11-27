@@ -18,11 +18,12 @@ order (they stay stable so commit prefixes and cross-references keep working).
 |------|---|------|------------|--------|
 | 1 | 0001 | [Tooling setup: Vite, TypeScript, ESLint, Prettier, Vitest](tasks/0001-tooling-setup.md) | – | ✅ |
 | 2 | 0005 | [CI pipeline on GitHub Actions](tasks/0005-ci-pipeline.md) | 0001 | ✅ |
-| 3 | 0006 | [Deploy to GitHub Pages](tasks/0006-deploy-github-pages.md) | 0005 | ⬜ |
-| 4 | 0002 | [Migrate Mondbahn page into Vite structure](tasks/0002-migrate-mondbahn-page.md) | 0001 | ⬜ |
-| 5 | 0003 | [Migrate Sonnenuntergang page into Vite structure](tasks/0003-migrate-sonnenuntergang-page.md) | 0001 | ⬜ |
-| 6 | 0007 | [E2E smoke tests with Playwright](tasks/0007-e2e-smoke-tests.md) | 0002, 0003 | ⬜ |
-| 7 | 0004 | [Extract astronomy core into `src/lib/astro` with unit tests](tasks/0004-astro-core-library.md) | 0002, 0003 | ⬜ |
+| 3 | 0016 | [Security & privacy rules and security review](tasks/0016-security-rules-and-review.md) | 0005 | ⬜ |
+| 4 | 0006 | [Deploy to GitHub Pages](tasks/0006-deploy-github-pages.md) | 0005 | ⬜ |
+| 5 | 0002 | [Migrate Mondbahn page into Vite structure](tasks/0002-migrate-mondbahn-page.md) | 0001 | ⬜ |
+| 6 | 0003 | [Migrate Sonnenuntergang page into Vite structure](tasks/0003-migrate-sonnenuntergang-page.md) | 0001 | ⬜ |
+| 7 | 0007 | [E2E smoke tests with Playwright](tasks/0007-e2e-smoke-tests.md) | 0002, 0003 | ⬜ |
+| 8 | 0004 | [Extract astronomy core into `src/lib/astro` with unit tests](tasks/0004-astro-core-library.md) | 0002, 0003 | ⬜ |
 
 Why this order:
 - **0005 → 0006 first.** The live site
@@ -31,6 +32,11 @@ Why this order:
   that only works after `npm run build`, so **0006 must be live before any
   migrated page reaches `main`**. Doing CI and deploy first removes that risk;
   CI then grows with each task (e2e job when 0007 lands).
+- **0016 between CI and deploy.** The deploy workflow is the first with write
+  permissions, and 0002/0003 write most of the new code. Security & privacy
+  rules (Actions hardening, safe DOM, input validation, no third-party
+  requests) should exist before both. The review's deferred fixes are handed to
+  the tasks that touch that code.
 - **0002, 0003** in either order; each pins current behaviour with
   characterisation tests before moving code.
 - **0007 before 0004.** 0004 is the largest refactor (shared astronomy core
@@ -43,12 +49,12 @@ Goal: confidence that changes don't break pages; accessible and consistent.
 
 | Step | # | Task | Depends on | Status |
 |------|---|------|------------|--------|
-| 8 | 0014 | [Localization: English, French, Polish](tasks/0014-localization-en-fr-pl.md) | 0002, 0003 | ⬜ |
-| 9 | 0008 | [Shared design tokens, base styles and site navigation](tasks/0008-shared-design-and-navigation.md) | 0002, 0003 | ⬜ |
-| 10 | 0013 | [Landing page with contents index](tasks/0013-landing-page.md) | 0002, 0003 (with/after 0008) | ⬜ |
-| 11 | 0015 | [Language menu](tasks/0015-language-menu.md) | 0014, 0008 | ⬜ |
-| 12 | 0010 | [Shareable state via URL parameters](tasks/0010-url-state.md) | 0004 | ⬜ |
-| 13 | 0009 | [Accessibility audit and fixes](tasks/0009-accessibility-audit.md) | 0007 | ⬜ |
+| 9 | 0014 | [Localization: English, French, Polish](tasks/0014-localization-en-fr-pl.md) | 0002, 0003 | ⬜ |
+| 10 | 0008 | [Shared design tokens, base styles and site navigation](tasks/0008-shared-design-and-navigation.md) | 0002, 0003 | ⬜ |
+| 11 | 0013 | [Landing page with contents index](tasks/0013-landing-page.md) | 0002, 0003 (with/after 0008) | ⬜ |
+| 12 | 0015 | [Language menu](tasks/0015-language-menu.md) | 0014, 0008 | ⬜ |
+| 13 | 0010 | [Shareable state via URL parameters](tasks/0010-url-state.md) | 0004 | ⬜ |
+| 14 | 0009 | [Accessibility audit and fixes](tasks/0009-accessibility-audit.md) | 0007 | ⬜ |
 
 Why this order:
 - **0014 first:** every later task adds UI strings; the later localization
@@ -66,8 +72,8 @@ Why this order:
 
 | Step | # | Task | Depends on | Status |
 |------|---|------|------------|--------|
-| 14 | 0011 | [Atmospheric refraction and rise/set times](tasks/0011-refraction-and-rise-set.md) | 0004 | ⬜ |
-| 15 | 0012 | [Free location choice (geolocation + map/coordinates input)](tasks/0012-free-location.md) | 0010 | ⬜ |
+| 15 | 0011 | [Atmospheric refraction and rise/set times](tasks/0011-refraction-and-rise-set.md) | 0004 | ⬜ |
+| 16 | 0012 | [Free location choice (geolocation + map/coordinates input)](tasks/0012-free-location.md) | 0010 | ⬜ |
 | — | — | Accuracy page: document model, sources, error vs. JPL Horizons | 0011 | idea |
 | — | — | Twilight phases (civil / nautical / astronomical) on the sunset page | 0011 | idea |
 
