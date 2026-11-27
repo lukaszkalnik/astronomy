@@ -1,6 +1,6 @@
 # 0016 – Security & privacy rules and security review
 
-- **Status:** done (CI green check pending on push; owner checklist open)
+- **Status:** done (CI green on e27c8b7; owner checklist open)
 - **Phase:** 0
 - **Depends on:** 0005
 - **Estimate:** M
