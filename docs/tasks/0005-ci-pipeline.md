@@ -1,6 +1,6 @@
 # 0005 – CI pipeline on GitHub Actions
 
-- **Status:** todo
+- **Status:** done
 - **Phase:** 0
 - **Depends on:** 0001
 - **Estimate:** S
@@ -23,5 +23,19 @@ Every push and pull request is checked automatically.
 Deployment (0006).
 
 ## Acceptance criteria
-- [ ] Workflow green on the branch
-- [ ] A deliberately failing test makes the workflow red (verify once)
+- [x] Workflow green on the branch
+- [x] A deliberately failing test makes the workflow red (verify once)
+
+## Notes / log
+- 2026-11-27 – Implemented `.github/workflows/ci.yml` (one `check` job).
+  Actions: `actions/checkout@v7`, `actions/setup-node@v7` (Node from `.nvmrc`,
+  npm cache), `actions/upload-artifact@v7` – the current majors at the time.
+- Concurrency group `ci-<workflow>-<head_ref || ref>`, `cancel-in-progress: true`.
+  `permissions: contents: read` only.
+- Coverage is uploaded even when tests fail (`!cancelled()`), so a coverage
+  threshold failure can be inspected; `dist/` only after a successful build.
+- Verified: run #1 green (~25 s); run #2 with a deliberately failing test was
+  red; that commit was reverted (both stay in history, marked "TEMP").
+- Requirement 4 (Playwright job) is still open – it belongs to task 0007.
+- The README badge shows the latest run on the default branch, so it only
+  becomes meaningful once the workflow is on `main`.

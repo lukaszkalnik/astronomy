@@ -17,7 +17,7 @@ order (they stay stable so commit prefixes and cross-references keep working).
 | Step | # | Task | Depends on | Status |
 |------|---|------|------------|--------|
 | 1 | 0001 | [Tooling setup: Vite, TypeScript, ESLint, Prettier, Vitest](tasks/0001-tooling-setup.md) | – | ✅ |
-| 2 | 0005 | [CI pipeline on GitHub Actions](tasks/0005-ci-pipeline.md) | 0001 | ⬜ |
+| 2 | 0005 | [CI pipeline on GitHub Actions](tasks/0005-ci-pipeline.md) | 0001 | ✅ |
 | 3 | 0006 | [Deploy to GitHub Pages](tasks/0006-deploy-github-pages.md) | 0005 | ⬜ |
 | 4 | 0002 | [Migrate Mondbahn page into Vite structure](tasks/0002-migrate-mondbahn-page.md) | 0001 | ⬜ |
 | 5 | 0003 | [Migrate Sonnenuntergang page into Vite structure](tasks/0003-migrate-sonnenuntergang-page.md) | 0001 | ⬜ |
