@@ -21,7 +21,7 @@ order (they stay stable so commit prefixes and cross-references keep working).
 | 3 | 0017 | [Privacy policy and imprint (+ self-hosted fonts)](tasks/0017-privacy-policy-and-imprint.md) | 0001 | 🟦 fonts done; privacy policy waits for owner data |
 | 4 | 0016 | [Security & privacy rules and security review](tasks/0016-security-rules-and-review.md) | 0005 | ✅ (owner checklist open) |
 | 5 | 0018 | [Rename the project to "astronomy"](tasks/0018-rename-project-astronomy.md) | 0016 | ✅ |
-| 6 | 0006 | [Deploy to GitHub Pages](tasks/0006-deploy-github-pages.md) | 0005, 0018 | ✅ (owner switch-over open) |
+| 6 | 0006 | [Deploy to GitHub Pages](tasks/0006-deploy-github-pages.md) | 0005, 0018 | ✅ |
 | 7 | 0002 | [Migrate Mondbahn page into Vite structure](tasks/0002-migrate-mondbahn-page.md) | 0001 | ⬜ |
 | 8 | 0003 | [Migrate Sonnenuntergang page into Vite structure](tasks/0003-migrate-sonnenuntergang-page.md) | 0001 | ⬜ |
 | 9 | 0007 | [E2E smoke tests with Playwright](tasks/0007-e2e-smoke-tests.md) | 0002, 0003 | ⬜ |

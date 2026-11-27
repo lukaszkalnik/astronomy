@@ -183,5 +183,5 @@ Settings → *Code security* / *Actions* / *Branches*:
       first-time contributors.
 - [ ] Branch protection / ruleset on `main`: require PR + the CI check
       "Lint, typecheck, test, build" to pass; block force-pushes and deletion.
-- [ ] Before 0006: environment `github-pages` limited to the `main` branch
-      (default when Pages source is "GitHub Actions" – verify).
+- [x] Before 0006: environment `github-pages` limited to the `main` branch
+      (verified by owner, 2026-11-27).

@@ -47,10 +47,9 @@ Location is persisted in `localStorage["mondOrt"]`.
    connect-src 'self'; base-uri 'none'; form-action 'none'`; check what Vite
    dev needs) and verify no CSP errors in the console.
 
-> **Deployment guard:** GitHub Pages currently serves `main` as-is (classic
-> publishing). Do not merge this task to `main` before 0006 is in place,
-> otherwise the live site breaks. (0006 is implemented; check the owner has
-> finished its switch-over steps.)
+> **Deployment:** since 0006, `main` is built and deployed by
+> `.github/workflows/deploy.yml` (Pages source "GitHub Actions"), so migrated
+> pages can be merged to `main`.
 
 > **Known bug (found in 0006):** at 360 px the legacy page scrolls ~22 px
 > horizontally (`scrollTo(1000,0)` → `scrollX` 22) although `body` has

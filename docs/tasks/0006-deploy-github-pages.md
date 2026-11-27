@@ -1,6 +1,6 @@
 # 0006 – Deploy to GitHub Pages
 
-- **Status:** done on branch (owner switch-over open, see "Owner steps")
+- **Status:** done
 - **Phase:** 0
 - **Depends on:** 0005
 - **Estimate:** S
@@ -64,20 +64,20 @@ sustainable, no generated branch to maintain, deployments visible in the
    page (and to `404.html`).
 
 ## Acceptance criteria
-- [ ] Push to `main` → site updated within a few minutes, built version served
-      *(owner: verify after merge + switch-over)*
+- [x] Push to `main` → site updated within a few minutes, built version served
+      (verified with the docs commit after the switch-over)
 - [x] Both pages reachable, cross-links, fonts and assets load (no 404s) –
       verified locally on the `/astronomy/` build with a Pages-like server
       (dist under `/astronomy/`, `404.html` for misses), Playwright at 1280 and
-      360 px; re-check on the live site after the switch-over
+      360 px; re-checked on the live site after the switch-over (same result)
 - [x] A failing CI run does not deploy – `deploy` `needs: check` (the reused
       CI workflow); the deployed `dist/` is the artifact CI built and tested
-- [ ] Pages source is "GitHub Actions"; old branch publishing no longer used
-      *(owner, Settings → Pages)*
+- [x] Pages source is "GitHub Actions"; old branch publishing no longer used
+      (owner, 2026-11-27)
 - [x] `deploy.yml`: job-level write permissions, SHA-pinned actions; referrer meta on all pages
 - [x] `npm run check`, `npm run build`, `format:check`, `npm audit` green
 
-## Owner steps (switch-over without downtime)
+## Owner steps (switch-over without downtime) – done 2026-11-27
 1. Merge the branch into `main` while Pages still says "Deploy from a
    branch". The Deploy workflow runs; its deploy job fails – expected. The
    live site keeps serving the raw files (still self-contained, works).
@@ -119,3 +119,8 @@ sustainable, no generated branch to maintain, deployments visible in the
     favicon); no visual change.
 - Found while checking: `index.html` already scrolls 22 px horizontally at
   360 px (same in the version before this task) → noted in 0002.
+- 2026-11-27 – Merged to `main` (fast-forward). First Deploy run failed as
+  expected (source still "branch"); owner switched Pages source to GitHub
+  Actions, manual run succeeded; `github-pages` environment limited to `main`.
+  Live check: both pages 200, built HTML (`/astronomy/assets/…`), fonts,
+  favicon, 404 page at nested paths with working links.
