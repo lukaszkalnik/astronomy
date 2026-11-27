@@ -5,8 +5,10 @@ and the task file you are working on in `docs/tasks/`.
 
 ## What this project is
 
-Interactive astronomy explainer pages for lay people (German UI):
+A physics & astronomy website of interactive explainers for lay people.
+UI languages: German (source), English, French, Polish (see task 0014).
 
+- Landing page with a contents index of all explainers (task 0013, planned).
 - `index.html` – **Mondbahn**: how high Sun and Moon stand over a day, a year and
   the 18.6-year nodal cycle.
 - `sonnenuntergang.html` – **Sonnenuntergang**: why sunsets last longer or shorter
@@ -52,7 +54,8 @@ src/
       coords.ts             # ecliptic → equatorial → horizontal
       phases.ts             # findPhase, phase names
       *.test.ts             # unit tests next to the code
-    format.ts               # de-DE formatting helpers (Intl)
+    format.ts               # locale-aware formatting helpers (Intl)
+  i18n/                     # message catalogs de.ts (source), en.ts, fr.ts, pl.ts
     dom.ts                  # tiny DOM helpers ($, svg builders)
   pages/
     mondbahn/               # main.ts, state.ts, render/*.ts, style.css
@@ -131,15 +134,26 @@ npm run check          # lint + typecheck + test – run before every commit
   core controls change the output, layout has no horizontal scroll at 360 px.
 
 ### UI, content and accessibility
-- UI copy is **German**, written for lay people: calm, clear, no jargon without
-  explanation. Code, comments, commit messages and docs are **English**.
+- **English in code:** all identifiers (variables, functions, types, CSS
+  classes, ids, file names), code comments, commit messages and docs are
+  **English**. The legacy pages still contain German names/comments
+  (e.g. `/* Zustand */`, `mondOrt`); translate them when touching or migrating
+  that code (except persisted keys like `mondOrt`, which must stay or be migrated).
+- UI copy is written for lay people: calm, clear, no jargon without explanation.
+  German is the source language; every user-visible string comes from the
+  i18n catalogs (`src/i18n/`), never hard-coded in HTML or TS once 0014 is done.
+  New strings need all four languages (de, en, fr, pl) in the same change –
+  the type of the catalog enforces complete keys.
 - Mobile-first: must work at 360 px width, touch targets ≥ 44 px, no horizontal
   page scroll.
 - Respect `prefers-reduced-motion` (no autoplay animation when set).
 - Every figure has `role="img"` and a meaningful `aria-label`; all controls have
   labels and are keyboard operable; visible `:focus-visible` styles.
 - Colour contrast WCAG AA for text. Do not encode information by colour alone.
-- Dates/times via `Intl` with `de-DE`; times are shown in the device timezone.
+- Dates, times, numbers and plurals via `Intl` with the active locale
+  (`Intl.PluralRules` – Polish has several plural forms); times are shown in the
+  device timezone. Never format numbers by string concatenation (decimal comma
+  in de/fr/pl).
 - `localStorage` access always wrapped in `try/catch` (private mode, blocked storage).
 - Keep pages fast: no blocking third-party scripts; fonts via Google Fonts with
   `display=swap` are acceptable.

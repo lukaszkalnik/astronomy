@@ -23,8 +23,9 @@ sunset geometry analytical.
    - `eclipticToEquatorial(…)`, `equatorialToHorizontal(…)`
    - `sunMoonPosition(tMs, latDeg, lonDeg)` (today's `pos()`)
    - `findLunarPhase(tMs, targetElongationDeg, direction)`
-   - `moonPhaseName(illum, waxing)` (German strings live in a separate
-     `i18n/de.ts`-like map, not inside the math)
+   - `moonPhaseName(illum, waxing)` returns a phase **key**
+     (e.g. `"waxingCrescent"`), never a display string – texts come from
+     `src/i18n/` (0014)
    - `sunsetGeometry(latDeg, declDeg)` (today's `geom()`)
 2. Single source for shared constants (obliquity, deg↔rad, ms per day).
 3. Unit tests:

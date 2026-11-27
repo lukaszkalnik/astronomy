@@ -19,7 +19,7 @@ Users can use their own location instead of the fixed `PLACES` list.
    location's timezone via `Intl` – decide and document).
 
 ## Acceptance criteria
-- [ ] Works with permission denied / unavailable (clear German message)
+- [ ] Works with permission denied / unavailable (clear, localized message)
 - [ ] Location persists (localStorage) and is reflected in the URL (0010)
 
 ## Open questions

@@ -33,6 +33,11 @@ Goal: confidence that changes don't break pages; accessible and consistent.
 | 0008 | [Shared design tokens, base styles and site navigation](tasks/0008-shared-design-and-navigation.md) | ⬜ |
 | 0009 | [Accessibility audit and fixes](tasks/0009-accessibility-audit.md) | ⬜ |
 | 0010 | [Shareable state via URL parameters](tasks/0010-url-state.md) | ⬜ |
+| 0013 | [Landing page with contents index](tasks/0013-landing-page.md) | ⬜ |
+| 0014 | [Localization: English, French, Polish](tasks/0014-localization-en-fr-pl.md) | ⬜ |
+
+Suggested order: 0013 together with/after 0008 (shared navigation);
+0014 early in Phase 1 – the later it comes, the more strings must be retrofitted.
 
 ## Phase 2 – Better astronomy
 
@@ -51,12 +56,13 @@ Ideas, not yet specified:
 - Analemma / equation of time
 - Eclipses: why not every full moon (ties in with the 18.6-year cycle)
 - Planet visibility tonight
-- Landing page linking all explainers
-- English translation (i18n) – only if there is demand; requires extracting
-  copy from HTML into message files
+- Physics explainers (the site is physics & astronomy), e.g. pendulum and
+  Foucault pendulum, tides, orbits/Kepler's laws, why the sky is blue
 
 ## Principles
 
+- Every new explainer ships in all four languages and gets an entry on the
+  landing page (thumbnail + one-line description).
 - Every phase ends in a deployable state.
 - Refactoring (Phase 0) must not change what users see.
 - Prefer depth (explaining one phenomenon well) over breadth.

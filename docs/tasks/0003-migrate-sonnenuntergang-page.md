@@ -33,6 +33,10 @@ pointer handling for the orbit and sky.
 7. Animation stops when the tab is hidden and respects `prefers-reduced-motion`
    exactly as today.
 
+8. All identifiers and comments in the migrated code are English (translate
+   German comments such as `/* Zustand */`, `// Schiefe der Ekliptik`); UI
+   text stays as is until 0014.
+
 ## Out of scope
 Visual changes, unifying the design with the Mondbahn page (0008).
 

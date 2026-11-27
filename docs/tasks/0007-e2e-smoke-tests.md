@@ -11,7 +11,7 @@ Catch broken pages and broken interactions automatically.
 ## Requirements
 1. `@playwright/test` with Chromium; `playwright.config.ts` starts
    `vite preview` as `webServer`; `timezoneId: "Europe/Berlin"`,
-   `locale: "de-DE"`; fixed clock via `page.clock` so dates are deterministic.
+   `locale: "de-DE"` (after 0014: run the smoke spec once per locale); fixed clock via `page.clock` so dates are deterministic.
 2. Projects: desktop (1280×800) and mobile (e.g. Pixel 7 emulation).
 3. Specs per page:
    - loads without console errors or failed requests (except fonts offline)

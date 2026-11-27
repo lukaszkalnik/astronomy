@@ -33,6 +33,10 @@ Location is persisted in `localStorage["mondOrt"]`.
 6. No `any`; DOM lookups go through a typed helper that throws a clear error
    if an element is missing.
 
+7. All identifiers and comments in the migrated code are English (translate
+   German comments and names such as `Zustand`, `Mathematik`); UI text stays
+   as is until 0014.
+
 ## Out of scope
 Changing visuals, texts or the astronomy model; shared design tokens (0008).
 
