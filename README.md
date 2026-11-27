@@ -14,7 +14,7 @@ Interaktive Seite, die zeigt, wie hoch Mond und Sonne im Lauf eines Tages, eines
 
 ## Sonnenuntergang
 
-`sunset.html` zeigt, warum der Sonnenuntergang je nach Jahreszeit und Breitengrad unterschiedlich lange dauert: Erdbahn (ziehbar), drehbare Himmelskugel mit Winkellupe für den Schnittwinkel γ und ein Horizontblick, in dem zwei Sonnen gleichzeitig untergehen. Ebenfalls eine einzelne Datei ohne Build-Schritt.
+`sunset.html` zeigt, warum der Sonnenuntergang je nach Jahreszeit und Breitengrad unterschiedlich lange dauert: Erdbahn (ziehbar), drehbare Himmelskugel mit Winkellupe für den Schnittwinkel γ und ein Horizontblick, in dem zwei Sonnen gleichzeitig untergehen. `sunset.html` enthält nur das Markup; Code unter `src/pages/sunset/` (Canvas-Zeichnungen, Animation, Bedienung) und `src/lib/astro/` (`solarDeclinationDeg()`, `sunsetGeometry()`: Schnittwinkel, Höhenrate und Dauer des Untergangs, rein geometrisch ohne Refraktion).
 
 ## Development
 

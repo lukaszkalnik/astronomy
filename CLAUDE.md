@@ -19,10 +19,9 @@ The pages are static and run entirely in the browser. No backend, no tracking, n
 accounts. Computation is done client-side with simplified orbital formulas
 (~0.5° accuracy).
 
-> Current state: `index.html` (Mondbahn) is migrated to the structure below
-> (task 0002). `sunset.html` is still a single self-contained HTML
-> file with inline CSS and JS until task 0003 – keep editing it in place and
-> do not partially split it.
+> Current state: both pages are migrated to the structure below (tasks 0002,
+> 0003). The astronomy math in `src/lib/astro/` still mirrors the legacy code
+> and gets its clean public API in task 0004.
 
 ## Tech stack (target)
 
@@ -58,11 +57,12 @@ src/
       phases.ts             # findPhase, phase names
       *.test.ts             # unit tests next to the code
     format.ts               # locale-aware formatting helpers (Intl)
+    canvas.ts  color.ts     # Canvas 2D helpers (fitCanvas, setMonoFont), hex → rgba
   i18n/                     # message catalogs de.ts (source), en.ts, fr.ts, pl.ts
     dom.ts                  # tiny DOM helpers (byId, svgEl)
   pages/
     moon-path/               # main.ts, state.ts, update.ts, controls.ts, data.ts, render/*.ts, style.css
-    sunset/
+    sunset/                 # main.ts, state.ts, scene.ts, update.ts, animation.ts, controls.ts, theme.ts, render/*.ts
   styles/                   # shared tokens/base CSS
 tests/e2e/                  # Playwright specs
 tests/fixtures/             # characterisation fixtures (e.g. legacy page output)
@@ -156,9 +156,7 @@ npm audit --audit-level=high  # dependency audit (also runs in CI)
   classes, ids), file and directory names / paths, code comments, commit
   messages and docs are **English**. Pages are named in English in code and
   paths: Mondbahn → `moon-path` (`moonPath`), Sonnenuntergang → `sunset`;
-  the German names appear only as UI text. The legacy `sunset.html` still
-  contains German names/comments (e.g. `/* Zustand */`); translate them when
-  touching or migrating that code. The site has no users yet, so URLs and
+  the German names appear only as UI text. The site has no users yet, so URLs and
   storage keys can still be renamed freely (no redirects or migrations).
 - UI copy is written for lay people: calm, clear, no jargon without explanation.
   German is the source language; every user-visible string comes from the
@@ -238,8 +236,11 @@ visitor privacy. Background and review findings: task 0016.
 - `index.html` persists the chosen location in `localStorage` key
   `moonPath.location` (`{"lat":…,"lon":…}`, parsed by `parseStoredLocation` in
   `src/pages/moon-path/state.ts`).
-- Polar day/night: `geom()` in the sunset page returns `state: "night" | "midnight"`;
-  every consumer must handle those states.
+- Polar day/night: `sunsetGeometry()` (`src/lib/astro/sunsetGeometry.ts`) returns a
+  discriminated union `{ state: "ok", … } | { state: "night" } | { state: "midnight" }`;
+  every consumer must handle all three states.
+- Sunset page canvas colours come from the CSS custom properties in
+  `src/pages/sunset/style.css` (read by `theme.ts`); never hard-code a hex value in TS.
 
 ## Definition of done
 - Acceptance criteria in the task file met and ticked.
