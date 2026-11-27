@@ -90,7 +90,8 @@ review):
    - 0010 / 0012: URL parameters and location input validated with ranges and
      allow-lists; E2E or unit test with a malicious value (e.g.
      `?place=<img src=x onerror=alert(1)>`) proving it is rendered inert.
-   - 0008: font hosting according to the decision below.
+   - 0008: self-host the fonts (decision below); no request to Google.
+     Replace the CLAUDE.md line allowing Google Fonts in this task already.
    - 0009: re-check CSP and external requests during the audit.
 6. Optional, decide in task: GitHub repository settings the owner should enable
    (secret scanning + push protection, Dependabot alerts, "require actions to be
@@ -115,15 +116,14 @@ review):
 - [ ] Docs updated (README if user-facing privacy statement, CLAUDE.md, Roadmap)
 
 ## Open questions
-- **Google Fonts:** self-host the fonts (e.g. `@fontsource/*` dev dependency or
-  committed `woff2` files served from the site, no request to Google), or
-  fall back to a system font stack? Recommendation: self-host. Looks identical,
-  no third-party request, and the CLAUDE.md line "fonts via Google Fonts are
-  acceptable" gets replaced. The implementation itself belongs to 0008 (or
-  earlier in 0002/0003 if wanted).
-- Should the site get a short privacy note ("no cookies, no tracking, nothing
-  leaves your device") on the landing page (0013)?
+- Legal: does the site need an imprint (DDG §5) and a privacy policy (GDPR
+  Art. 13) because GitHub Pages logs visitor IPs? Owner to decide or get advice;
+  not blocking this task.
 
 ## Notes / log
 - 2026-11-27 – Task created; placed in Phase 0 after 0005 and before 0006
   (see Context).
+- 2026-11-27 – Owner decisions: **self-host fonts** (woff2 served from the
+  site, e.g. via `@fontsource/*` dev dependency or committed files; no request
+  to Google). Implementation in 0008, the CLAUDE.md rule changes in this task.
+  **No "no tracking" note** on the site.
