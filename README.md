@@ -6,3 +6,7 @@ Interaktive Seite, die zeigt, wie hoch Mond und Sonne im Lauf eines Tages, eines
 - `eph()` berechnet Sonnen- und Mondposition (vereinfachte Bahnformeln, Genauigkeit etwa 0,5°).
 - `findPhase()` sucht Voll- und Neumondzeitpunkte.
 - Uhrzeiten in der Zeitzone des Geräts, Orte in `PLACES`.
+
+## Sonnenuntergang
+
+`sonnenuntergang.html` zeigt, warum der Sonnenuntergang je nach Jahreszeit und Breitengrad unterschiedlich lange dauert: Erdbahn (ziehbar), drehbare Himmelskugel mit Winkellupe für den Schnittwinkel γ und ein Horizontblick, in dem zwei Sonnen gleichzeitig untergehen. Ebenfalls eine einzelne Datei ohne Build-Schritt.
