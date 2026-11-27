@@ -142,6 +142,10 @@ Changing visuals, texts or the astronomy model; shared design tokens (0008).
   files 0002/0003 (`…-moon-path-page.md`, `…-sunset-page.md`), Vite entry
   `sonnenuntergang` → `sunset`; planned paths in 0003 (`src/pages/sunset/`),
   0013 (`/moon-path/`, `/sunset/`) and 0014 (namespaces `moonPath`,
-  `sunset`). Rule made explicit in CLAUDE.md. Kept: the live URL
-  `sonnenuntergang.html` (redirect planned in 0013) and the storage key
-  `mondOrt`.
+  `sunset`). Rule made explicit in CLAUDE.md.
+- 2026-11-27 – Owner: the site has no users yet, so nothing needs to stay
+  compatible. Renamed `sonnenuntergang.html` → `sunset.html` (links, 404
+  page, Vite entry, og:url) and the storage key `mondOrt` →
+  `moonPath.location` (no migration; criterion "saved location from the old
+  version" is therefore moot – the value format `{"lat":…,"lon":…}` is
+  unchanged). 0013 no longer plans redirects.

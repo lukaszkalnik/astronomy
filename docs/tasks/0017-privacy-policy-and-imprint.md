@@ -27,7 +27,7 @@ third-party requests.
     that visitor IP addresses are logged for security purposes, and the
     site operator cannot switch that off. The policy should say exactly this:
     we collect nothing, the host does;
-  - `index.html` stores the chosen location in `localStorage` (`mondOrt`). It stays on
+  - `index.html` stores the chosen location in `localStorage` (`moonPath.location`). It stays on
     the device and is never transmitted. Under § 25 (2) Nr. 2 TDDDG it is
     strictly necessary for a function the user explicitly asks for, so no
     consent is needed. Say so in the policy;
@@ -58,7 +58,7 @@ third-party requests.
    transfer); data-subject rights (Art. 15–21) and the right to lodge a complaint
    with a supervisory authority (name the one for the owner's federal state);
    date of last change.
-4. **Self-host fonts** on `index.html` and `sonnenuntergang.html`: `woff2`
+4. **Self-host fonts** on `index.html` and `sunset.html`: `woff2`
    files for exactly the families/weights in use (Outfit 500/600, Inter
    400/500/600; Bodoni Moda 400/500/700 with `opsz`, IBM Plex Mono 400/500,
    IBM Plex Sans 300/400/500/600), latin + latin-ext subsets (Polish

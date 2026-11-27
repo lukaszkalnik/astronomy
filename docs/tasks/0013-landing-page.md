@@ -16,10 +16,8 @@ ad hoc. There is no site-level entry point, title or branding.
 ## Requirements
 1. **URLs:** the landing page becomes `index.html` (site root). Mondbahn moves to
    `moon-path/index.html` (→ `/moon-path/`), Sonnenuntergang to
-   `sunset/index.html` (→ `/sunset/`). Old URLs keep working:
-   `sonnenuntergang.html` redirects (meta refresh + `rel=canonical`) to the new
-   path. Old bookmarks of the root land on the landing page, which links
-   prominently to Mondbahn.
+   `sunset/index.html` (→ `/sunset/`). No redirects needed: the site has no
+   users yet, so old URLs (`sunset.html`) may simply go away.
 2. **Content:**
    - site title **"Everyday Astronomy Page"** + one-sentence intro (wording in
      all languages via 0014; localized site names, see 0014 req. 5)
@@ -62,7 +60,6 @@ would block it.
 ## Acceptance criteria
 - [ ] Landing page lists both explainers with thumbnail + short description
 - [ ] Cards work with keyboard, have visible focus, pass axe checks
-- [ ] Old URL `sonnenuntergang.html` still reaches the page
 - [ ] Adding a third explainer requires only a registry entry, a page and a
       thumbnail run (documented in CLAUDE.md)
 - [ ] E2E: landing page loads, each card link opens the right page

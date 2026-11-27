@@ -12,7 +12,7 @@ French, Polish (see task 0014).
 - Landing page with a contents index of all explainers (task 0013, planned).
 - `index.html` – **Mondbahn**: how high Sun and Moon stand over a day, a year and
   the 18.6-year nodal cycle.
-- `sonnenuntergang.html` – **Sonnenuntergang**: why sunsets last longer or shorter
+- `sunset.html` – **Sonnenuntergang**: why sunsets last longer or shorter
   depending on season and latitude.
 
 The pages are static and run entirely in the browser. No backend, no tracking, no
@@ -20,7 +20,7 @@ accounts. Computation is done client-side with simplified orbital formulas
 (~0.5° accuracy).
 
 > Current state: `index.html` (Mondbahn) is migrated to the structure below
-> (task 0002). `sonnenuntergang.html` is still a single self-contained HTML
+> (task 0002). `sunset.html` is still a single self-contained HTML
 > file with inline CSS and JS until task 0003 – keep editing it in place and
 > do not partially split it.
 
@@ -46,7 +46,7 @@ Dev dependencies are fine. Prefer the platform (Intl, SVG, Canvas) over librarie
 
 ```
 index.html                  # page shell only: markup, <script type="module" src>
-sonnenuntergang.html
+sunset.html
 src/
   lib/
     astro/                  # PURE astronomy math – no DOM, no Date.now(), no globals
@@ -156,11 +156,10 @@ npm audit --audit-level=high  # dependency audit (also runs in CI)
   classes, ids), file and directory names / paths, code comments, commit
   messages and docs are **English**. Pages are named in English in code and
   paths: Mondbahn → `moon-path` (`moonPath`), Sonnenuntergang → `sunset`;
-  the German names appear only as UI text. Exceptions, until migrated: live
-  URLs (`sonnenuntergang.html`, redirected in 0013) and persisted keys
-  (`mondOrt`). The legacy pages still contain German names/comments
-  (e.g. `/* Zustand */`, `mondOrt`); translate them when touching or migrating
-  that code (except persisted keys like `mondOrt`, which must stay or be migrated).
+  the German names appear only as UI text. The legacy `sunset.html` still
+  contains German names/comments (e.g. `/* Zustand */`); translate them when
+  touching or migrating that code. The site has no users yet, so URLs and
+  storage keys can still be renamed freely (no redirects or migrations).
 - UI copy is written for lay people: calm, clear, no jargon without explanation.
   German is the source language; every user-visible string comes from the
   i18n catalogs (`src/i18n/`), never hard-coded in HTML or TS once 0014 is done.
@@ -236,10 +235,9 @@ visitor privacy. Background and review findings: task 0016.
 - Moon altitude includes topocentric parallax correction; no atmospheric
   refraction yet (see roadmap). Document any change in accuracy on the page.
 - The Moon-phase icon is mirrored on the southern hemisphere (`lat < 0`).
-- `index.html` persists the chosen location in `localStorage` key `mondOrt`
-  (`{"lat":…,"lon":…}`, parsed by `parseStoredLocation` in
-  `src/pages/moon-path/state.ts`) – keep the key and format (or migrate them)
-  so users don't lose their setting.
+- `index.html` persists the chosen location in `localStorage` key
+  `moonPath.location` (`{"lat":…,"lon":…}`, parsed by `parseStoredLocation` in
+  `src/pages/moon-path/state.ts`).
 - Polar day/night: `geom()` in the sunset page returns `state: "night" | "midnight"`;
   every consumer must handle those states.
 

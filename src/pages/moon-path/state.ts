@@ -15,8 +15,8 @@ export interface MoonPathState extends Location {
 /** Cologne. */
 export const DEFAULT_LOCATION: Readonly<Location> = { latDeg: 50.94, lonDeg: 6.96 };
 
-/** localStorage key used since the first version; the value is `{"lat":…,"lon":…}`. Do not rename. */
-export const STORAGE_KEY = "mondOrt";
+/** localStorage key; the value is `{"lat":…,"lon":…}`. */
+export const STORAGE_KEY = "moonPath.location";
 
 function isNumberIn(v: unknown, min: number, max: number): v is number {
   return typeof v === "number" && Number.isFinite(v) && v >= min && v <= max;

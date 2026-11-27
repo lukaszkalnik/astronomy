@@ -4,6 +4,6 @@ playwright-report/
 test-results/
 package-lock.json
 # Legacy single-file page: not reformatted until migrated (task 0003).
-sonnenuntergang.html
+sunset.html
 # Hand-written docs keep their own layout (tables, line breaks).
 *.md

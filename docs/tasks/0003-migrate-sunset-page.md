@@ -6,18 +6,18 @@
 - **Estimate:** M
 
 ## Goal
-Same as 0002 for `sonnenuntergang.html` (~460 lines of JS, Canvas 2D,
+Same as 0002 for `sunset.html` (~460 lines of JS, Canvas 2D,
 animation loop, pointer dragging) – no visible or behavioural change.
 
 ## Context
-`sonnenuntergang.html:310–772`: constants (`EPS`, `SUNDIA`), colour table `C`,
+`sunset.html:310–772`: constants (`EPS`, `SUNDIA`), colour table `C`,
 state `S`, math (`decl`, `geom`, `sunVec`, vector helpers), canvas helpers
 (`fit`, `mono`, `camera`), renderers `drawSky` (incl. inset), `drawHorizon`,
 `drawOrbit`, `refresh()`, `loop()` with `requestAnimationFrame`, `raceMax()`,
 pointer handling for the orbit and sky.
 
 ## Requirements
-1. Page shell `sonnenuntergang.html` + `src/pages/sunset/main.ts` + `style.css`.
+1. Page shell `sunset.html` + `src/pages/sunset/main.ts` + `style.css`.
 2. Split into `state.ts`, `render/sky.ts`, `render/horizon.ts`,
    `render/orbit.ts`, `animation.ts` (loop, play/pause, reduced-motion),
    `controls.ts`.

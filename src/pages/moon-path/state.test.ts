@@ -1,9 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { DEFAULT_LOCATION, parseStoredLocation, serializeLocation } from "./state";
 
-describe("parseStoredLocation (localStorage 'mondOrt')", () => {
-  it("reads a value written by the legacy page", () => {
-    // Legacy save(): JSON.stringify({ lat: st.lat, lon: st.lon })
+describe("parseStoredLocation (localStorage 'moonPath.location')", () => {
+  it("reads a value written by saveLocation", () => {
     expect(parseStoredLocation('{"lat":71.17,"lon":25.78}')).toEqual({
       latDeg: 71.17,
       lonDeg: 25.78,
