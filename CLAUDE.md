@@ -19,9 +19,10 @@ The pages are static and run entirely in the browser. No backend, no tracking, n
 accounts. Computation is done client-side with simplified orbital formulas
 (~0.5° accuracy).
 
-> Current state: each page is a single self-contained HTML file with inline CSS
-> and JS. The roadmap (Phase 0) migrates this to the structure described below.
-> Until a page is migrated, keep editing it in place and do not partially split it.
+> Current state: `index.html` (Mondbahn) is migrated to the structure below
+> (task 0002). `sonnenuntergang.html` is still a single self-contained HTML
+> file with inline CSS and JS until task 0003 – keep editing it in place and
+> do not partially split it.
 
 ## Tech stack (target)
 
@@ -29,7 +30,7 @@ accounts. Computation is done client-side with simplified orbital formulas
 |---------------|------------------------------------------|-----|
 | Language      | **TypeScript**, `strict: true`           | The math is full of degrees/radians, ms/days, lat/lon – types catch unit mix-ups. |
 | Build / dev   | **Vite** (multi-page app, vanilla TS)    | Zero-config dev server, static output, one entry per page. |
-| UI            | **No framework.** DOM + SVG strings / Canvas 2D | Pages are small; a framework adds weight without benefit. Revisit only via a roadmap task. |
+| UI            | **No framework.** DOM + SVG via safe builders (`svgEl`) / Canvas 2D | Pages are small; a framework adds weight without benefit. Revisit only via a roadmap task. |
 | Unit tests    | **Vitest**                               | Native to Vite, fast, TS out of the box. |
 | E2E / smoke   | **Playwright**                           | Pages render, no console errors, key interactions work. |
 | Lint          | **ESLint** (flat config) + `typescript-eslint` (type-checked rules) | |
@@ -51,18 +52,21 @@ src/
     astro/                  # PURE astronomy math – no DOM, no Date.now(), no globals
       time.ts               # julian date, day start, unit constants
       angles.ts             # deg/rad, normalisation
-      sun.ts  moon.ts       # ephemerides
+      sun.ts  moon.ts       # ephemerides (today: ephemeris.ts, split in 0004)
       coords.ts             # ecliptic → equatorial → horizontal
+      position.ts           # topocentric Sun/Moon position + phase fraction
       phases.ts             # findPhase, phase names
       *.test.ts             # unit tests next to the code
     format.ts               # locale-aware formatting helpers (Intl)
   i18n/                     # message catalogs de.ts (source), en.ts, fr.ts, pl.ts
-    dom.ts                  # tiny DOM helpers ($, svg builders)
+    dom.ts                  # tiny DOM helpers (byId, svgEl)
   pages/
-    mondbahn/               # main.ts, state.ts, render/*.ts, style.css
+    mondbahn/               # main.ts, state.ts, update.ts, controls.ts, data.ts, render/*.ts, style.css
     sonnenuntergang/
   styles/                   # shared tokens/base CSS
 tests/e2e/                  # Playwright specs
+tests/fixtures/             # characterisation fixtures (e.g. legacy page output)
+scripts/                    # one-off Node scripts (fixture generators)
 docs/
   Roadmap.md
   tasks/NNNN-task-name.md
@@ -192,6 +196,12 @@ visitor privacy. Background and review findings: task 0016.
   `eslint-disable-next-line` with the reason (ESLint enforces this rule in TS).
   No `eval`, `new Function`, `javascript:` URLs or string arguments to
   `setTimeout`/`setInterval`.
+- **CSP:** every migrated page has a `<meta http-equiv="Content-Security-Policy">`
+  (see `index.html`: `'self'` only, no inline scripts or styles). So no
+  `<script>`/`<style>` blocks and no `style="…"` attributes in page HTML, and
+  no `setAttribute("style", …)`; use classes (or `el.style.x` from TS). The
+  dev server relaxes only `style-src` (Vite injects CSS as `<style>`; plugin
+  `relaxCspInDev` in `vite.config.ts`).
 - **Boundaries:** every value from outside the code (URL, `localStorage`,
   form input, geolocation) is parsed from `unknown` with validation (type,
   finiteness, range, allow-list for enums) and falls back to a default.
@@ -222,8 +232,10 @@ visitor privacy. Background and review findings: task 0016.
 - Moon altitude includes topocentric parallax correction; no atmospheric
   refraction yet (see roadmap). Document any change in accuracy on the page.
 - The Moon-phase icon is mirrored on the southern hemisphere (`lat < 0`).
-- `index.html` persists the chosen location in `localStorage` key `mondOrt` –
-  keep the key (or migrate it) so users don't lose their setting.
+- `index.html` persists the chosen location in `localStorage` key `mondOrt`
+  (`{"lat":…,"lon":…}`, parsed by `parseStoredLocation` in
+  `src/pages/mondbahn/state.ts`) – keep the key and format (or migrate them)
+  so users don't lose their setting.
 - Polar day/night: `geom()` in the sunset page returns `state: "night" | "midnight"`;
   every consumer must handle those states.
 

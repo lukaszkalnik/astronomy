@@ -1,0 +1,2538 @@
+{
+  "source": "index.html @ 640ff7f",
+  "pos": [
+    {
+      "tMs": 1795806000000,
+      "place": "cologne",
+      "latDeg": 50.94,
+      "lonDeg": 6.96,
+      "sun": {
+        "altDeg": -31.980399,
+        "azDeg": 275.281822,
+        "decDeg": -21.225952
+      },
+      "moon": {
+        "altDeg": 4.644803,
+        "azDeg": 56.876613,
+        "decDeg": 24.778086
+      },
+      "k": 0.856808,
+      "waxing": false
+    },
+    {
+      "tMs": 1795806000000,
+      "place": "northCape",
+      "latDeg": 71.17,
+      "lonDeg": 25.78,
+      "sun": {
+        "altDeg": -33.442218,
+        "azDeg": 306.329088,
+        "decDeg": -21.225952
+      },
+      "moon": {
+        "altDeg": 20.988915,
+        "azDeg": 77.327945,
+        "decDeg": 24.778086
+      },
+      "k": 0.856808,
+      "waxing": false
+    },
+    {
+      "tMs": 1795806000000,
+      "place": "quito",
+      "latDeg": -0.18,
+      "lonDeg": -78.47,
+      "sun": {
+        "altDeg": 54.257824,
+        "azDeg": 232.01656,
+        "decDeg": -21.225952
+      },
+      "moon": {
+        "altDeg": -59.919483,
+        "azDeg": 324.899476,
+        "decDeg": 24.778086
+      },
+      "k": 0.856808,
+      "waxing": false
+    },
+    {
+      "tMs": 1795806000000,
+      "place": "sydney",
+      "latDeg": -33.87,
+      "lonDeg": 151.21,
+      "sun": {
+        "altDeg": 3.312715,
+        "azDeg": 113.448194,
+        "decDeg": -21.225952
+      },
+      "moon": {
+        "altDeg": 23.502479,
+        "azDeg": 329.221337,
+        "decDeg": 24.778086
+      },
+      "k": 0.856808,
+      "waxing": false
+    },
+    {
+      "tMs": 1798083000000,
+      "place": "cologne",
+      "latDeg": 50.94,
+      "lonDeg": 6.96,
+      "sun": {
+        "altDeg": -36.94853,
+        "azDeg": 82.084581,
+        "decDeg": -23.415388
+      },
+      "moon": {
+        "altDeg": 39.782078,
+        "azDeg": 264.346648,
+        "decDeg": 27.241803
+      },
+      "k": 0.99877,
+      "waxing": false
+    },
+    {
+      "tMs": 1798083000000,
+      "place": "northCape",
+      "latDeg": 71.17,
+      "lonDeg": 25.78,
+      "sun": {
+        "altDeg": -25.819126,
+        "azDeg": 87.074636,
+        "decDeg": -23.415388
+      },
+      "moon": {
+        "altDeg": 28.943862,
+        "azDeg": 267.32027,
+        "decDeg": 27.241803
+      },
+      "k": 0.99877,
+      "waxing": false
+    },
+    {
+      "tMs": 1798083000000,
+      "place": "quito",
+      "latDeg": -0.18,
+      "lonDeg": -78.47,
+      "sun": {
+        "altDeg": -55.566277,
+        "azDeg": 224.978198,
+        "decDeg": -23.415388
+      },
+      "moon": {
+        "altDeg": 51.506673,
+        "azDeg": 41.426697,
+        "decDeg": 27.241803
+      },
+      "k": 0.99877,
+      "waxing": false
+    },
+    {
+      "tMs": 1798083000000,
+      "place": "sydney",
+      "latDeg": -33.87,
+      "lonDeg": 151.21,
+      "sun": {
+        "altDeg": 66.676528,
+        "azDeg": 290.360407,
+        "decDeg": -23.415388
+      },
+      "moon": {
+        "altDeg": -69.931652,
+        "azDeg": 102.865892,
+        "decDeg": 27.241803
+      },
+      "k": 0.99877,
+      "waxing": false
+    },
+    {
+      "tMs": 1782036000000,
+      "place": "cologne",
+      "latDeg": 50.94,
+      "lonDeg": 6.96,
+      "sun": {
+        "altDeg": 57.038309,
+        "azDeg": 137.749812,
+        "decDeg": 23.435837
+      },
+      "moon": {
+        "altDeg": -11.261385,
+        "azDeg": 76.110041,
+        "decDeg": 0.550059
+      },
+      "k": 0.448087,
+      "waxing": true
+    },
+    {
+      "tMs": 1782036000000,
+      "place": "northCape",
+      "latDeg": 71.17,
+      "lonDeg": 25.78,
+      "sun": {
+        "altDeg": 42.189514,
+        "azDeg": 174.204016,
+        "decDeg": 23.435837
+      },
+      "moon": {
+        "altDeg": 0.082475,
+        "azDeg": 91.318112,
+        "decDeg": 0.550059
+      },
+      "k": 0.448087,
+      "waxing": true
+    },
+    {
+      "tMs": 1782036000000,
+      "place": "quito",
+      "latDeg": -0.18,
+      "lonDeg": -78.47,
+      "sun": {
+        "altDeg": -17.389406,
+        "azDeg": 65.431034,
+        "decDeg": 23.435837
+      },
+      "moon": {
+        "altDeg": -77.533091,
+        "azDeg": 271.706747,
+        "decDeg": 0.550059
+      },
+      "k": 0.448087,
+      "waxing": true
+    },
+    {
+      "tMs": 1782036000000,
+      "place": "sydney",
+      "latDeg": -33.87,
+      "lonDeg": 151.21,
+      "sun": {
+        "altDeg": -37.675464,
+        "azDeg": 274.984584,
+        "decDeg": 23.435837
+      },
+      "moon": {
+        "altDeg": 40.405857,
+        "azDeg": 306.963148,
+        "decDeg": 0.550059
+      },
+      "k": 0.448087,
+      "waxing": true
+    },
+    {
+      "tMs": 1741935480000,
+      "place": "cologne",
+      "latDeg": 50.94,
+      "lonDeg": 6.96,
+      "sun": {
+        "altDeg": 10.028117,
+        "azDeg": 106.58328,
+        "decDeg": -2.400672
+      },
+      "moon": {
+        "altDeg": -10.605652,
+        "azDeg": 286.658993,
+        "decDeg": 2.700245
+      },
+      "k": 0.999992,
+      "waxing": false
+    },
+    {
+      "tMs": 1741935480000,
+      "place": "northCape",
+      "latDeg": 71.17,
+      "lonDeg": 25.78,
+      "sun": {
+        "altDeg": 9.138006,
+        "azDeg": 127.095374,
+        "decDeg": -2.400672
+      },
+      "moon": {
+        "altDeg": -9.713366,
+        "azDeg": 307.042831,
+        "decDeg": 2.700245
+      },
+      "k": 0.999992,
+      "waxing": false
+    },
+    {
+      "tMs": 1741935480000,
+      "place": "quito",
+      "latDeg": -0.18,
+      "lonDeg": -78.47,
+      "sun": {
+        "altDeg": -66.134341,
+        "azDeg": 96.351688,
+        "decDeg": -2.400672
+      },
+      "moon": {
+        "altDeg": 65.867898,
+        "azDeg": 277.125176,
+        "decDeg": 2.700245
+      },
+      "k": 0.999992,
+      "waxing": false
+    },
+    {
+      "tMs": 1741935480000,
+      "place": "sydney",
+      "latDeg": -33.87,
+      "lonDeg": 151.21,
+      "sun": {
+        "altDeg": 15.080404,
+        "azDeg": 277.389461,
+        "decDeg": -2.400672
+      },
+      "moon": {
+        "altDeg": -16.237644,
+        "azDeg": 97.211914,
+        "decDeg": 2.700245
+      },
+      "k": 0.999992,
+      "waxing": false
+    },
+    {
+      "tMs": 946728000000,
+      "place": "cologne",
+      "latDeg": 50.94,
+      "lonDeg": 6.96,
+      "sun": {
+        "altDeg": 15.82926,
+        "azDeg": 185.861271,
+        "decDeg": -23.033273
+      },
+      "moon": {
+        "altDeg": 5.71769,
+        "azDeg": 243.574101,
+        "decDeg": -10.897028
+      },
+      "k": 0.229036,
+      "waxing": false
+    },
+    {
+      "tMs": 946728000000,
+      "place": "northCape",
+      "latDeg": 71.17,
+      "lonDeg": 25.78,
+      "sun": {
+        "altDeg": -5.79744,
+        "azDeg": 202.965203,
+        "decDeg": -23.033273
+      },
+      "moon": {
+        "altDeg": -9.206535,
+        "azDeg": 260.576188,
+        "decDeg": -10.897028
+      },
+      "k": 0.229036,
+      "waxing": false
+    },
+    {
+      "tMs": 946728000000,
+      "place": "quito",
+      "latDeg": -0.18,
+      "lonDeg": -78.47,
+      "sun": {
+        "altDeg": 9.908169,
+        "azDeg": 113.368482,
+        "decDeg": -23.033273
+      },
+      "moon": {
+        "altDeg": 66.635195,
+        "azDeg": 118.439845,
+        "decDeg": -10.897028
+      },
+      "k": 0.229036,
+      "waxing": false
+    },
+    {
+      "tMs": 946728000000,
+      "place": "sydney",
+      "latDeg": -33.87,
+      "lonDeg": 151.21,
+      "sun": {
+        "altDeg": -26.499637,
+        "azDeg": 210.548235,
+        "decDeg": -23.033273
+      },
+      "moon": {
+        "altDeg": -38.054066,
+        "azDeg": 142.963512,
+        "decDeg": -10.897028
+      },
+      "k": 0.229036,
+      "waxing": false
+    },
+    {
+      "tMs": 2040761700000,
+      "place": "cologne",
+      "latDeg": 50.94,
+      "lonDeg": 6.96,
+      "sun": {
+        "altDeg": -28.766056,
+        "azDeg": 338.121478,
+        "decDeg": 7.985027
+      },
+      "moon": {
+        "altDeg": 22.892911,
+        "azDeg": 110.675121,
+        "decDeg": 6.304604
+      },
+      "k": 0.868307,
+      "waxing": false
+    },
+    {
+      "tMs": 2040761700000,
+      "place": "northCape",
+      "latDeg": 71.17,
+      "lonDeg": 25.78,
+      "sun": {
+        "altDeg": -10.844424,
+        "azDeg": 359.556596,
+        "decDeg": 7.985027
+      },
+      "moon": {
+        "altDeg": 19.39614,
+        "azDeg": 136.346991,
+        "decDeg": 6.304604
+      },
+      "k": 0.868307,
+      "waxing": false
+    },
+    {
+      "tMs": 2040761700000,
+      "place": "quito",
+      "latDeg": -0.18,
+      "lonDeg": -78.47,
+      "sun": {
+        "altDeg": 14.518262,
+        "azDeg": 278.297366,
+        "decDeg": 7.985027
+      },
+      "moon": {
+        "altDeg": -55.006664,
+        "azDeg": 79.374749,
+        "decDeg": 6.304604
+      },
+      "k": 0.868307,
+      "waxing": false
+    },
+    {
+      "tMs": 2040761700000,
+      "place": "sydney",
+      "latDeg": -33.87,
+      "lonDeg": 151.21,
+      "sun": {
+        "altDeg": 23.209385,
+        "azDeg": 61.975466,
+        "decDeg": 7.985027
+      },
+      "moon": {
+        "altDeg": -0.210348,
+        "azDeg": 278.131459,
+        "decDeg": 6.304604
+      },
+      "k": 0.868307,
+      "waxing": false
+    }
+  ],
+  "findPhase": [
+    {
+      "tMs": 1795806000000,
+      "targetDeg": 180,
+      "dir": 1,
+      "resultMs": 1798076076793
+    },
+    {
+      "tMs": 1795806000000,
+      "targetDeg": 180,
+      "dir": -1,
+      "resultMs": 1795532549312
+    },
+    {
+      "tMs": 1795806000000,
+      "targetDeg": 0,
+      "dir": 1,
+      "resultMs": 1796777454680
+    },
+    {
+      "tMs": 1795806000000,
+      "targetDeg": 90,
+      "dir": 1,
+      "resultMs": 1797486485798
+    },
+    {
+      "tMs": 1795806000000,
+      "targetDeg": 270,
+      "dir": -1,
+      "resultMs": 1793564854012
+    },
+    {
+      "tMs": 1798083000000,
+      "targetDeg": 180,
+      "dir": 1,
+      "resultMs": 1800620310240
+    },
+    {
+      "tMs": 1798083000000,
+      "targetDeg": 180,
+      "dir": -1,
+      "resultMs": 1798076076793
+    },
+    {
+      "tMs": 1798083000000,
+      "targetDeg": 0,
+      "dir": 1,
+      "resultMs": 1799353411168
+    },
+    {
+      "tMs": 1798083000000,
+      "targetDeg": 90,
+      "dir": 1,
+      "resultMs": 1800045796114
+    },
+    {
+      "tMs": 1798083000000,
+      "targetDeg": 270,
+      "dir": -1,
+      "resultMs": 1796105181708
+    },
+    {
+      "tMs": 1782036000000,
+      "targetDeg": 180,
+      "dir": 1,
+      "resultMs": 1782777481973
+    },
+    {
+      "tMs": 1782036000000,
+      "targetDeg": 180,
+      "dir": -1,
+      "resultMs": 1780217164733
+    },
+    {
+      "tMs": 1782036000000,
+      "targetDeg": 0,
+      "dir": 1,
+      "resultMs": 1784022342852
+    },
+    {
+      "tMs": 1782036000000,
+      "targetDeg": 90,
+      "dir": 1,
+      "resultMs": 1782079165630
+    },
+    {
+      "tMs": 1782036000000,
+      "targetDeg": 270,
+      "dir": -1,
+      "resultMs": 1780913020778
+    },
+    {
+      "tMs": 1741935480000,
+      "targetDeg": 180,
+      "dir": 1,
+      "resultMs": 1744504007180
+    },
+    {
+      "tMs": 1741935480000,
+      "targetDeg": 180,
+      "dir": -1,
+      "resultMs": 1739368484921
+    },
+    {
+      "tMs": 1741935480000,
+      "targetDeg": 0,
+      "dir": 1,
+      "resultMs": 1743245915602
+    },
+    {
+      "tMs": 1741935480000,
+      "targetDeg": 90,
+      "dir": 1,
+      "resultMs": 1743819167612
+    },
+    {
+      "tMs": 1741935480000,
+      "targetDeg": 270,
+      "dir": -1,
+      "resultMs": 1740073016758
+    },
+    {
+      "tMs": 946728000000,
+      "targetDeg": 180,
+      "dir": 1,
+      "resultMs": 948429657533
+    },
+    {
+      "tMs": 946728000000,
+      "targetDeg": 180,
+      "dir": -1,
+      "resultMs": 945884195817
+    },
+    {
+      "tMs": 946728000000,
+      "targetDeg": 0,
+      "dir": 1,
+      "resultMs": 947182417958
+    },
+    {
+      "tMs": 946728000000,
+      "targetDeg": 90,
+      "dir": 1,
+      "resultMs": 947857417745
+    },
+    {
+      "tMs": 946728000000,
+      "targetDeg": 270,
+      "dir": -1,
+      "resultMs": 946476158577
+    },
+    {
+      "tMs": 2040761700000,
+      "targetDeg": 180,
+      "dir": 1,
+      "resultMs": 2043025268530
+    },
+    {
+      "tMs": 2040761700000,
+      "targetDeg": 180,
+      "dir": -1,
+      "resultMs": 2040483183121
+    },
+    {
+      "tMs": 2040761700000,
+      "targetDeg": 0,
+      "dir": 1,
+      "resultMs": 2041690553126
+    },
+    {
+      "tMs": 2040761700000,
+      "targetDeg": 90,
+      "dir": 1,
+      "resultMs": 2042390557489
+    },
+    {
+      "tMs": 2040761700000,
+      "targetDeg": 270,
+      "dir": -1,
+      "resultMs": 2038546267960
+    }
+  ],
+  "yearData": [
+    {
+      "tMs": 1795806000000,
+      "place": "cologne",
+      "latDeg": 50.94,
+      "lonDeg": 6.96,
+      "year": 2026,
+      "yearStartMs": 1767222000000,
+      "dayCount": 365,
+      "days": [
+        {
+          "i": 0,
+          "moonMaxAltDeg": 66.75585,
+          "k": 0.96506,
+          "sunNoonAltDeg": 16.082954
+        },
+        {
+          "i": 5,
+          "moonMaxAltDeg": 54.393647,
+          "k": 0.906048,
+          "sunNoonAltDeg": 16.599054
+        },
+        {
+          "i": 10,
+          "moonMaxAltDeg": 24.147304,
+          "k": 0.445461,
+          "sunNoonAltDeg": 17.299596
+        },
+        {
+          "i": 15,
+          "moonMaxAltDeg": 9.814946,
+          "k": 0.057798,
+          "sunNoonAltDeg": 18.176154
+        },
+        {
+          "i": 20,
+          "moonMaxAltDeg": 27.672676,
+          "k": 0.077772,
+          "sunNoonAltDeg": 19.218471
+        },
+        {
+          "i": 25,
+          "moonMaxAltDeg": 58.978251,
+          "k": 0.562046,
+          "sunNoonAltDeg": 20.414806
+        },
+        {
+          "i": 30,
+          "moonMaxAltDeg": 62.684315,
+          "k": 0.947318,
+          "sunNoonAltDeg": 21.752284
+        },
+        {
+          "i": 35,
+          "moonMaxAltDeg": 38.472312,
+          "k": 0.884921,
+          "sunNoonAltDeg": 23.217233
+        },
+        {
+          "i": 40,
+          "moonMaxAltDeg": 13.094204,
+          "k": 0.43226,
+          "sunNoonAltDeg": 24.795485
+        },
+        {
+          "i": 45,
+          "moonMaxAltDeg": 15.335559,
+          "k": 0.046723,
+          "sunNoonAltDeg": 26.472627
+        },
+        {
+          "i": 50,
+          "moonMaxAltDeg": 45.081595,
+          "k": 0.109783,
+          "sunNoonAltDeg": 28.234203
+        },
+        {
+          "i": 55,
+          "moonMaxAltDeg": 66.976699,
+          "k": 0.641159,
+          "sunNoonAltDeg": 30.065872
+        },
+        {
+          "i": 60,
+          "moonMaxAltDeg": 53.595797,
+          "k": 0.972306,
+          "sunNoonAltDeg": 31.953507
+        },
+        {
+          "i": 65,
+          "moonMaxAltDeg": 23.262819,
+          "k": 0.868115,
+          "sunNoonAltDeg": 33.883264
+        },
+        {
+          "i": 70,
+          "moonMaxAltDeg": 9.793068,
+          "k": 0.417665,
+          "sunNoonAltDeg": 35.841611
+        },
+        {
+          "i": 75,
+          "moonMaxAltDeg": 28.77426,
+          "k": 0.031978,
+          "sunNoonAltDeg": 37.815331
+        },
+        {
+          "i": 80,
+          "moonMaxAltDeg": 60.866541,
+          "k": 0.162011,
+          "sunNoonAltDeg": 39.791511
+        },
+        {
+          "i": 85,
+          "moonMaxAltDeg": 61.019872,
+          "k": 0.717612,
+          "sunNoonAltDeg": 41.757514
+        },
+        {
+          "i": 90,
+          "moonMaxAltDeg": 37.642926,
+          "k": 0.985805,
+          "sunNoonAltDeg": 43.684872
+        },
+        {
+          "i": 95,
+          "moonMaxAltDeg": 12.672483,
+          "k": 0.851098,
+          "sunNoonAltDeg": 45.59387
+        },
+        {
+          "i": 100,
+          "moonMaxAltDeg": 15.870486,
+          "k": 0.396201,
+          "sunNoonAltDeg": 47.456181
+        },
+        {
+          "i": 105,
+          "moonMaxAltDeg": 45.797492,
+          "k": 0.016248,
+          "sunNoonAltDeg": 49.259941
+        },
+        {
+          "i": 110,
+          "moonMaxAltDeg": 66.871768,
+          "k": 0.232413,
+          "sunNoonAltDeg": 50.993428
+        },
+        {
+          "i": 115,
+          "moonMaxAltDeg": 45.895962,
+          "k": 0.776901,
+          "sunNoonAltDeg": 52.645079
+        },
+        {
+          "i": 120,
+          "moonMaxAltDeg": 22.152417,
+          "k": 0.992785,
+          "sunNoonAltDeg": 54.203521
+        },
+        {
+          "i": 125,
+          "moonMaxAltDeg": 10.302664,
+          "k": 0.831655,
+          "sunNoonAltDeg": 55.657627
+        },
+        {
+          "i": 130,
+          "moonMaxAltDeg": 29.402467,
+          "k": 0.357701,
+          "sunNoonAltDeg": 56.996608
+        },
+        {
+          "i": 135,
+          "moonMaxAltDeg": 61.051848,
+          "k": 0.003987,
+          "sunNoonAltDeg": 58.210129
+        },
+        {
+          "i": 140,
+          "moonMaxAltDeg": 58.904817,
+          "k": 0.30804,
+          "sunNoonAltDeg": 59.28845
+        },
+        {
+          "i": 145,
+          "moonMaxAltDeg": 29.242814,
+          "k": 0.818552,
+          "sunNoonAltDeg": 60.222594
+        },
+        {
+          "i": 150,
+          "moonMaxAltDeg": 12.094799,
+          "k": 0.996582,
+          "sunNoonAltDeg": 61.004529
+        },
+        {
+          "i": 155,
+          "moonMaxAltDeg": 17.449565,
+          "k": 0.804938,
+          "sunNoonAltDeg": 61.62736
+        },
+        {
+          "i": 160,
+          "moonMaxAltDeg": 46.356602,
+          "k": 0.302951,
+          "sunNoonAltDeg": 62.085502
+        },
+        {
+          "i": 165,
+          "moonMaxAltDeg": 66.575636,
+          "k": 0.00374,
+          "sunNoonAltDeg": 62.374848
+        },
+        {
+          "i": 170,
+          "moonMaxAltDeg": 43.375663,
+          "k": 0.371955,
+          "sunNoonAltDeg": 62.492889
+        },
+        {
+          "i": 175,
+          "moonMaxAltDeg": 15.963839,
+          "k": 0.848697,
+          "sunNoonAltDeg": 62.438792
+        },
+        {
+          "i": 180,
+          "moonMaxAltDeg": 10.902051,
+          "k": 0.99873,
+          "sunNoonAltDeg": 62.21343
+        },
+        {
+          "i": 185,
+          "moonMaxAltDeg": 31.649845,
+          "k": 0.766495,
+          "sunNoonAltDeg": 61.81934
+        },
+        {
+          "i": 190,
+          "moonMaxAltDeg": 61.414738,
+          "k": 0.231373,
+          "sunNoonAltDeg": 61.260644
+        },
+        {
+          "i": 195,
+          "moonMaxAltDeg": 58.380425,
+          "k": 0.018431,
+          "sunNoonAltDeg": 60.542914
+        },
+        {
+          "i": 200,
+          "moonMaxAltDeg": 27.096013,
+          "k": 0.422224,
+          "sunNoonAltDeg": 59.673
+        },
+        {
+          "i": 205,
+          "moonMaxAltDeg": 10.107393,
+          "k": 0.873378,
+          "sunNoonAltDeg": 58.658846
+        },
+        {
+          "i": 210,
+          "moonMaxAltDeg": 19.222957,
+          "k": 0.998314,
+          "sunNoonAltDeg": 57.509294
+        },
+        {
+          "i": 215,
+          "moonMaxAltDeg": 48.612603,
+          "k": 0.709439,
+          "sunNoonAltDeg": 56.233892
+        },
+        {
+          "i": 220,
+          "moonMaxAltDeg": 66.616836,
+          "k": 0.156074,
+          "sunNoonAltDeg": 54.842725
+        },
+        {
+          "i": 225,
+          "moonMaxAltDeg": 42.699506,
+          "k": 0.042746,
+          "sunNoonAltDeg": 53.346263
+        },
+        {
+          "i": 230,
+          "moonMaxAltDeg": 14.786658,
+          "k": 0.460454,
+          "sunNoonAltDeg": 51.755244
+        },
+        {
+          "i": 235,
+          "moonMaxAltDeg": 13.783317,
+          "k": 0.894563,
+          "sunNoonAltDeg": 50.080583
+        },
+        {
+          "i": 240,
+          "moonMaxAltDeg": 33.833942,
+          "k": 0.992619,
+          "sunNoonAltDeg": 48.333308
+        },
+        {
+          "i": 245,
+          "moonMaxAltDeg": 62.764657,
+          "k": 0.631162,
+          "sunNoonAltDeg": 46.524532
+        },
+        {
+          "i": 250,
+          "moonMaxAltDeg": 58.055345,
+          "k": 0.096585,
+          "sunNoonAltDeg": 44.665439
+        },
+        {
+          "i": 255,
+          "moonMaxAltDeg": 26.439416,
+          "k": 0.066846,
+          "sunNoonAltDeg": 42.767297
+        },
+        {
+          "i": 260,
+          "moonMaxAltDeg": 10.031496,
+          "k": 0.487182,
+          "sunNoonAltDeg": 40.841485
+        },
+        {
+          "i": 265,
+          "moonMaxAltDeg": 25.38117,
+          "k": 0.91458,
+          "sunNoonAltDeg": 38.899528
+        },
+        {
+          "i": 270,
+          "moonMaxAltDeg": 50.619069,
+          "k": 0.977438,
+          "sunNoonAltDeg": 36.953146
+        },
+        {
+          "i": 275,
+          "moonMaxAltDeg": 66.107838,
+          "k": 0.54032,
+          "sunNoonAltDeg": 35.014301
+        },
+        {
+          "i": 280,
+          "moonMaxAltDeg": 41.876719,
+          "k": 0.058005,
+          "sunNoonAltDeg": 33.095237
+        },
+        {
+          "i": 285,
+          "moonMaxAltDeg": 14.451594,
+          "k": 0.08663,
+          "sunNoonAltDeg": 31.208525
+        },
+        {
+          "i": 290,
+          "moonMaxAltDeg": 14.543366,
+          "k": 0.505137,
+          "sunNoonAltDeg": 29.367082
+        },
+        {
+          "i": 295,
+          "moonMaxAltDeg": 41.175622,
+          "k": 0.934236,
+          "sunNoonAltDeg": 27.584174
+        },
+        {
+          "i": 300,
+          "moonMaxAltDeg": 63.633471,
+          "k": 0.950359,
+          "sunNoonAltDeg": 25.859479
+        },
+        {
+          "i": 305,
+          "moonMaxAltDeg": 55.853315,
+          "k": 0.455501,
+          "sunNoonAltDeg": 24.235463
+        },
+        {
+          "i": 310,
+          "moonMaxAltDeg": 25.340404,
+          "k": 0.037563,
+          "sunNoonAltDeg": 22.71158
+        },
+        {
+          "i": 315,
+          "moonMaxAltDeg": 10.457725,
+          "k": 0.099804,
+          "sunNoonAltDeg": 21.301877
+        },
+        {
+          "i": 320,
+          "moonMaxAltDeg": 26.36303,
+          "k": 0.525188,
+          "sunNoonAltDeg": 20.020218
+        },
+        {
+          "i": 325,
+          "moonMaxAltDeg": 56.763283,
+          "k": 0.9558,
+          "sunNoonAltDeg": 18.880032
+        },
+        {
+          "i": 330,
+          "moonMaxAltDeg": 65.238701,
+          "k": 0.910965,
+          "sunNoonAltDeg": 17.89401
+        },
+        {
+          "i": 335,
+          "moonMaxAltDeg": 39.019384,
+          "k": 0.393788,
+          "sunNoonAltDeg": 17.073767
+        },
+        {
+          "i": 340,
+          "moonMaxAltDeg": 13.708412,
+          "k": 0.026026,
+          "sunNoonAltDeg": 16.429487
+        },
+        {
+          "i": 345,
+          "moonMaxAltDeg": 15.857979,
+          "k": 0.10974,
+          "sunNoonAltDeg": 15.969566
+        },
+        {
+          "i": 350,
+          "moonMaxAltDeg": 41.986177,
+          "k": 0.552052,
+          "sunNoonAltDeg": 15.700292
+        },
+        {
+          "i": 355,
+          "moonMaxAltDeg": 65.845022,
+          "k": 0.978873,
+          "sunNoonAltDeg": 15.62559
+        },
+        {
+          "i": 360,
+          "moonMaxAltDeg": 54.197695,
+          "k": 0.867249,
+          "sunNoonAltDeg": 15.746843
+        },
+        {
+          "i": 364,
+          "moonMaxAltDeg": 28.533357,
+          "k": 0.454313,
+          "sunNoonAltDeg": 15.984204
+        }
+      ],
+      "fullMoons": [
+        {
+          "dayOffset": 2.460585,
+          "maxAltDeg": 66.500637,
+          "tMs": 1767434594560
+        },
+        {
+          "dayOffset": 31.965725,
+          "maxAltDeg": 57.204235,
+          "tMs": 1769983838671
+        },
+        {
+          "dayOffset": 61.528677,
+          "maxAltDeg": 47.667947,
+          "tMs": 1772538077701
+        },
+        {
+          "dayOffset": 91.135745,
+          "maxAltDeg": 31.431284,
+          "tMs": 1775096128398
+        },
+        {
+          "dayOffset": 120.767392,
+          "maxAltDeg": 17.564601,
+          "tMs": 1777656302680
+        },
+        {
+          "dayOffset": 150.406999,
+          "maxAltDeg": 12.061738,
+          "tMs": 1780217164733
+        },
+        {
+          "dayOffset": 180.040301,
+          "maxAltDeg": 10.891912,
+          "tMs": 1782777481973
+        },
+        {
+          "dayOffset": 209.651093,
+          "maxAltDeg": 19.219831,
+          "tMs": 1785335854455
+        },
+        {
+          "dayOffset": 239.222551,
+          "maxAltDeg": 27.77418,
+          "tMs": 1787890828419
+        },
+        {
+          "dayOffset": 268.744807,
+          "maxAltDeg": 44.134357,
+          "tMs": 1790441551324
+        },
+        {
+          "dayOffset": 298.221351,
+          "maxAltDeg": 53.86325,
+          "tMs": 1792988324745
+        },
+        {
+          "dayOffset": 327.668395,
+          "maxAltDeg": 65.046336,
+          "tMs": 1795532549312
+        },
+        {
+          "dayOffset": 357.10737,
+          "maxAltDeg": 66.028857,
+          "tMs": 1798076076793
+        }
+      ]
+    },
+    {
+      "tMs": 1718964000000,
+      "place": "northCape",
+      "latDeg": 71.17,
+      "lonDeg": 25.78,
+      "year": 2024,
+      "yearStartMs": 1704063600000,
+      "dayCount": 366,
+      "days": [
+        {
+          "i": 0,
+          "moonMaxAltDeg": 30.21478,
+          "k": 0.77283,
+          "sunNoonAltDeg": -4.189669
+        },
+        {
+          "i": 5,
+          "moonMaxAltDeg": 2.026452,
+          "k": 0.301816,
+          "sunNoonAltDeg": -3.692935
+        },
+        {
+          "i": 10,
+          "moonMaxAltDeg": -9.088989,
+          "k": 0.001965,
+          "sunNoonAltDeg": -3.011007
+        },
+        {
+          "i": 15,
+          "moonMaxAltDeg": 19.212745,
+          "k": 0.329785,
+          "sunNoonAltDeg": -2.152106
+        },
+        {
+          "i": 20,
+          "moonMaxAltDeg": 44.963061,
+          "k": 0.849161,
+          "sunNoonAltDeg": -1.126316
+        },
+        {
+          "i": 25,
+          "moonMaxAltDeg": 40.982816,
+          "k": 0.997854,
+          "sunNoonAltDeg": 0.054755
+        },
+        {
+          "i": 30,
+          "moonMaxAltDeg": 15.176855,
+          "k": 0.763862,
+          "sunNoonAltDeg": 1.378335
+        },
+        {
+          "i": 35,
+          "moonMaxAltDeg": -8.561883,
+          "k": 0.274202,
+          "sunNoonAltDeg": 2.830818
+        },
+        {
+          "i": 40,
+          "moonMaxAltDeg": 2.127904,
+          "k": 0.005205,
+          "sunNoonAltDeg": 4.398074
+        },
+        {
+          "i": 45,
+          "moonMaxAltDeg": 36.387429,
+          "k": 0.393976,
+          "sunNoonAltDeg": 6.065703
+        },
+        {
+          "i": 50,
+          "moonMaxAltDeg": 45.015192,
+          "k": 0.877652,
+          "sunNoonAltDeg": 7.819249
+        },
+        {
+          "i": 55,
+          "moonMaxAltDeg": 28.426577,
+          "k": 0.997588,
+          "sunNoonAltDeg": 9.644352
+        },
+        {
+          "i": 60,
+          "moonMaxAltDeg": 0.483091,
+          "k": 0.746097,
+          "sunNoonAltDeg": 11.52686
+        },
+        {
+          "i": 65,
+          "moonMaxAltDeg": -9.348507,
+          "k": 0.227127,
+          "sunNoonAltDeg": 13.452898
+        },
+        {
+          "i": 70,
+          "moonMaxAltDeg": 19.94481,
+          "k": 0.018558,
+          "sunNoonAltDeg": 15.408902
+        },
+        {
+          "i": 75,
+          "moonMaxAltDeg": 46.012876,
+          "k": 0.447311,
+          "sunNoonAltDeg": 17.381625
+        },
+        {
+          "i": 80,
+          "moonMaxAltDeg": 35.436374,
+          "k": 0.895781,
+          "sunNoonAltDeg": 19.358124
+        },
+        {
+          "i": 85,
+          "moonMaxAltDeg": 12.982184,
+          "k": 0.996,
+          "sunNoonAltDeg": 21.325734
+        },
+        {
+          "i": 90,
+          "moonMaxAltDeg": -9.387172,
+          "k": 0.708928,
+          "sunNoonAltDeg": 23.272037
+        },
+        {
+          "i": 95,
+          "moonMaxAltDeg": 1.867349,
+          "k": 0.168238,
+          "sunNoonAltDeg": 25.169052
+        },
+        {
+          "i": 100,
+          "moonMaxAltDeg": 36.873485,
+          "k": 0.043541,
+          "sunNoonAltDeg": 27.036712
+        },
+        {
+          "i": 105,
+          "moonMaxAltDeg": 44.447167,
+          "k": 0.488736,
+          "sunNoonAltDeg": 28.847038
+        },
+        {
+          "i": 110,
+          "moonMaxAltDeg": 22.160403,
+          "k": 0.855289,
+          "sunNoonAltDeg": 30.588297
+        },
+        {
+          "i": 115,
+          "moonMaxAltDeg": -1.333329,
+          "k": 0.990843,
+          "sunNoonAltDeg": 32.248908
+        },
+        {
+          "i": 120,
+          "moonMaxAltDeg": -8.685614,
+          "k": 0.646216,
+          "sunNoonAltDeg": 33.817476
+        },
+        {
+          "i": 125,
+          "moonMaxAltDeg": 19.912656,
+          "k": 0.108362,
+          "sunNoonAltDeg": 35.282847
+        },
+        {
+          "i": 130,
+          "moonMaxAltDeg": 46.075605,
+          "k": 0.07432,
+          "sunNoonAltDeg": 36.634193
+        },
+        {
+          "i": 135,
+          "moonMaxAltDeg": 33.979693,
+          "k": 0.518766,
+          "sunNoonAltDeg": 37.861124
+        },
+        {
+          "i": 140,
+          "moonMaxAltDeg": 6.901106,
+          "k": 0.872928,
+          "sunNoonAltDeg": 38.953833
+        },
+        {
+          "i": 145,
+          "moonMaxAltDeg": -9.913543,
+          "k": 0.977062,
+          "sunNoonAltDeg": 39.903255
+        },
+        {
+          "i": 150,
+          "moonMaxAltDeg": 3.879208,
+          "k": 0.560942,
+          "sunNoonAltDeg": 40.701253
+        },
+        {
+          "i": 155,
+          "moonMaxAltDeg": 37.135509,
+          "k": 0.060848,
+          "sunNoonAltDeg": 41.340803
+        },
+        {
+          "i": 160,
+          "moonMaxAltDeg": 43.811903,
+          "k": 0.10402,
+          "sunNoonAltDeg": 41.816179
+        },
+        {
+          "i": 165,
+          "moonMaxAltDeg": 19.40194,
+          "k": 0.544097,
+          "sunNoonAltDeg": 42.123113
+        },
+        {
+          "i": 170,
+          "moonMaxAltDeg": -6.238645,
+          "k": 0.89369,
+          "sunNoonAltDeg": 42.258925
+        },
+        {
+          "i": 175,
+          "moonMaxAltDeg": -7.381269,
+          "k": 0.950347,
+          "sunNoonAltDeg": 42.222607
+        },
+        {
+          "i": 180,
+          "moonMaxAltDeg": 22.486309,
+          "k": 0.468742,
+          "sunNoonAltDeg": 42.014854
+        },
+        {
+          "i": 185,
+          "moonMaxAltDeg": 46.182026,
+          "k": 0.03031,
+          "sunNoonAltDeg": 41.638035
+        },
+        {
+          "i": 190,
+          "moonMaxAltDeg": 32.688182,
+          "k": 0.127791,
+          "sunNoonAltDeg": 41.096112
+        },
+        {
+          "i": 195,
+          "moonMaxAltDeg": 4.469385,
+          "k": 0.570371,
+          "sunNoonAltDeg": 40.394513
+        },
+        {
+          "i": 200,
+          "moonMaxAltDeg": -10.365206,
+          "k": 0.966758,
+          "sunNoonAltDeg": 39.539965
+        },
+        {
+          "i": 205,
+          "moonMaxAltDeg": 6.363304,
+          "k": 0.90732,
+          "sunNoonAltDeg": 38.540308
+        },
+        {
+          "i": 210,
+          "moonMaxAltDeg": 39.279956,
+          "k": 0.378912,
+          "sunNoonAltDeg": 37.404297
+        },
+        {
+          "i": 215,
+          "moonMaxAltDeg": 43.10974,
+          "k": 0.013331,
+          "sunNoonAltDeg": 36.141418
+        },
+        {
+          "i": 220,
+          "moonMaxAltDeg": 17.744658,
+          "k": 0.147831,
+          "sunNoonAltDeg": 34.761705
+        },
+        {
+          "i": 225,
+          "moonMaxAltDeg": -7.145298,
+          "k": 0.603291,
+          "sunNoonAltDeg": 33.275597
+        },
+        {
+          "i": 230,
+          "moonMaxAltDeg": -2.679445,
+          "k": 0.987589,
+          "sunNoonAltDeg": 31.693808
+        },
+        {
+          "i": 235,
+          "moonMaxAltDeg": 24.992199,
+          "k": 0.848173,
+          "sunNoonAltDeg": 30.027238
+        },
+        {
+          "i": 240,
+          "moonMaxAltDeg": 46.732076,
+          "k": 0.306918,
+          "sunNoonAltDeg": 28.286906
+        },
+        {
+          "i": 245,
+          "moonMaxAltDeg": 31.155252,
+          "k": 0.00498,
+          "sunNoonAltDeg": 26.483917
+        },
+        {
+          "i": 250,
+          "moonMaxAltDeg": 2.850835,
+          "k": 0.168068,
+          "sunNoonAltDeg": 24.629449
+        },
+        {
+          "i": 255,
+          "moonMaxAltDeg": -10.55266,
+          "k": 0.651222,
+          "sunNoonAltDeg": 22.734761
+        },
+        {
+          "i": 260,
+          "moonMaxAltDeg": 13.42,
+          "k": 0.99915,
+          "sunNoonAltDeg": 20.811219
+        },
+        {
+          "i": 265,
+          "moonMaxAltDeg": 40.829023,
+          "k": 0.78512,
+          "sunNoonAltDeg": 18.870332
+        },
+        {
+          "i": 270,
+          "moonMaxAltDeg": 41.946175,
+          "k": 0.257344,
+          "sunNoonAltDeg": 16.9238
+        },
+        {
+          "i": 275,
+          "moonMaxAltDeg": 15.823612,
+          "k": 0.001352,
+          "sunNoonAltDeg": 14.983557
+        },
+        {
+          "i": 280,
+          "moonMaxAltDeg": -8.099509,
+          "k": 0.194957,
+          "sunNoonAltDeg": 13.061818
+        },
+        {
+          "i": 285,
+          "moonMaxAltDeg": -2.595572,
+          "k": 0.70827,
+          "sunNoonAltDeg": 11.171121
+        },
+        {
+          "i": 290,
+          "moonMaxAltDeg": 31.251885,
+          "k": 0.996983,
+          "sunNoonAltDeg": 9.324346
+        },
+        {
+          "i": 295,
+          "moonMaxAltDeg": 46.790332,
+          "k": 0.726784,
+          "sunNoonAltDeg": 7.534725
+        },
+        {
+          "i": 300,
+          "moonMaxAltDeg": 29.239266,
+          "k": 0.227868,
+          "sunNoonAltDeg": 5.815823
+        },
+        {
+          "i": 305,
+          "moonMaxAltDeg": 1.110124,
+          "k": 0.000752,
+          "sunNoonAltDeg": 4.16825
+        },
+        {
+          "i": 310,
+          "moonMaxAltDeg": -10.094379,
+          "k": 0.231724,
+          "sunNoonAltDeg": 2.633355
+        },
+        {
+          "i": 315,
+          "moonMaxAltDeg": 13.917994,
+          "k": 0.771389,
+          "sunNoonAltDeg": 1.211204
+        },
+        {
+          "i": 320,
+          "moonMaxAltDeg": 44.338763,
+          "k": 0.982827,
+          "sunNoonAltDeg": -0.084309
+        },
+        {
+          "i": 325,
+          "moonMaxAltDeg": 40.787438,
+          "k": 0.688385,
+          "sunNoonAltDeg": -1.239696
+        },
+        {
+          "i": 330,
+          "moonMaxAltDeg": 13.875793,
+          "k": 0.213926,
+          "sunNoonAltDeg": -2.242176
+        },
+        {
+          "i": 335,
+          "moonMaxAltDeg": -8.844163,
+          "k": 0.00186,
+          "sunNoonAltDeg": -3.080003
+        },
+        {
+          "i": 340,
+          "moonMaxAltDeg": -0.547274,
+          "k": 0.283951,
+          "sunNoonAltDeg": -3.742833
+        },
+        {
+          "i": 345,
+          "moonMaxAltDeg": 32.365647,
+          "k": 0.831681,
+          "sunNoonAltDeg": -4.222068
+        },
+        {
+          "i": 350,
+          "moonMaxAltDeg": 46.531184,
+          "k": 0.993626,
+          "sunNoonAltDeg": -4.51119
+        },
+        {
+          "i": 355,
+          "moonMaxAltDeg": 27.62956,
+          "k": 0.669428,
+          "sunNoonAltDeg": -4.606026
+        },
+        {
+          "i": 360,
+          "moonMaxAltDeg": -0.266926,
+          "k": 0.20566,
+          "sunNoonAltDeg": -4.504922
+        },
+        {
+          "i": 365,
+          "moonMaxAltDeg": -9.289892,
+          "k": 0.004831,
+          "sunNoonAltDeg": -4.20883
+        }
+      ],
+      "fullMoons": [
+        {
+          "dayOffset": 24.787085,
+          "maxAltDeg": 41.043486,
+          "tMs": 1706205204168
+        },
+        {
+          "dayOffset": 54.561943,
+          "maxAltDeg": 29.740414,
+          "tMs": 1708777751881
+        },
+        {
+          "dayOffset": 84.333839,
+          "maxAltDeg": 18.93551,
+          "tMs": 1711350043721
+        },
+        {
+          "dayOffset": 114.036645,
+          "maxAltDeg": 3.732945,
+          "tMs": 1713916366134
+        },
+        {
+          "dayOffset": 143.625053,
+          "maxAltDeg": -7.68097,
+          "tMs": 1716472804566
+        },
+        {
+          "dayOffset": 173.094818,
+          "maxAltDeg": -10.420485,
+          "tMs": 1719018992317
+        },
+        {
+          "dayOffset": 202.476522,
+          "maxAltDeg": -5.329332,
+          "tMs": 1721557571466
+        },
+        {
+          "dayOffset": 231.815392,
+          "maxAltDeg": 3.286836,
+          "tMs": 1724092449853
+        },
+        {
+          "dayOffset": 261.153393,
+          "maxAltDeg": 13.801368,
+          "tMs": 1726627253167
+        },
+        {
+          "dayOffset": 290.520502,
+          "maxAltDeg": 32.054801,
+          "tMs": 1729164571350
+        },
+        {
+          "dayOffset": 319.936205,
+          "maxAltDeg": 40.668033,
+          "tMs": 1731706088150
+        },
+        {
+          "dayOffset": 349.416544,
+          "maxAltDeg": 45.719522,
+          "tMs": 1734253189429
+        }
+      ]
+    },
+    {
+      "tMs": 1735691400000,
+      "place": "sydney",
+      "latDeg": -33.87,
+      "lonDeg": 151.21,
+      "year": 2025,
+      "yearStartMs": 1735686000000,
+      "dayCount": 365,
+      "days": [
+        {
+          "i": 0,
+          "moonMaxAltDeg": 81.400108,
+          "k": 0.017739,
+          "sunNoonAltDeg": 79.086478
+        },
+        {
+          "i": 5,
+          "moonMaxAltDeg": 52.045132,
+          "k": 0.420033,
+          "sunNoonAltDeg": 78.561256
+        },
+        {
+          "i": 10,
+          "moonMaxAltDeg": 27.148028,
+          "k": 0.926673,
+          "sunNoonAltDeg": 77.851953
+        },
+        {
+          "i": 15,
+          "moonMaxAltDeg": 41.543935,
+          "k": 0.918672,
+          "sunNoonAltDeg": 76.967092
+        },
+        {
+          "i": 20,
+          "moonMaxAltDeg": 70.190588,
+          "k": 0.504207,
+          "sunNoonAltDeg": 75.917011
+        },
+        {
+          "i": 25,
+          "moonMaxAltDeg": 84.249087,
+          "k": 0.142651,
+          "sunNoonAltDeg": 74.713515
+        },
+        {
+          "i": 30,
+          "moonMaxAltDeg": 68.324062,
+          "k": 0.034278,
+          "sunNoonAltDeg": 73.369525
+        },
+        {
+          "i": 35,
+          "moonMaxAltDeg": 34.763258,
+          "k": 0.497543,
+          "sunNoonAltDeg": 71.898743
+        },
+        {
+          "i": 40,
+          "moonMaxAltDeg": 30.268046,
+          "k": 0.95352,
+          "sunNoonAltDeg": 70.315357
+        },
+        {
+          "i": 45,
+          "moonMaxAltDeg": 56.890928,
+          "k": 0.908964,
+          "sunNoonAltDeg": 68.633785
+        },
+        {
+          "i": 50,
+          "moonMaxAltDeg": 81.427703,
+          "k": 0.490417,
+          "sunNoonAltDeg": 66.868479
+        },
+        {
+          "i": 55,
+          "moonMaxAltDeg": 81.301234,
+          "k": 0.118917,
+          "sunNoonAltDeg": 65.033774
+        },
+        {
+          "i": 60,
+          "moonMaxAltDeg": 49.88187,
+          "k": 0.06431,
+          "sunNoonAltDeg": 63.143783
+        },
+        {
+          "i": 65,
+          "moonMaxAltDeg": 26.637901,
+          "k": 0.573426,
+          "sunNoonAltDeg": 61.212335
+        },
+        {
+          "i": 70,
+          "moonMaxAltDeg": 42.8178,
+          "k": 0.970612,
+          "sunNoonAltDeg": 59.252948
+        },
+        {
+          "i": 75,
+          "moonMaxAltDeg": 71.642513,
+          "k": 0.898309,
+          "sunNoonAltDeg": 57.278821
+        },
+        {
+          "i": 80,
+          "moonMaxAltDeg": 84.330254,
+          "k": 0.46267,
+          "sunNoonAltDeg": 55.302853
+        },
+        {
+          "i": 85,
+          "moonMaxAltDeg": 68.333329,
+          "k": 0.085305,
+          "sunNoonAltDeg": 53.337669
+        },
+        {
+          "i": 90,
+          "moonMaxAltDeg": 33.403584,
+          "k": 0.109584,
+          "sunNoonAltDeg": 51.411711
+        },
+        {
+          "i": 95,
+          "moonMaxAltDeg": 31.556165,
+          "k": 0.635985,
+          "sunNoonAltDeg": 49.504708
+        },
+        {
+          "i": 100,
+          "moonMaxAltDeg": 58.662228,
+          "k": 0.980426,
+          "sunNoonAltDeg": 47.644969
+        },
+        {
+          "i": 105,
+          "moonMaxAltDeg": 82.308994,
+          "k": 0.881876,
+          "sunNoonAltDeg": 45.844352
+        },
+        {
+          "i": 110,
+          "moonMaxAltDeg": 76.683024,
+          "k": 0.415232,
+          "sunNoonAltDeg": 44.11457
+        },
+        {
+          "i": 115,
+          "moonMaxAltDeg": 50.121043,
+          "k": 0.049598,
+          "sunNoonAltDeg": 42.467177
+        },
+        {
+          "i": 120,
+          "moonMaxAltDeg": 26.616185,
+          "k": 0.16332,
+          "sunNoonAltDeg": 40.913538
+        },
+        {
+          "i": 125,
+          "moonMaxAltDeg": 44.98734,
+          "k": 0.678871,
+          "sunNoonAltDeg": 39.464762
+        },
+        {
+          "i": 130,
+          "moonMaxAltDeg": 73.399465,
+          "k": 0.986789,
+          "sunNoonAltDeg": 38.131621
+        },
+        {
+          "i": 135,
+          "moonMaxAltDeg": 83.782178,
+          "k": 0.853848,
+          "sunNoonAltDeg": 36.924424
+        },
+        {
+          "i": 140,
+          "moonMaxAltDeg": 60.528659,
+          "k": 0.34982,
+          "sunNoonAltDeg": 35.852878
+        },
+        {
+          "i": 145,
+          "moonMaxAltDeg": 33.638515,
+          "k": 0.019739,
+          "sunNoonAltDeg": 34.925919
+        },
+        {
+          "i": 150,
+          "moonMaxAltDeg": 32.773594,
+          "k": 0.21669,
+          "sunNoonAltDeg": 34.151528
+        },
+        {
+          "i": 155,
+          "moonMaxAltDeg": 60.854201,
+          "k": 0.710032,
+          "sunNoonAltDeg": 33.536542
+        },
+        {
+          "i": 160,
+          "moonMaxAltDeg": 82.365446,
+          "k": 0.992245,
+          "sunNoonAltDeg": 33.086476
+        },
+        {
+          "i": 165,
+          "moonMaxAltDeg": 74.505427,
+          "k": 0.810259,
+          "sunNoonAltDeg": 32.805365
+        },
+        {
+          "i": 170,
+          "moonMaxAltDeg": 45.081895,
+          "k": 0.375174,
+          "sunNoonAltDeg": 32.695638
+        },
+        {
+          "i": 175,
+          "moonMaxAltDeg": 26.827483,
+          "k": 0.00386,
+          "sunNoonAltDeg": 32.758044
+        },
+        {
+          "i": 180,
+          "moonMaxAltDeg": 46.617211,
+          "k": 0.257285,
+          "sunNoonAltDeg": 32.991633
+        },
+        {
+          "i": 185,
+          "moonMaxAltDeg": 75.004102,
+          "k": 0.735353,
+          "sunNoonAltDeg": 33.393785
+        },
+        {
+          "i": 190,
+          "moonMaxAltDeg": 82.680758,
+          "k": 0.997586,
+          "sunNoonAltDeg": 33.960308
+        },
+        {
+          "i": 195,
+          "moonMaxAltDeg": 57.683091,
+          "k": 0.746546,
+          "sunNoonAltDeg": 34.685564
+        },
+        {
+          "i": 200,
+          "moonMaxAltDeg": 31.632498,
+          "k": 0.288573,
+          "sunNoonAltDeg": 35.562644
+        },
+        {
+          "i": 205,
+          "moonMaxAltDeg": 33.239308,
+          "k": 0.002081,
+          "sunNoonAltDeg": 36.583559
+        },
+        {
+          "i": 210,
+          "moonMaxAltDeg": 62.443974,
+          "k": 0.28822,
+          "sunNoonAltDeg": 37.739428
+        },
+        {
+          "i": 215,
+          "moonMaxAltDeg": 83.309122,
+          "k": 0.762081,
+          "sunNoonAltDeg": 39.020672
+        },
+        {
+          "i": 220,
+          "moonMaxAltDeg": 72.509306,
+          "k": 0.998663,
+          "sunNoonAltDeg": 40.417186
+        },
+        {
+          "i": 225,
+          "moonMaxAltDeg": 39.330154,
+          "k": 0.663761,
+          "sunNoonAltDeg": 41.918484
+        },
+        {
+          "i": 230,
+          "moonMaxAltDeg": 26.666087,
+          "k": 0.21103,
+          "sunNoonAltDeg": 43.513817
+        },
+        {
+          "i": 235,
+          "moonMaxAltDeg": 47.548729,
+          "k": 0.007816,
+          "sunNoonAltDeg": 45.192264
+        },
+        {
+          "i": 240,
+          "moonMaxAltDeg": 76.122925,
+          "k": 0.312618,
+          "sunNoonAltDeg": 46.942792
+        },
+        {
+          "i": 245,
+          "moonMaxAltDeg": 82.658722,
+          "k": 0.792207,
+          "sunNoonAltDeg": 48.754283
+        },
+        {
+          "i": 250,
+          "moonMaxAltDeg": 55.826085,
+          "k": 0.990278,
+          "sunNoonAltDeg": 50.615551
+        },
+        {
+          "i": 255,
+          "moonMaxAltDeg": 27.702799,
+          "k": 0.573543,
+          "sunNoonAltDeg": 52.515321
+        },
+        {
+          "i": 260,
+          "moonMaxAltDeg": 34.375102,
+          "k": 0.150578,
+          "sunNoonAltDeg": 54.442209
+        },
+        {
+          "i": 265,
+          "moonMaxAltDeg": 63.606398,
+          "k": 0.015972,
+          "sunNoonAltDeg": 56.38468
+        },
+        {
+          "i": 270,
+          "moonMaxAltDeg": 83.852835,
+          "k": 0.33661,
+          "sunNoonAltDeg": 58.331004
+        },
+        {
+          "i": 275,
+          "moonMaxAltDeg": 72.31854,
+          "k": 0.825604,
+          "sunNoonAltDeg": 60.269206
+        },
+        {
+          "i": 280,
+          "moonMaxAltDeg": 38.134998,
+          "k": 0.967301,
+          "sunNoonAltDeg": 62.187025
+        },
+        {
+          "i": 285,
+          "moonMaxAltDeg": 29.347696,
+          "k": 0.491525,
+          "sunNoonAltDeg": 64.071873
+        },
+        {
+          "i": 290,
+          "moonMaxAltDeg": 49.363657,
+          "k": 0.114299,
+          "sunNoonAltDeg": 65.910817
+        },
+        {
+          "i": 295,
+          "moonMaxAltDeg": 76.909578,
+          "k": 0.024033,
+          "sunNoonAltDeg": 67.690573
+        },
+        {
+          "i": 300,
+          "moonMaxAltDeg": 82.233507,
+          "k": 0.363286,
+          "sunNoonAltDeg": 69.411413
+        },
+        {
+          "i": 305,
+          "moonMaxAltDeg": 55.841641,
+          "k": 0.865337,
+          "sunNoonAltDeg": 71.030923
+        },
+        {
+          "i": 310,
+          "moonMaxAltDeg": 27.512872,
+          "k": 0.932335,
+          "sunNoonAltDeg": 72.549616
+        },
+        {
+          "i": 315,
+          "moonMaxAltDeg": 41.900672,
+          "k": 0.434704,
+          "sunNoonAltDeg": 73.953446
+        },
+        {
+          "i": 320,
+          "moonMaxAltDeg": 65.477681,
+          "k": 0.095705,
+          "sunNoonAltDeg": 75.228566
+        },
+        {
+          "i": 325,
+          "moonMaxAltDeg": 83.995006,
+          "k": 0.032042,
+          "sunNoonAltDeg": 76.361574
+        },
+        {
+          "i": 330,
+          "moonMaxAltDeg": 70.990243,
+          "k": 0.396512,
+          "sunNoonAltDeg": 77.339824
+        },
+        {
+          "i": 335,
+          "moonMaxAltDeg": 38.420936,
+          "k": 0.905293,
+          "sunNoonAltDeg": 78.15176
+        },
+        {
+          "i": 340,
+          "moonMaxAltDeg": 30.165822,
+          "k": 0.893416,
+          "sunNoonAltDeg": 78.787278
+        },
+        {
+          "i": 345,
+          "moonMaxAltDeg": 58.064375,
+          "k": 0.403083,
+          "sunNoonAltDeg": 79.238077
+        },
+        {
+          "i": 350,
+          "moonMaxAltDeg": 78.511225,
+          "k": 0.085728,
+          "sunNoonAltDeg": 79.497979
+        },
+        {
+          "i": 355,
+          "moonMaxAltDeg": 80.904704,
+          "k": 0.041194,
+          "sunNoonAltDeg": 79.56318
+        },
+        {
+          "i": 360,
+          "moonMaxAltDeg": 54.239864,
+          "k": 0.446697,
+          "sunNoonAltDeg": 79.432421
+        },
+        {
+          "i": 364,
+          "moonMaxAltDeg": 30.55485,
+          "k": 0.873767,
+          "sunNoonAltDeg": 79.187539
+        }
+      ],
+      "fullMoons": [
+        {
+          "dayOffset": 12.976562,
+          "maxAltDeg": 28.521531,
+          "tMs": 1736807174935
+        },
+        {
+          "dayOffset": 42.621353,
+          "maxAltDeg": 39.269726,
+          "tMs": 1739368484921
+        },
+        {
+          "dayOffset": 72.331573,
+          "maxAltDeg": 54.638717,
+          "tMs": 1741935447888
+        },
+        {
+          "dayOffset": 102.060268,
+          "maxAltDeg": 64.423018,
+          "tMs": 1744504007180
+        },
+        {
+          "dayOffset": 131.751764,
+          "maxAltDeg": 77.703933,
+          "tMs": 1747069352367
+        },
+        {
+          "dayOffset": 161.368907,
+          "maxAltDeg": 83.566088,
+          "tMs": 1749628273526
+        },
+        {
+          "dayOffset": 190.904768,
+          "maxAltDeg": 83.037135,
+          "tMs": 1752180171933
+        },
+        {
+          "dayOffset": 220.374466,
+          "maxAltDeg": 72.539377,
+          "tMs": 1754726353892
+        },
+        {
+          "dayOffset": 249.80037,
+          "maxAltDeg": 62.971002,
+          "tMs": 1757268752009
+        },
+        {
+          "dayOffset": 279.202715,
+          "maxAltDeg": 44.864679,
+          "tMs": 1759809114551
+        },
+        {
+          "dayOffset": 308.599478,
+          "maxAltDeg": 35.338288,
+          "tMs": 1762348994918
+        },
+        {
+          "dayOffset": 338.011054,
+          "maxAltDeg": 28.90086,
+          "tMs": 1764890155080
+        }
+      ]
+    }
+  ],
+  "cycle": {
+    "count": 351,
+    "samples": [
+      {
+        "i": 0,
+        "tMs": 1421236800000,
+        "hiDecDeg": 18.639486,
+        "loDecDeg": -18.560138
+      },
+      {
+        "i": 7,
+        "tMs": 1437566400000,
+        "hiDecDeg": 18.431901,
+        "loDecDeg": -18.336647
+      },
+      {
+        "i": 14,
+        "tMs": 1453896000000,
+        "hiDecDeg": 18.358734,
+        "loDecDeg": -18.323909
+      },
+      {
+        "i": 21,
+        "tMs": 1470225600000,
+        "hiDecDeg": 18.517968,
+        "loDecDeg": -18.398088
+      },
+      {
+        "i": 28,
+        "tMs": 1486555200000,
+        "hiDecDeg": 18.868752,
+        "loDecDeg": -18.805044
+      },
+      {
+        "i": 35,
+        "tMs": 1502884800000,
+        "hiDecDeg": 19.32353,
+        "loDecDeg": -19.357769
+      },
+      {
+        "i": 42,
+        "tMs": 1519214400000,
+        "hiDecDeg": 20.067592,
+        "loDecDeg": -20.005969
+      },
+      {
+        "i": 49,
+        "tMs": 1535544000000,
+        "hiDecDeg": 20.769699,
+        "loDecDeg": -20.748472
+      },
+      {
+        "i": 56,
+        "tMs": 1551873600000,
+        "hiDecDeg": 21.723947,
+        "loDecDeg": -21.59476
+      },
+      {
+        "i": 63,
+        "tMs": 1568203200000,
+        "hiDecDeg": 22.661192,
+        "loDecDeg": -22.478433
+      },
+      {
+        "i": 70,
+        "tMs": 1584532800000,
+        "hiDecDeg": 23.428274,
+        "loDecDeg": -23.435756
+      },
+      {
+        "i": 77,
+        "tMs": 1600862400000,
+        "hiDecDeg": 24.299291,
+        "loDecDeg": -24.464538
+      },
+      {
+        "i": 84,
+        "tMs": 1617192000000,
+        "hiDecDeg": 25.211094,
+        "loDecDeg": -25.413484
+      },
+      {
+        "i": 91,
+        "tMs": 1633521600000,
+        "hiDecDeg": 26.046694,
+        "loDecDeg": -26.087795
+      },
+      {
+        "i": 98,
+        "tMs": 1649851200000,
+        "hiDecDeg": 26.824357,
+        "loDecDeg": -26.877604
+      },
+      {
+        "i": 105,
+        "tMs": 1666180800000,
+        "hiDecDeg": 27.447935,
+        "loDecDeg": -27.489537
+      },
+      {
+        "i": 112,
+        "tMs": 1682510400000,
+        "hiDecDeg": 27.931107,
+        "loDecDeg": -27.810659
+      },
+      {
+        "i": 119,
+        "tMs": 1698840000000,
+        "hiDecDeg": 28.234236,
+        "loDecDeg": -28.166168
+      },
+      {
+        "i": 126,
+        "tMs": 1715169600000,
+        "hiDecDeg": 28.375135,
+        "loDecDeg": -28.380257
+      },
+      {
+        "i": 133,
+        "tMs": 1731499200000,
+        "hiDecDeg": 28.337024,
+        "loDecDeg": -28.504016
+      },
+      {
+        "i": 140,
+        "tMs": 1747828800000,
+        "hiDecDeg": 28.331987,
+        "loDecDeg": -28.453902
+      },
+      {
+        "i": 147,
+        "tMs": 1764158400000,
+        "hiDecDeg": 28.277325,
+        "loDecDeg": -28.259398
+      },
+      {
+        "i": 154,
+        "tMs": 1780488000000,
+        "hiDecDeg": 27.95989,
+        "loDecDeg": -27.951537
+      },
+      {
+        "i": 161,
+        "tMs": 1796817600000,
+        "hiDecDeg": 27.678785,
+        "loDecDeg": -27.547417
+      },
+      {
+        "i": 168,
+        "tMs": 1813147200000,
+        "hiDecDeg": 26.983834,
+        "loDecDeg": -27.064063
+      },
+      {
+        "i": 175,
+        "tMs": 1829476800000,
+        "hiDecDeg": 26.500891,
+        "loDecDeg": -26.518177
+      },
+      {
+        "i": 182,
+        "tMs": 1845806400000,
+        "hiDecDeg": 25.911691,
+        "loDecDeg": -25.909305
+      },
+      {
+        "i": 189,
+        "tMs": 1862136000000,
+        "hiDecDeg": 25.188916,
+        "loDecDeg": -25.184517
+      },
+      {
+        "i": 196,
+        "tMs": 1878465600000,
+        "hiDecDeg": 24.372132,
+        "loDecDeg": -24.306092
+      },
+      {
+        "i": 203,
+        "tMs": 1894795200000,
+        "hiDecDeg": 23.493381,
+        "loDecDeg": -23.196902
+      },
+      {
+        "i": 210,
+        "tMs": 1911124800000,
+        "hiDecDeg": 22.592727,
+        "loDecDeg": -22.645112
+      },
+      {
+        "i": 217,
+        "tMs": 1927454400000,
+        "hiDecDeg": 21.648194,
+        "loDecDeg": -21.767698
+      },
+      {
+        "i": 224,
+        "tMs": 1943784000000,
+        "hiDecDeg": 20.817558,
+        "loDecDeg": -20.864834
+      },
+      {
+        "i": 231,
+        "tMs": 1960113600000,
+        "hiDecDeg": 20.011975,
+        "loDecDeg": -20.100423
+      },
+      {
+        "i": 238,
+        "tMs": 1976443200000,
+        "hiDecDeg": 19.280128,
+        "loDecDeg": -19.301855
+      },
+      {
+        "i": 245,
+        "tMs": 1992772800000,
+        "hiDecDeg": 18.673444,
+        "loDecDeg": -18.799152
+      },
+      {
+        "i": 252,
+        "tMs": 2009102400000,
+        "hiDecDeg": 18.434042,
+        "loDecDeg": -18.307948
+      },
+      {
+        "i": 259,
+        "tMs": 2025432000000,
+        "hiDecDeg": 18.171977,
+        "loDecDeg": -18.153993
+      },
+      {
+        "i": 266,
+        "tMs": 2041761600000,
+        "hiDecDeg": 18.174759,
+        "loDecDeg": -18.173173
+      },
+      {
+        "i": 273,
+        "tMs": 2058091200000,
+        "hiDecDeg": 18.292624,
+        "loDecDeg": -18.356621
+      },
+      {
+        "i": 280,
+        "tMs": 2074420800000,
+        "hiDecDeg": 18.798974,
+        "loDecDeg": -18.80946
+      },
+      {
+        "i": 287,
+        "tMs": 2090750400000,
+        "hiDecDeg": 19.302955,
+        "loDecDeg": -19.207228
+      },
+      {
+        "i": 294,
+        "tMs": 2107080000000,
+        "hiDecDeg": 20.149947,
+        "loDecDeg": -19.993214
+      },
+      {
+        "i": 301,
+        "tMs": 2123409600000,
+        "hiDecDeg": 20.896299,
+        "loDecDeg": -20.919354
+      },
+      {
+        "i": 308,
+        "tMs": 2139739200000,
+        "hiDecDeg": 21.932397,
+        "loDecDeg": -21.833724
+      },
+      {
+        "i": 315,
+        "tMs": 2156068800000,
+        "hiDecDeg": 22.918119,
+        "loDecDeg": -22.723046
+      },
+      {
+        "i": 322,
+        "tMs": 2172398400000,
+        "hiDecDeg": 23.789571,
+        "loDecDeg": -23.6618
+      },
+      {
+        "i": 329,
+        "tMs": 2188728000000,
+        "hiDecDeg": 24.59344,
+        "loDecDeg": -24.663621
+      },
+      {
+        "i": 336,
+        "tMs": 2205057600000,
+        "hiDecDeg": 25.430112,
+        "loDecDeg": -25.298161
+      },
+      {
+        "i": 343,
+        "tMs": 2221387200000,
+        "hiDecDeg": 26.190842,
+        "loDecDeg": -26.141472
+      },
+      {
+        "i": 350,
+        "tMs": 2237716800000,
+        "hiDecDeg": 26.805574,
+        "loDecDeg": -26.774247
+      }
+    ]
+  },
+  "phasePath": [
+    {
+      "latDeg": 50.94,
+      "k": 0.1,
+      "waxing": true,
+      "d": "M38,6A32,32 0 0 1 38,70A25.60,32 0 0 0 38,6Z"
+    },
+    {
+      "latDeg": 50.94,
+      "k": 0.5,
+      "waxing": false,
+      "d": "M38,6A32,32 0 0 0 38,70A0.00,32 0 0 0 38,6Z"
+    },
+    {
+      "latDeg": 50.94,
+      "k": 0.8,
+      "waxing": true,
+      "d": "M38,6A32,32 0 0 1 38,70A19.20,32 0 0 1 38,6Z"
+    },
+    {
+      "latDeg": 50.94,
+      "k": 0.99,
+      "waxing": false,
+      "d": "M38,6A32,32 0 0 0 38,70A31.36,32 0 0 0 38,6Z"
+    },
+    {
+      "latDeg": -33.87,
+      "k": 0.1,
+      "waxing": true,
+      "d": "M38,6A32,32 0 0 0 38,70A25.60,32 0 0 1 38,6Z"
+    },
+    {
+      "latDeg": -33.87,
+      "k": 0.5,
+      "waxing": false,
+      "d": "M38,6A32,32 0 0 1 38,70A0.00,32 0 0 1 38,6Z"
+    },
+    {
+      "latDeg": -33.87,
+      "k": 0.8,
+      "waxing": true,
+      "d": "M38,6A32,32 0 0 0 38,70A19.20,32 0 0 0 38,6Z"
+    },
+    {
+      "latDeg": -33.87,
+      "k": 0.99,
+      "waxing": false,
+      "d": "M38,6A32,32 0 0 1 38,70A31.36,32 0 0 1 38,6Z"
+    }
+  ]
+}

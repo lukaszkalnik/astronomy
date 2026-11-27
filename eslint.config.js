@@ -53,5 +53,12 @@ export default tseslint.config(
     files: ["*.config.{js,ts}"],
     languageOptions: { globals: { ...globals.node } },
   },
+  {
+    // One-off Node scripts (e.g. fixture generators): not part of a TS project,
+    // so no type-aware rules.
+    files: ["scripts/**/*.mjs"],
+    extends: [tseslint.configs.disableTypeChecked],
+    languageOptions: { globals: { ...globals.node } },
+  },
   prettier,
 );

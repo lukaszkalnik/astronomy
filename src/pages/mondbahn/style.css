@@ -1,0 +1,264 @@
+/*
+ * VOICE: calm, wondering, clear – like a good planetarium for lay people
+ * IDEA: an observatory almanac you can move
+ * PICTURE: the southern sky from east to west with the day paths of Sun and
+ *   Moon; the sky colour follows the Sun's altitude
+ * COLOUR and TYPE: night blue, moon silver, sun coral; Outfit for titles,
+ *   Inter for text
+ * LAYOUT: title, large sky, controls + values below, then the year figure and
+ *   the 18.6-year figure
+ */
+:root {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --panel: #121b2e;
+  --line: #24314d;
+  --ink: #e8ecf4;
+  --mute: #9aa6bf;
+  --moon: #dfe6f2;
+  --sun: #ff8a5c;
+  --acc: #9cc7ff;
+}
+:root[data-theme="light"],
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    16px/1.55 Inter,
+    system-ui,
+    sans-serif;
+  overflow-x: clip;
+}
+h1,
+h2 {
+  font-family: Outfit, Inter, sans-serif;
+  font-weight: 600;
+  line-height: 1.05;
+  text-wrap: balance;
+  margin: 0 0 0.4em;
+}
+h1 {
+  font-size: clamp(32px, 5vw, 50px);
+}
+h2 {
+  font-size: clamp(24px, 3.2vw, 32px);
+}
+p {
+  margin: 0.4em 0;
+  max-width: 68ch;
+}
+.band {
+  padding: clamp(24px, 4vw, 56px) max(5vw, 16px);
+}
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.lede {
+  color: var(--mute);
+  font-size: 17px;
+}
+.fig {
+  position: relative;
+  min-height: 380px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.fig > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.fig.small {
+  min-height: 300px;
+  background: var(--panel);
+  cursor: crosshair;
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 10px 0;
+}
+label {
+  font-size: 14px;
+  color: var(--mute);
+  display: block;
+  margin-bottom: 4px;
+}
+input,
+select,
+button {
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: #0d1526;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  min-height: 44px;
+  padding: 0 12px;
+}
+button {
+  cursor: pointer;
+  font-weight: 500;
+}
+button:hover {
+  border-color: var(--acc);
+}
+button.pri {
+  background: var(--acc);
+  color: #0b1220;
+  border-color: var(--acc);
+}
+:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+input[type="range"] {
+  width: 100%;
+  padding: 0;
+  accent-color: var(--acc);
+  background: none;
+  border: 0;
+}
+.f {
+  flex: 1 1 150px;
+}
+.big {
+  font-family: Outfit, sans-serif;
+  font-size: clamp(40px, 7vw, 56px);
+  line-height: 1;
+  font-weight: 600;
+}
+.stat {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 14px;
+  margin: 14px 0 0;
+}
+dt {
+  color: var(--mute);
+  font-size: 14px;
+}
+dd {
+  margin: 0;
+  font-weight: 500;
+  white-space: nowrap;
+  text-align: right;
+}
+/* Long values (phase names like "Zunehmender Halbmond, 48 %") may wrap;
+   with nowrap they made the page scroll sideways at 360 px. */
+dd.can-wrap {
+  white-space: normal;
+}
+.when {
+  font-size: 17px;
+  font-weight: 500;
+}
+.tips {
+  margin: 12px 0 0;
+  padding-left: 1.2em;
+  color: var(--mute);
+}
+.tips li {
+  margin: 4px 0;
+}
+.leg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--mute);
+  margin: 10px 0;
+}
+.leg i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+.note {
+  font-size: 13px;
+  color: var(--mute);
+  margin-top: 12px;
+}
+.sec {
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .fig {
+    min-height: 300px;
+  }
+}
+
+/* Former inline style attributes (moved here so the CSP can forbid inline styles). */
+.band-head {
+  padding-bottom: 12px;
+}
+.band-first {
+  padding-top: 8px;
+}
+.link {
+  color: var(--acc);
+}
+.note-tight {
+  margin-top: 8px;
+}
+.full-width {
+  width: 100%;
+}
+.label-gap {
+  margin-top: 8px;
+}
+.stat-caption {
+  color: var(--mute);
+  font-size: 14px;
+}
+.mute {
+  color: var(--mute);
+}
+.leg .dot-moon {
+  background: var(--moon);
+}
+.leg .dot-full {
+  background: none;
+  border: 2px solid var(--moon);
+}
+.leg .dot-sun {
+  background: var(--sun);
+}

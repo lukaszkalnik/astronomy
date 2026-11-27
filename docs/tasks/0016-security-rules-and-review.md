@@ -163,10 +163,10 @@ review):
 | 4 | Supply chain | No audit in CI, no update automation | medium | **Fixed** – audit step + Dependabot |
 | 5 | Actions | `permissions: contents: read` at workflow level, no `pull_request_target`, no `${{ }}` of event data in `run:` (`head_ref` only in `concurrency.group`, which is not a shell) | info | OK |
 | 6 | Supply chain | `npm audit`: 0 vulnerabilities; all 11 dev deps well-known; no package with `hasInstallScript` in the lockfile; all `resolved` URLs on registry.npmjs.org | info | OK |
-| 7 | DOM | `innerHTML` in `index.html` (sky/year/cycle SVG, phase icon, place `<option>`s from the constant `PLACES`) and `sonnenuntergang.html` (readouts: numbers + `<small>`). All data computed or constant → not exploitable today | low | **Deferred** to 0002/0003 (req. 8/9); ESLint now blocks it in TS |
-| 8 | Boundary | `mondOrt` from `localStorage`: `JSON.parse` in `try/catch` ✔, but only `isFinite(lat)`; `lon` unchecked, no range check. Wrong output at worst; values only reach SVG via numeric math | low | **Deferred** to 0002 (req. 8 + criterion) |
+| 7 | DOM | `innerHTML` in `index.html` (sky/year/cycle SVG, phase icon, place `<option>`s from the constant `PLACES`) and `sonnenuntergang.html` (readouts: numbers + `<small>`). All data computed or constant → not exploitable today | low | **Deferred** to 0002/0003 (req. 8/9); ESLint now blocks it in TS. **Fixed for `index.html` in 0002** (SVG via `svgEl`, no `innerHTML`) |
+| 8 | Boundary | `mondOrt` from `localStorage`: `JSON.parse` in `try/catch` ✔, but only `isFinite(lat)`; `lon` unchecked, no range check. Wrong output at worst; values only reach SVG via numeric math | low | **Fixed in 0002** (`parseStoredLocation`, unit-tested) |
 | 9 | Code | No `eval`, `new Function`, string timers, `document.write`, `fetch`/XHR, `target="_blank"` or external links in either page | info | OK |
-| 10 | Headers | GitHub Pages: no custom headers. No CSP / referrer policy possible except via `<meta>`; inline script/style block a strict CSP | low | **Deferred**: referrer meta → 0006; CSP meta → 0002/0003; re-check → 0009 |
+| 10 | Headers | GitHub Pages: no custom headers. No CSP / referrer policy possible except via `<meta>`; inline script/style block a strict CSP | low | **Deferred**: referrer meta → 0006; CSP meta → 0002/0003 (**`index.html` done in 0002**); re-check → 0009 |
 | 11 | Build | `vite.config.ts` reads only `BASE_PATH`; no `define` of env secrets, no plugins. `package.json` scripts call only local tools | info | OK |
 | 12 | Secrets | No secrets in the repo; `.env*` was not ignored | low | **Fixed** – added to `.gitignore` |
 | 13 | Deploy | First workflow with write permissions arrives in 0006 | – | **Deferred** to 0006 (req. 8 + criterion) |
