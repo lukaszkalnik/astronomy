@@ -1,6 +1,9 @@
 # Mondbahn am Himmel
 
 [![CI](https://github.com/lukaszkalnik/astronomy/actions/workflows/ci.yml/badge.svg)](https://github.com/lukaszkalnik/astronomy/actions/workflows/ci.yml)
+[![Deploy](https://github.com/lukaszkalnik/astronomy/actions/workflows/deploy.yml/badge.svg)](https://github.com/lukaszkalnik/astronomy/actions/workflows/deploy.yml)
+
+Live: **https://lukaszkalnik.github.io/astronomy/**
 
 Interaktive Seite, die zeigt, wie hoch Mond und Sonne im Lauf eines Tages, eines Jahres und des 18,6-Jahre-Zyklus stehen.
 
@@ -30,6 +33,18 @@ Every push and pull request runs the same checks in GitHub Actions
 unit tests with coverage, build); coverage and `dist/` are uploaded as
 artifacts. Dependabot proposes weekly updates for npm packages and Actions.
 Security & privacy rules for contributors are in CLAUDE.md.
+
+## Deployment
+
+Every push to `main` publishes the site to GitHub Pages
+(https://lukaszkalnik.github.io/astronomy/) via
+`.github/workflows/deploy.yml`: it runs the full CI workflow with
+`BASE_PATH=/astronomy/`, and only if that passes deploys the built `dist/`
+(Pages source: "GitHub Actions"). It can also be started by hand
+(Actions → Deploy → Run workflow). To try the production build locally:
+`BASE_PATH=/astronomy/ npm run build`, then
+`BASE_PATH=/astronomy/ npm run preview` and open
+http://localhost:4173/astronomy/.
 
 Fonts are self-hosted (`src/styles/fonts.css`, files and SIL OFL licences in
 `src/styles/fonts/`), so the pages make no requests to third-party servers.

@@ -3,6 +3,14 @@ name: CI
 on:
   push:
   pull_request:
+  # Reused by deploy.yml, so the deployed dist/ is exactly the one that passed
+  # these checks.
+  workflow_call:
+    inputs:
+      base-path:
+        description: Public base path for the build (Vite `base`).
+        type: string
+        default: /
 
 # A newer push to the same branch (or PR) cancels the run it supersedes.
 concurrency:
@@ -37,6 +45,9 @@ jobs:
       - run: npm run typecheck
       - run: npm test -- --coverage
       - run: npm run build
+        env:
+          # Empty on push/pull_request, then the default "/" applies.
+          BASE_PATH: ${{ inputs.base-path || '/' }}
 
       - name: Upload coverage
         if: ${{ !cancelled() }}

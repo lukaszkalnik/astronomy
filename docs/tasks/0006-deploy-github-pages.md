@@ -1,6 +1,6 @@
 # 0006 – Deploy to GitHub Pages
 
-- **Status:** todo
+- **Status:** done on branch (owner switch-over open, see "Owner steps")
 - **Phase:** 0
 - **Depends on:** 0005
 - **Estimate:** S
@@ -65,10 +65,57 @@ sustainable, no generated branch to maintain, deployments visible in the
 
 ## Acceptance criteria
 - [ ] Push to `main` → site updated within a few minutes, built version served
-- [ ] Both pages reachable, cross-links, fonts and assets load (no 404s)
-- [ ] A failing CI run does not deploy
+      *(owner: verify after merge + switch-over)*
+- [x] Both pages reachable, cross-links, fonts and assets load (no 404s) –
+      verified locally on the `/astronomy/` build with a Pages-like server
+      (dist under `/astronomy/`, `404.html` for misses), Playwright at 1280 and
+      360 px; re-check on the live site after the switch-over
+- [x] A failing CI run does not deploy – `deploy` `needs: check` (the reused
+      CI workflow); the deployed `dist/` is the artifact CI built and tested
 - [ ] Pages source is "GitHub Actions"; old branch publishing no longer used
-- [ ] `deploy.yml`: job-level write permissions, SHA-pinned actions; referrer meta on all pages
+      *(owner, Settings → Pages)*
+- [x] `deploy.yml`: job-level write permissions, SHA-pinned actions; referrer meta on all pages
+- [x] `npm run check`, `npm run build`, `format:check`, `npm audit` green
+
+## Owner steps (switch-over without downtime)
+1. Merge the branch into `main` while Pages still says "Deploy from a
+   branch". The Deploy workflow runs; its deploy job fails – expected. The
+   live site keeps serving the raw files (still self-contained, works).
+2. Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+3. Actions → Deploy → **Run workflow** on `main`; open
+   https://lukaszkalnik.github.io/astronomy/ and `…/sonnenuntergang.html`,
+   check fonts, favicon and a missing URL (404 page).
+4. Settings → Environments → `github-pages`: deployment branches limited to
+   `main` (0016 owner checklist).
 
 ## Open questions
 - Custom domain? (affects `base`; currently none)
+
+## Notes / log
+- 2026-11-27 – Implemented. Decisions:
+  - `ci.yml` got a `workflow_call` trigger with input `base-path`
+    (default `/`). `deploy.yml` reuses it (`check` job, `base-path:
+    /astronomy/`), then the `deploy` job downloads the `dist` artifact →
+    `configure-pages` → `upload-pages-artifact` → `deploy-pages`. So the
+    deployed files are exactly the tested build, without a second build; a
+    push to `main` runs CI twice (ci.yml on push + inside Deploy) – accepted
+    for simplicity.
+  - Versions (latest majors, 2026-11-27): configure-pages v6.0.0,
+    upload-pages-artifact v5.0.0, deploy-pages v5.0.1, download-artifact
+    v8.0.2; all SHA-pinned (Dependabot updates them). The deploy job has no
+    checkout, so no credentials to persist.
+  - Base stays env-driven (`BASE_PATH`, default `/`), so dev/preview and CI on
+    branches build for `/`.
+  - `404.html` is a third Vite entry (`src/pages/not-found/style.css`, fonts).
+    All its URLs are root-absolute (`/favicon.svg`, `/src/...`,
+    `%BASE_URL%`) because Pages serves it at any depth. German text plus a
+    one-line English fallback until 0014; `noindex`.
+  - Favicon: `public/favicon.svg` (crescent moon, Mondbahn colours). SVG only;
+    no PNG/apple-touch icon yet.
+  - Open Graph: `og:type`, `site_name`, `title`, `description`, `url`
+    (absolute, hard-coded to the Pages URL – change with a custom domain),
+    `locale`. **No `og:image` yet** (needs a share image; idea for 0013).
+  - Legacy pages only got `<head>` additions (description, referrer, OG,
+    favicon); no visual change.
+- Found while checking: `index.html` already scrolls 22 px horizontally at
+  360 px (same in the version before this task) → noted in 0002.

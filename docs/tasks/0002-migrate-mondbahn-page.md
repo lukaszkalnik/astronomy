@@ -49,7 +49,13 @@ Location is persisted in `localStorage["mondOrt"]`.
 
 > **Deployment guard:** GitHub Pages currently serves `main` as-is (classic
 > publishing). Do not merge this task to `main` before 0006 is in place,
-> otherwise the live site breaks.
+> otherwise the live site breaks. (0006 is implemented; check the owner has
+> finished its switch-over steps.)
+
+> **Known bug (found in 0006):** at 360 px the legacy page scrolls ~22 px
+> horizontally (`scrollTo(1000,0)` → `scrollX` 22) although `body` has
+> `overflow-x: clip`. Pin it as a known difference, then fix it here or in 0007
+> (E2E rule: no horizontal scroll at 360 px).
 
 ## Out of scope
 Changing visuals, texts or the astronomy model; shared design tokens (0008).
