@@ -69,5 +69,6 @@ would block it.
 - [ ] Looks good at 360 px and 1280 px (screenshots reviewed by owner)
 
 ## Open questions
-- Keep the two distinct page styles (see 0008) – the landing page then needs a
-  neutral style that fits both.
+- None. Decided: explainer pages keep their distinct styles (see 0008); the
+  landing page gets its own neutral style (dark night-sky base, shared tokens)
+  in which both thumbnails look at home.
