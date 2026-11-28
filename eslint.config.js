@@ -13,7 +13,12 @@ export default tseslint.config(
       globals: { ...globals.browser },
       parserOptions: {
         projectService: {
-          allowDefaultProject: ["eslint.config.js", "vite.config.ts", "vitest.config.ts"],
+          allowDefaultProject: [
+            "eslint.config.js",
+            "vite.config.ts",
+            "vitest.config.ts",
+            "playwright.config.ts",
+          ],
           defaultProject: "tsconfig.node.json",
         },
         tsconfigRootDir: import.meta.dirname,

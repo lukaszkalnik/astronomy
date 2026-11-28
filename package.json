@@ -17,10 +17,12 @@
     "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "playwright test",
     "check": "npm run lint && npm run typecheck && npm run test"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.1",
     "@types/node": "^22.20.7",
     "@vitest/coverage-v8": "^5.1.2",
     "eslint": "^10.16.0",
