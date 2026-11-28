@@ -38,6 +38,14 @@ header, a "back" link on the sunset page).
    use `rel="noopener noreferrer"` if they open in a new tab. Fonts stay
    same-origin (`font-src 'self'` in the CSP from 0002/0003); no CDN.
 
+6. **Sunset H1 em dash (from 0003):** in "Nicht die Sonne wird langsamer —
+   *die Bahn wird flacher*" the em dash is invisible – Bodoni Moda draws it
+   as a hairline that disappears at 30–60 px on the dark background (the
+   glyph exists; not a font-subset problem). Make it visible, e.g. set the
+   dash in a `<span class="dash">` with a heavier weight / the body font, or
+   draw it with a border; choose with the owner's screenshot review. Check
+   other Bodoni headings for the same hairline issue.
+
 ## Out of scope
 Rewriting page content.
 
@@ -45,7 +53,8 @@ Rewriting page content.
 - [ ] Both pages use base + tokens; no duplicated reset/control CSS
 - [ ] Navigation works on mobile and with keyboard
 - [ ] No third-party requests (Playwright request log); no CSP violations
-- [ ] Pages look unchanged apart from the new header/footer
+- [ ] Pages look unchanged apart from the new header/footer and the visible
+      em dash in the sunset H1
 - [ ] Screenshots reviewed and approved by the owner
 
 ## Open questions

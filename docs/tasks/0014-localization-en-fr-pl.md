@@ -15,6 +15,13 @@ labels, aria-labels, legends, notes) and in JS (phase names such as
 "Zunehmende Sichel", compass labels `N/NO/O/SO/S/SW/W/NW`, month abbreviations
 `Jan…Dez` / `Jan.…Dez.`, "Mond", "Vollmond", place names like "Köln",
 `toLocaleDateString("de-DE")`).
+Sunset page (since 0003): HTML copy plus canvas/readout strings in TS –
+`HIMMELSACHSE`, `WINKELLUPE γ · WAHRE GESTALT`, compass `N/O/S/W`,
+"Bildbreite ≈ 6° am Horizont · Sonnenscheibe 0,533°", "Deklination δ",
+units "min", "°/h", "° (ab N)", play button "Pause"/"Abspielen", the
+polar-night / midnight-sun warnings and the factor captions (`update.ts`,
+`controls.ts`, `render/*.ts`). Number formatting already goes through
+`src/lib/format.ts` (locale fixed to de-DE).
 
 ## Requirements
 1. **No i18n library**; a small typed solution in `src/i18n/`:
@@ -46,7 +53,11 @@ labels, aria-labels, legends, notes) and in JS (phase names such as
    `en.ts` is written in British English; an optional partial `en-US.ts`
    override catalog holds the few US variants (colour → color, centre →
    center …) and is applied when the formatting locale is `en-US`. Remove hand-written month arrays
-   in favour of `Intl.DateTimeFormat`. Degrees: `34°` everywhere; French puts a
+   in favour of `Intl.DateTimeFormat` (the sunset orbit label already uses
+   `formatDayMonthShort`; Intl writes "Sept." in de-DE). `formatDecimal`
+   currently disables digit grouping to match the legacy page – decide per
+   locale (grouping is normal for "1.234,56 min"; values > 999 only occur
+   near polar day). Degrees: `34°` everywhere; French puts a
    narrow no-break space before `:` `?` `!`.
 5. **Domain strings:**
    - site name: en **"Everyday Astronomy Page"** (canonical); localized

@@ -118,5 +118,16 @@ Visual changes, unifying the design with the Mondbahn page (0008).
     only for λ ≈ 165°–195°). All other labels are unchanged.
   - **Pre-existing, not changed:** the em dash in the H1 ("Nicht die Sonne
     wird langsamer — die Bahn …") renders as a gap in both the legacy and the
-    new page (glyph apparently missing in the self-hosted Bodoni Moda
-    subset). Hand to 0008 (shared design) or 0017 (fonts).
+    new page.
+- 2026-11-28 – Open points planned into later tasks:
+  - Em dash: the glyph is **not** missing – Bodoni Moda (latin subset,
+    unicode-range includes U+2014) draws it as a hairline that vanishes at
+    heading size on the dark background (checked by rendering the woff2 at
+    60 px and 240 px). Same as with the former Google Fonts files. Fix is a
+    design decision → **0008** req. 6.
+  - Obliquity defined twice (`declination.ts` constant, `ephemeris.ts`
+    time-dependent) → **0004** req. 2.
+  - `formatDecimal` without digit grouping, sunset canvas strings, Intl
+    month abbreviations ("Sept.") → **0014** (Context + req. 4).
+  - Deterministic testing of the canvases and the animation → hints in
+    **0007** (Notes).

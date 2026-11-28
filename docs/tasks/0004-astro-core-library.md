@@ -28,6 +28,14 @@ sunset geometry analytical.
      `src/i18n/` (0014)
    - `sunsetGeometry(latDeg, declDeg)` (today's `geom()`)
 2. Single source for shared constants (obliquity, deg↔rad, ms per day).
+   Since 0003 the obliquity exists twice: `OBLIQUITY_DEG = 23.4392811`
+   (J2000 constant, `declination.ts`, sunset page) and
+   `23.4393 − 3.563e-7·d` (time-dependent, inline in `ephemeris.ts`, moon
+   path). Decide one model (e.g. `obliquityDeg(jd)` + the J2000 constant for
+   the timeless sunset explainer) and explain any change against the sunset
+   fixtures (`tests/fixtures/sunset-legacy.json`). Also `angles.ts` now has
+   both `RAD_PER_DEG` and `DEG_PER_RAD`, and `vec3.ts` has `normalize` –
+   keep these as the shared helpers.
 3. Unit tests:
    - characterisation tests from 0002/0003 still pass (or deviations explained)
    - ≥ 10 reference checks against external data, each with source and date in

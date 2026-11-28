@@ -28,3 +28,23 @@ Catch broken pages and broken interactions automatically.
 ## Acceptance criteria
 - [ ] Suite green locally and in CI, runtime < 1 min
 - [ ] Breaking a renderer (e.g. throw in `drawYear`) makes the suite fail
+
+## Notes / log
+- 2026-11-28 – Hints from the 0003 old-vs-new comparison (sunset page):
+  - Canvas "non-empty": compare `canvas.toDataURL()` before/after an
+    interaction, or sample pixels with `getImageData`; a blank canvas has
+    one known data URL per size.
+  - Static frame: `reducedMotion: "reduce"` starts the page paused
+    (button reads "Abspielen"), so the sky and horizon do not move.
+  - Animation: `page.clock.install()` **and** `page.clock.pauseAt(…)` before
+    `goto`, then `page.clock.runFor(ms)` – install alone lets time run in
+    real time. Fake rAF ticks every 16 ms; the clock readout `#clock` then
+    advances deterministically (≈ 0.9 min per second).
+  - CSS `.chip` has `transition: .15s` (real time, not the fake clock) –
+    wait ~300 ms or assert on attributes (`aria-pressed`) instead of
+    screenshots right after clicking.
+  - Touch drags: Playwright has no touch-move API; use a CDP session
+    (`Input.dispatchTouchEvent` touchStart/touchMove/touchEnd) on the orbit
+    and sky canvases with a device profile such as Pixel 7.
+  - Polar states: latitude 70° + "Sommersonnenwende" → midnight sun
+    (`#warn.on`, factor "∞"); 70° + "Wintersonnenwende" → polar night.
