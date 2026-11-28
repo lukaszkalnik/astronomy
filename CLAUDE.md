@@ -74,7 +74,7 @@ docs/
 
 ## Commands
 
-(keep this list in sync with `package.json`; `test:e2e` arrives with task 0007)
+(keep this list in sync with `package.json`)
 
 ```
 npm ci                 # install exact deps
@@ -88,7 +88,8 @@ npm run typecheck      # tsc --noEmit for src/ and the config files
 npm run test -- --coverage  # unit tests with v8 coverage (90 % lines in src/lib)
 npm test               # vitest run (unit)
 npm run test:watch
-npm run test:e2e       # playwright (pass --trace off unless debugging)
+npm run test:e2e       # playwright: builds, starts vite preview, runs tests/e2e (desktop + Pixel 7)
+                       # BASE_PATH=/astronomy/ tests the Pages build; CI=1 skips the build step
 npm run check          # lint + typecheck + test – run before every commit
 npm audit --audit-level=high  # dependency audit (also runs in CI)
 ```
@@ -150,6 +151,12 @@ npm audit --audit-level=high  # dependency audit (also runs in CI)
 - Bug fix ⇒ first a failing test that reproduces it.
 - E2E: each page loads without console errors, main figures render non-empty,
   core controls change the output, layout has no horizontal scroll at 360 px.
+  Specs in `tests/e2e/` (helpers in `helpers.ts`); time is faked with
+  `page.clock` (sunset animation: `install` + `pauseAt`, then `runFor`).
+  A new page or figure gets its smoke test in the same change. If the
+  installed Chromium does not match the Playwright version (e.g. a cloud
+  container with `/opt/pw-browsers`), set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`
+  instead of running `playwright install`.
 
 ### UI, content and accessibility
 - **English in code:** all identifiers (variables, functions, types, CSS

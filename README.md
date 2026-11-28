@@ -26,12 +26,14 @@ npm run dev       # dev server with both pages
 npm run check     # lint + typecheck + unit tests – run before every commit
 npm run build     # production build into dist/
 npm run preview   # serve dist/
+npm run test:e2e  # Playwright smoke tests (builds first; once: npx playwright install chromium)
 ```
 
 Every push and pull request runs the same checks in GitHub Actions
 (`.github/workflows/ci.yml`: dependency audit, format check, lint, typecheck,
-unit tests with coverage, build); coverage and `dist/` are uploaded as
-artifacts. Dependabot proposes weekly updates for npm packages and Actions.
+unit tests with coverage, build, Playwright E2E smoke tests on the built
+`dist/`); coverage and `dist/` are uploaded as artifacts, the Playwright
+report when E2E fails. Dependabot proposes weekly updates for npm packages and Actions.
 Security & privacy rules for contributors are in CLAUDE.md.
 
 ## Deployment

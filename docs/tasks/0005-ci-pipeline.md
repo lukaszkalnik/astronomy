@@ -36,6 +36,8 @@ Deployment (0006).
   threshold failure can be inspected; `dist/` only after a successful build.
 - Verified: run #1 green (~25 s); run #2 with a deliberately failing test was
   red; that commit was reverted (both stay in history, marked "TEMP").
-- Requirement 4 (Playwright job) is still open – it belongs to task 0007.
+- Requirement 4 (Playwright) done in 0007: steps in the `check` job after
+  the build (not a separate job), so E2E tests the exact `dist/` that is
+  uploaded and deployed.
 - The README badge shows the latest run on the default branch, so it only
   becomes meaningful once the workflow is on `main`.
