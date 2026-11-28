@@ -88,4 +88,5 @@ Catch broken pages and broken interactions automatically.
   - Not done: optional visual snapshots (req. 4) – skipped; they add
     maintenance (font rendering per OS) for little gain over the pixel and
     readout checks; revisit with 0008 if layout regressions appear.
+    → Planned as task 0019 (visual regression snapshots), before 0004.
     Per-locale runs follow with 0014.

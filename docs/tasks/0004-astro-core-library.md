@@ -2,7 +2,7 @@
 
 - **Status:** todo
 - **Phase:** 0
-- **Depends on:** 0002, 0003
+- **Depends on:** 0002, 0003 (guarded by 0007 smoke tests and 0019 screenshots)
 - **Estimate:** M
 
 ## Goal

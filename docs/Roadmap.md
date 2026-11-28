@@ -25,7 +25,8 @@ order (they stay stable so commit prefixes and cross-references keep working).
 | 7 | 0002 | [Migrate Mondbahn page into Vite structure](tasks/0002-migrate-moon-path-page.md) | 0001 | ✅ |
 | 8 | 0003 | [Migrate Sonnenuntergang page into Vite structure](tasks/0003-migrate-sunset-page.md) | 0001 | ✅ |
 | 9 | 0007 | [E2E smoke tests with Playwright](tasks/0007-e2e-smoke-tests.md) | 0002, 0003 | ✅ |
-| 10 | 0004 | [Extract astronomy core into `src/lib/astro` with unit tests](tasks/0004-astro-core-library.md) | 0002, 0003 | ⬜ |
+| 10 | 0019 | [Visual regression snapshots](tasks/0019-visual-snapshots.md) | 0007 | ⬜ |
+| 11 | 0004 | [Extract astronomy core into `src/lib/astro` with unit tests](tasks/0004-astro-core-library.md) | 0002, 0003 | ⬜ |
 
 Why this order:
 - **0005 → 0006 first.** The live site
@@ -49,6 +50,9 @@ Why this order:
 - **0007 before 0004.** 0004 is the largest refactor (shared astronomy core
   used by both pages); E2E smoke tests on both pages catch regressions in it.
   (0007 was moved from Phase 1 for this reason.)
+- **0019 before 0004.** 0004 must not change what users see; screenshot
+  baselines of every figure prove that pixel by pixel, which the smoke tests
+  (drawn / not drawn, readouts) cannot.
 
 ## Phase 1 – Quality
 
@@ -56,12 +60,12 @@ Goal: confidence that changes don't break pages; accessible and consistent.
 
 | Step | # | Task | Depends on | Status |
 |------|---|------|------------|--------|
-| 11 | 0014 | [Localization: English, French, Polish](tasks/0014-localization-en-fr-pl.md) | 0002, 0003 | ⬜ |
-| 12 | 0008 | [Shared design tokens, base styles and site navigation](tasks/0008-shared-design-and-navigation.md) | 0002, 0003 | ⬜ |
-| 13 | 0013 | [Landing page with contents index](tasks/0013-landing-page.md) | 0002, 0003 (with/after 0008) | ⬜ |
-| 14 | 0015 | [Language menu](tasks/0015-language-menu.md) | 0014, 0008 | ⬜ |
-| 15 | 0010 | [Shareable state via URL parameters](tasks/0010-url-state.md) | 0004 | ⬜ |
-| 16 | 0009 | [Accessibility audit and fixes](tasks/0009-accessibility-audit.md) | 0007 | ⬜ |
+| 12 | 0014 | [Localization: English, French, Polish](tasks/0014-localization-en-fr-pl.md) | 0002, 0003 | ⬜ |
+| 13 | 0008 | [Shared design tokens, base styles and site navigation](tasks/0008-shared-design-and-navigation.md) | 0002, 0003 | ⬜ |
+| 14 | 0013 | [Landing page with contents index](tasks/0013-landing-page.md) | 0002, 0003 (with/after 0008) | ⬜ |
+| 15 | 0015 | [Language menu](tasks/0015-language-menu.md) | 0014, 0008 | ⬜ |
+| 16 | 0010 | [Shareable state via URL parameters](tasks/0010-url-state.md) | 0004 | ⬜ |
+| 17 | 0009 | [Accessibility audit and fixes](tasks/0009-accessibility-audit.md) | 0007 | ⬜ |
 
 Why this order:
 - **0014 first:** every later task adds UI strings; the later localization
@@ -79,8 +83,8 @@ Why this order:
 
 | Step | # | Task | Depends on | Status |
 |------|---|------|------------|--------|
-| 17 | 0011 | [Atmospheric refraction and rise/set times](tasks/0011-refraction-and-rise-set.md) | 0004 | ⬜ |
-| 18 | 0012 | [Free location choice (geolocation + map/coordinates input)](tasks/0012-free-location.md) | 0010 | ⬜ |
+| 18 | 0011 | [Atmospheric refraction and rise/set times](tasks/0011-refraction-and-rise-set.md) | 0004 | ⬜ |
+| 19 | 0012 | [Free location choice (geolocation + map/coordinates input)](tasks/0012-free-location.md) | 0010 | ⬜ |
 | — | — | Accuracy page: document model, sources, error vs. JPL Horizons | 0011 | idea |
 | — | — | Twilight phases (civil / nautical / astronomical) on the sunset page | 0011 | idea |
 
